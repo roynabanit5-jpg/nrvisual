@@ -4,77 +4,74 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NR Visuals</title>
-<section class="section text-center">
-  <div class="container">
 
-    <div class="profile-card">
-
-      <img src="https://via.placeholder.com/120" class="profile-img">
-
-      <h2 class="gradient mt-3">Nabanit Roy</h2>
-      <p style="color:#00c6ff;">Founder of NR Visuals</p>
-
-      <p class="bio">
-        Passionate graphic designer specializing in thumbnails, posters, and social media designs.
-        Helping creators grow with high-quality visuals.
-      </p>
-
-      <div class="stats">
-        <div>
-          <h4>1+</h4>
-          <p>Years</p>
-        </div>
-        <div>
-          <h4>200+</h4>
-          <p>Clients</p>
-        </div>
-        <div>
-          <h4>Fast</h4>
-          <p>Delivery</p>
-        </div>
-      </div>
-
-      <div class="mt-3">
-        <a href="https://wa.me/917630076047" class="btn btn-glow">Contact Me</a>
-      </div>
-
-    </div>
-
-  </div>
-</section>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 <style>
-*{font-family:'Poppins',sans-serif;color:#fff;}
-body{background:#0a0a0a;}
+*{font-family:'Poppins',sans-serif;}
+
+body{
+background:#ffffff;
+color:#111;
+}
+
+.section{padding:70px 0;}
 
 .gradient{
-background:linear-gradient(45deg,#00c6ff,#ff3c3c,#ffd700);
+background:linear-gradient(45deg,#007bff,#ff4d4d,#ffc107);
 -webkit-background-clip:text;
 color:transparent;
 font-weight:700;
 }
 
-.section{padding:70px 0;}
-
 .card{
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.2);
+background:#fff;
 border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
 transition:0.3s;
 }
 .card:hover{
 transform:translateY(-8px);
-box-shadow:0 0 25px #00c6ff;
 }
 
 .btn-glow{
-background:linear-gradient(45deg,#00c6ff,#ff3c3c,#ffd700);
+background:linear-gradient(45deg,#007bff,#ff4d4d,#ffc107);
 border:none;
+color:#fff;
 padding:10px 20px;
 border-radius:25px;
+}
+
+.profile-card{
+max-width:350px;
+margin:auto;
+padding:30px;
+border-radius:20px;
+background:#fff;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+.profile-img{
+width:120px;
+height:120px;
+border-radius:50%;
+border:3px solid #007bff;
+}
+
+.stats{
+display:flex;
+justify-content:space-around;
+margin-top:15px;
+}
+
+.review-box input, .review-box textarea{
+width:100%;
+margin-bottom:10px;
+padding:10px;
+border:1px solid #ccc;
+border-radius:10px;
 }
 
 .whatsapp{
@@ -84,91 +81,53 @@ right:20px;
 background:#25D366;
 padding:15px;
 border-radius:50%;
+color:#fff;
 font-size:20px;
 }
-
-img{transition:.3s;}
-img:hover{transform:scale(1.1);}
 </style>
 </head>
 
 <body>
-.profile-card{
-  max-width:350px;
-  margin:auto;
-  padding:30px;
-  border-radius:20px;
-  background:rgba(255,255,255,0.05);
-  backdrop-filter:blur(10px);
-  border:1px solid rgba(255,255,255,0.2);
-  transition:0.4s;
-}
 
-.profile-card:hover{
-  transform:translateY(-10px) scale(1.02);
-  box-shadow:0 0 30px #00c6ff;
-}
-
-.profile-img{
-  width:120px;
-  height:120px;
-  border-radius:50%;
-  border:3px solid #00c6ff;
-}
-
-.bio{
-  color:#ccc;
-  font-size:14px;
-  margin-top:10px;
-}
-
-.stats{
-  display:flex;
-  justify-content:space-around;
-  margin-top:15px;
-}
-
-.stats h4{
-  margin:0;
-  color:#ffd700;
-}
 <!-- HERO -->
 <section class="section text-center">
 <div class="container">
 <h1 class="gradient">NR Visuals</h1>
 <p>All Types of Designs in One Place</p>
-<p style="color:#00c6ff;">🔥 1+ Year Experience • 200+ Happy Clients</p>
+<p>🚀 1+ Year Experience • 200+ Clients</p>
+<a href="#services" class="btn btn-glow">Get Started</a>
+</div>
+</section>
+
+<!-- OWNER -->
+<section class="section text-center">
+<div class="container">
+<div class="profile-card">
+<img src="https://via.placeholder.com/120" class="profile-img">
+<h3 class="mt-3">Nabanit Roy</h3>
+<p>Founder of NR Visuals</p>
+<p style="color:#555;">Professional designer helping creators grow with eye-catching designs.</p>
+
+<div class="stats">
+<div><b>1+</b><br>Years</div>
+<div><b>200+</b><br>Clients</div>
+<div><b>Fast</b><br>Delivery</div>
+</div>
+
+<a href="https://wa.me/917630076047" class="btn btn-glow mt-3">Contact</a>
+</div>
 </div>
 </section>
 
 <!-- SERVICES -->
-<section class="section text-center">
+<section id="services" class="section text-center">
 <div class="container">
-<h2 class="gradient">Select Service</h2>
+<h2 class="gradient">Services</h2>
 
 <div class="row g-4 mt-4">
-
-<div class="col-md-4">
-<div class="card p-4">
-<h4>DP Design</h4>
-<button onclick="selectService('DP')" class="btn btn-glow">Select</button>
-</div>
-</div>
-
-<div class="col-md-4">
-<div class="card p-4">
-<h4>Poster</h4>
-<button onclick="selectService('Poster')" class="btn btn-glow">Select</button>
-</div>
-</div>
-
-<div class="col-md-4">
-<div class="card p-4">
-<h4>Thumbnail</h4>
-<button onclick="selectService('Thumbnail')" class="btn btn-glow">Select</button>
-</div>
-</div>
-
+<div class="col-md-4"><div class="card p-4"><h4>DP</h4><button onclick="selectService('DP')" class="btn btn-glow">Select</button></div></div>
+<div class="col-md-4"><div class="card p-4"><h4>Poster</h4><button onclick="selectService('Poster')" class="btn btn-glow">Select</button></div></div>
+<div class="col-md-4"><div class="card p-4"><h4>Thumbnail</h4><button onclick="selectService('Thumbnail')" class="btn btn-glow">Select</button></div></div>
 </div>
 </div>
 </section>
@@ -179,39 +138,10 @@ img:hover{transform:scale(1.1);}
 <h2 class="gradient">Choose Quality</h2>
 
 <div class="row g-4 mt-4">
-
-<div class="col-md-3">
-<div class="card p-4">
-<h3>₹79</h3>
-<p>Normal</p>
-<button onclick="orderNow('Normal ₹79')" class="btn btn-glow">Order</button>
-</div>
-</div>
-
-<div class="col-md-3">
-<div class="card p-4">
-<h3>₹99</h3>
-<p>HD</p>
-<button onclick="orderNow('HD ₹99')" class="btn btn-glow">Order</button>
-</div>
-</div>
-
-<div class="col-md-3">
-<div class="card p-4">
-<h3>₹149</h3>
-<p>High</p>
-<button onclick="orderNow('High ₹149')" class="btn btn-glow">Order</button>
-</div>
-</div>
-
-<div class="col-md-3">
-<div class="card p-4">
-<h3 style="color:#ffd700;">₹199</h3>
-<p>Ultra</p>
-<button onclick="orderNow('Ultra ₹199')" class="btn btn-glow">Order</button>
-</div>
-</div>
-
+<div class="col-md-3"><div class="card p-4"><h3>₹79</h3><p>Normal</p><button onclick="orderNow('Normal ₹79')" class="btn btn-glow">Order</button></div></div>
+<div class="col-md-3"><div class="card p-4"><h3>₹99</h3><p>HD</p><button onclick="orderNow('HD ₹99')" class="btn btn-glow">Order</button></div></div>
+<div class="col-md-3"><div class="card p-4"><h3>₹149</h3><p>High</p><button onclick="orderNow('High ₹149')" class="btn btn-glow">Order</button></div></div>
+<div class="col-md-3"><div class="card p-4"><h3>₹199</h3><p>Ultra</p><button onclick="orderNow('Ultra ₹199')" class="btn btn-glow">Order</button></div></div>
 </div>
 </div>
 </section>
@@ -219,27 +149,11 @@ img:hover{transform:scale(1.1);}
 <!-- MEMBERSHIP -->
 <section class="section text-center">
 <div class="container">
-<h2 class="gradient">Membership Plans</h2>
+<h2 class="gradient">Membership</h2>
 
 <div class="row g-4 mt-4">
-
-<div class="col-md-6">
-<div class="card p-4">
-<h3>₹499</h3>
-<p>1 month, any 10 design </p>
-<button onclick="orderNow('1 Month Membership ₹499')" class="btn btn-glow">Buy Now</button>
-</div>
-</div>
-
-<div class="col-md-6">
-<div class="card p-4">
-<h3 style="color:#ffd700;">₹899</h3>
-<p>2 Months 20 design 
-BEST CHOICE</p>
-<button onclick="orderNow('2 Month Membership ₹899')" class="btn btn-glow">Buy Now</button>
-</div>
-</div>
-
+<div class="col-md-6"><div class="card p-4"><h3>₹499</h3><p>1 Month</p><button onclick="orderNow('1 Month ₹499')" class="btn btn-glow">Buy</button></div></div>
+<div class="col-md-6"><div class="card p-4"><h3>₹899</h3><p>2 Months</p><button onclick="orderNow('2 Month ₹899')" class="btn btn-glow">Buy</button></div></div>
 </div>
 </div>
 </section>
@@ -248,53 +162,29 @@ BEST CHOICE</p>
 <section class="section text-center">
 <div class="container">
 <h2 class="gradient">Payment</h2>
-<p><b>UPI:</b> roynabanit5@oksbi</p>
+<p>UPI: roynabanit5@oksbi</p>
 
-<div class="mt-4 d-flex justify-content-center gap-4 flex-wrap">
-
-<a href="upi://pay?pa=roynabanit5@oksbi&pn=NRVisuals&cu=INR">
-<img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Google_Pay_Logo.svg" height="40">
-</a>
-
-<a href="upi://pay?pa=roynabanit5@oksbi&pn=NRVisuals&cu=INR">
-<img src="https://upload.wikimedia.org/wikipedia/commons/0/09/PhonePe_Logo.svg" height="40">
-</a>
-
-<a href="upi://pay?pa=roynabanit5@oksbi&pn=NRVisuals&cu=INR">
-<img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Paytm_logo.png" height="40">
-</a>
-
+<div class="d-flex justify-content-center gap-4 mt-3">
+<a href="upi://pay?pa=roynabanit5@oksbi&pn=NRVisuals&cu=INR"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Google_Pay_Logo.svg" height="40"></a>
+<a href="upi://pay?pa=roynabanit5@oksbi&pn=NRVisuals&cu=INR"><img src="https://upload.wikimedia.org/wikipedia/commons/0/09/PhonePe_Logo.svg" height="40"></a>
+<a href="upi://pay?pa=roynabanit5@oksbi&pn=NRVisuals&cu=INR"><img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Paytm_logo.png" height="40"></a>
 </div>
-
-<p class="mt-3">Send payment screenshot on WhatsApp</p>
 </div>
 </section>
 
 <!-- REVIEWS -->
 <section class="section text-center">
 <div class="container">
-<h2 class="gradient">Client Reviews</h2>
+<h2 class="gradient">Reviews</h2>
 
-<div class="row g-4 mt-4">
-
-<div class="col-md-4">
-<div class="card p-3">
-<p>🔥 Amazing design! Totally worth it</p>
-</div>
+<div id="reviewList" class="row g-4 mt-4">
+<div class="col-md-4"><div class="card p-3">🔥 Great designs!</div></div>
 </div>
 
-<div class="col-md-4">
-<div class="card p-3">
-<p>💯 Fast delivery and professional work</p>
-</div>
-</div>
-
-<div class="col-md-4">
-<div class="card p-3">
-<p>🎯 Best thumbnail designer I found</p>
-</div>
-</div>
-
+<div class="review-box mt-4">
+<input id="name" placeholder="Your Name">
+<textarea id="review" placeholder="Your Review"></textarea>
+<button onclick="addReview()" class="btn btn-glow">Submit</button>
 </div>
 </div>
 </section>
@@ -303,37 +193,35 @@ BEST CHOICE</p>
 <section class="section text-center">
 <div class="container">
 <h2 class="gradient">Contact</h2>
-<p><b>Nabanit Roy</b></p>
-<p>📧 roynabanit5@gmail.com</p>
-<p>📱 7630076047</p>
-<p>📸 Instagram: @nabanit._</p>
+<p>Nabanit Roy</p>
+<p>roynabanit5@gmail.com</p>
+<p>7630076047</p>
 </div>
 </section>
 
-<a href="https://wa.me/917630076047" class="whatsapp">
-<i class="fab fa-whatsapp"></i>
-</a>
+<a href="https://wa.me/917630076047" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
 
 <script>
-let selectedService = "";
+let selectedService="";
 
-function selectService(service){
- if(confirm("Select " + service + "?")){
-   selectedService = service;
-   document.getElementById("pricing").scrollIntoView({behavior:"smooth"});
- }
+function selectService(s){
+selectedService=s;
+document.getElementById("pricing").scrollIntoView({behavior:"smooth"});
 }
 
 function orderNow(plan){
- if(!selectedService){
-   alert("Please select service first!");
-   return;
- }
+if(!selectedService){alert("Select service first");return;}
+let msg="Hello NR Visuals, I want "+selectedService+" - "+plan;
+window.location.href="https://wa.me/917630076047?text="+encodeURIComponent(msg);
+}
 
- if(confirm("Confirm order?")){
-   let msg = "Hello NR Visuals, I want to order a " + selectedService + " design.\nPlan: " + plan;
-   window.location.href = "https://wa.me/917630076047?text=" + encodeURIComponent(msg);
- }
+function addReview(){
+let n=document.getElementById("name").value;
+let r=document.getElementById("review").value;
+if(!n||!r)return alert("Fill all");
+
+document.getElementById("reviewList").innerHTML+=
+`<div class="col-md-4"><div class="card p-3"><b>${n}</b><br>${r}</div></div>`;
 }
 </script>
 
