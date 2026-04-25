@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NR Visuals</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins;}
@@ -19,61 +19,95 @@ display:flex;justify-content:space-between;
 background:#000a;backdrop-filter:blur(10px);
 z-index:1000;
 }
-.cart{
-position:fixed;top:70px;right:20px;
-background:#111;padding:10px 15px;border-radius:10px;
-}
 
 /* HERO */
 .hero{
-height:100vh;display:flex;
-flex-direction:column;justify-content:center;
-align-items:center;text-align:center;
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:linear-gradient(135deg,#0d1117,#1a1f2b);
 }
-.hero h1{font-size:50px;}
-.hero span{color:#00c6ff;}
+
+.logo{
+width:180px;
+margin-bottom:15px;
+}
+
+.hero h1{font-size:48px;}
+.hero span{
+background:linear-gradient(45deg,#00c6ff,#ff4d4d);
+-webkit-background-clip:text;
+color:transparent;
+}
 
 .btn{
 background:linear-gradient(45deg,#00c6ff,#ff4d4d);
-padding:10px 20px;border:none;border-radius:20px;
+padding:10px 20px;
+border:none;border-radius:25px;
 color:#fff;cursor:pointer;margin-top:10px;
 }
 
 /* SECTION */
-.section{padding:70px 20px;text-align:center;}
+.section{padding:80px 20px;text-align:center;}
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;margin-top:20px;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:20px;margin-top:30px;
 }
 
 /* CARD */
 .card{
-background:#111;padding:20px;border-radius:15px;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+padding:20px;border-radius:20px;
 transition:.3s;
+border:1px solid rgba(255,255,255,0.1);
 }
-.card:hover{transform:translateY(-8px);}
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 20px rgba(0,198,255,0.4);
+}
+
+/* CART UI */
+.cart-box{
+max-width:500px;
+margin:20px auto;
+background:#111;
+padding:20px;
+border-radius:15px;
+text-align:left;
+}
+
+.cart-item{
+display:flex;
+justify-content:space-between;
+background:#1a1a1a;
+padding:10px;
+border-radius:10px;
+margin-bottom:10px;
+}
+
+.remove{color:red;cursor:pointer;}
+
+/* TOTAL */
+.total{
+text-align:right;
+font-size:18px;
+margin-top:10px;
+}
 
 /* PAYMENT */
 .payment{
-max-width:320px;margin:auto;
-background:#111;padding:20px;border-radius:15px;
+text-align:center;margin-top:20px;
 }
 
 /* FOOTER */
-.footer{text-align:center;padding:20px;background:#000;color:#aaa;margin-top:30px;}
-
-/* POPUP */
-.popup{
-position:fixed;
-top:0;left:0;width:100%;height:100%;
-background:rgba(0,0,0,0.8);
-display:none;justify-content:center;align-items:center;
-}
-.popup-box{
-background:#111;padding:25px;border-radius:15px;
-text-align:center;
+.footer{
+background:#000;padding:20px;text-align:center;color:#aaa;
 }
 </style>
 </head>
@@ -84,12 +118,11 @@ text-align:center;
 <h3>NR Visuals</h3>
 </nav>
 
-<div class="cart">🛒 Cart: <span id="cartCount">0</span></div>
-
 <!-- HERO -->
 <section class="hero">
+<img src="logo.png" class="logo">
 <h1><span>NR</span> Visuals</h1>
-<p>All Designs in One Place</p>
+<p>All Types of Designs in One Place</p>
 <button onclick="scrollToPlans()" class="btn">Get Started</button>
 </section>
 
@@ -97,89 +130,62 @@ text-align:center;
 <section class="section">
 <h2>About Owner</h2>
 <p><b>Nabanit Roy</b></p>
-<p>1+ Year Experience | 200+ Clients</p>
+<p>1+ Year Experience • 200+ Clients</p>
 </section>
 
 <!-- SERVICES -->
 <section class="section">
 <h2>Services</h2>
 <div class="grid">
-<div class="card" onclick="confirmService('Poster')">Poster</div>
-<div class="card" onclick="confirmService('Thumbnail')">Thumbnail</div>
-<div class="card" onclick="confirmService('Reel Cover')">Reel Cover</div>
-<div class="card" onclick="confirmService('Banner')">Banner</div>
-<div class="card" onclick="confirmService('DP')">Profile DP</div>
+<div class="card">Poster</div>
+<div class="card">Thumbnail</div>
+<div class="card">Reel Cover</div>
+<div class="card">Banner</div>
+<div class="card">DP</div>
+<div class="card">Custom Design</div>
 </div>
 </section>
 
 <!-- PLANS -->
 <section id="plans" class="section">
 <h2>Plans</h2>
-
 <div class="grid">
-<div class="card">
-<h3>₹79</h3>
-<button onclick="addToCart('Starter',79)" class="btn">Add to Cart</button>
-</div>
-
-<div class="card">
-<h3>₹99</h3>
-<button onclick="addToCart('Creator',99)" class="btn">Add to Cart</button>
-</div>
-
-<div class="card">
-<h3>₹149</h3>
-<button onclick="addToCart('Pro',149)" class="btn">Add to Cart</button>
-</div>
-
-<div class="card">
-<h3>₹199</h3>
-<button onclick="addToCart('Elite',199)" class="btn">Add to Cart</button>
-</div>
+<div class="card"><h3>₹79</h3><button onclick="addToCart('Starter',79)" class="btn">Add</button></div>
+<div class="card"><h3>₹99</h3><button onclick="addToCart('Creator',99)" class="btn">Add</button></div>
+<div class="card"><h3>₹149</h3><button onclick="addToCart('Pro',149)" class="btn">Add</button></div>
+<div class="card"><h3>₹199</h3><button onclick="addToCart('Elite',199)" class="btn">Add</button></div>
 </div>
 </section>
 
 <!-- MEMBERSHIP -->
 <section class="section">
 <h2>Membership</h2>
-
 <div class="grid">
-<div class="card">
-<h3>30 Days ₹499</h3>
-<p>10 Designs</p>
-<button onclick="addToCart('30 Days',499)" class="btn">Add</button>
-</div>
-
-<div class="card">
-<h3>60 Days ₹899</h3>
-<p>25 Designs</p>
-<button onclick="addToCart('60 Days',899)" class="btn">Add</button>
-</div>
+<div class="card"><h3>30 Days ₹499</h3><button onclick="addToCart('30 Days',499)" class="btn">Add</button></div>
+<div class="card"><h3>60 Days ₹899</h3><button onclick="addToCart('60 Days',899)" class="btn">Add</button></div>
 </div>
 </section>
 
-<!-- PAYMENT -->
+<!-- CART -->
 <section class="section">
-<h2>Checkout</h2>
+<h2>Your Cart 🛒</h2>
 
-<p>Plan: <span id="plan">None</span></p>
-<p>Amount: ₹<span id="amt">0</span></p>
+<div class="cart-box">
+<p id="emptyCart">Cart is empty</p>
+<div id="cartItems"></div>
+<div class="total">Total: ₹<span id="total">0</span></div>
 
 <div class="payment">
-<p>UPI: roynabanit5@oksbi</p>
-
-<a id="payBtn" href="#" class="btn">Pay Now</a><br><br>
-
-<button onclick="confirmOrder()" class="btn">Place Order</button>
+<button onclick="checkout()" class="btn">Proceed to Pay</button>
+</div>
 </div>
 </section>
 
 <!-- CONTACT -->
 <section class="section">
-<h2>Your Details</h2>
-<p>Name: Nabanit Roy</p>
-<p>Phone: 7630076047</p>
-<p>Email: roynabanit5@gmail.com</p>
+<h2>Contact</h2>
+<p>📞 7630076047</p>
+<p>📧 roynabanit5@gmail.com</p>
 <a href="https://wa.me/917630076047" class="btn">WhatsApp</a>
 <a href="https://www.instagram.com/nabanit._/" class="btn">Instagram</a>
 </section>
@@ -189,63 +195,74 @@ text-align:center;
 <p>© 2026 NR Visuals</p>
 </div>
 
-<!-- POPUP -->
-<div class="popup" id="popup">
-<div class="popup-box">
-<p>Confirm your order?</p>
-<button onclick="sendOrder()" class="btn">Yes</button>
-<button onclick="closePopup()" class="btn">Cancel</button>
-</div>
-</div>
-
 <script>
-let cart=[],plan="",amount=0,service="";
+let cart=[];
 
+/* ADD */
+function addToCart(name,price){
+cart.push({name,price});
+updateCart();
+}
+
+/* REMOVE */
+function removeItem(i){
+cart.splice(i,1);
+updateCart();
+}
+
+/* UPDATE */
+function updateCart(){
+let items=document.getElementById("cartItems");
+let total=0;
+items.innerHTML="";
+
+if(cart.length===0){
+document.getElementById("emptyCart").style.display="block";
+}else{
+document.getElementById("emptyCart").style.display="none";
+}
+
+cart.forEach((item,i)=>{
+total+=item.price;
+items.innerHTML+=`
+<div class="cart-item">
+<span>${item.name} - ₹${item.price}</span>
+<span class="remove" onclick="removeItem(${i})">❌</span>
+</div>`;
+});
+
+document.getElementById("total").innerText=total;
+}
+
+/* SCROLL */
 function scrollToPlans(){
 document.getElementById("plans").scrollIntoView({behavior:"smooth"});
 }
 
-function addToCart(p,a){
-cart=[p];
-plan=p;
-amount=a;
-
-document.getElementById("cartCount").innerText=1;
-document.getElementById("plan").innerText=p;
-document.getElementById("amt").innerText=a;
-
-document.getElementById("payBtn").href=
-`upi://pay?pa=roynabanit5@oksbi&pn=NRVisuals&am=${a}&cu=INR`;
-}
-
-function confirmService(s){
-service=s;
-alert("Selected: "+s);
-}
-
-function confirmOrder(){
-if(amount===0){
-alert("Add plan first");
+/* CHECKOUT */
+function checkout(){
+if(cart.length===0){
+alert("Cart empty");
 return;
 }
-document.getElementById("popup").style.display="flex";
-}
 
-function closePopup(){
-document.getElementById("popup").style.display="none";
-}
+let total=cart.reduce((s,i)=>s+i.price,0);
 
-function sendOrder(){
-let msg=`Order Details:
-Name:
-Design Type: ${service}
-Plan: ${plan}
-Amount: ₹${amount}
+/* UPI */
+window.open(`upi://pay?pa=roynabanit5@oksbi&pn=NRVisuals&am=${total}&cu=INR`);
 
-I have paid, sending screenshot`;
+/* WhatsApp */
+let msg="NR Visuals Order:%0A";
 
-window.location.href=
-"https://wa.me/917630076047?text="+encodeURIComponent(msg);
+cart.forEach(i=>{
+msg+=`${i.name} - ₹${i.price}%0A`;
+});
+
+msg+=`Total: ₹${total}`;
+
+setTimeout(()=>{
+window.location.href=`https://wa.me/917630076047?text=${msg}`;
+},2000);
 }
 </script>
 
