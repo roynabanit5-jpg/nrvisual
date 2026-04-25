@@ -4,36 +4,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NR Visuals</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"><style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"><style>
+*{
+  font-family:'Poppins',sans-serif !important;
+  color:#ffffff !important;
+}
+
 body{
- font-family:'Poppins',sans-serif;
  background:#0a0a0a;
- color:#fff;
  overflow-x:hidden;
 }
 
-/* Animated background */
-body::before{
- content:"";
- position:fixed;
- width:200%;height:200%;
- background:radial-gradient(circle,#00c6ff22,#ff3c3c22,#ffd70022);
- animation:moveBG 10s linear infinite;
- z-index:-1;
-}
-@keyframes moveBG{
- 0%{transform:translate(0,0);} 
- 50%{transform:translate(-25%,-25%);} 
- 100%{transform:translate(0,0);} 
-}
-
-.navbar{background:rgba(0,0,0,0.7);backdrop-filter:blur(10px);} 
+.navbar{background:rgba(0,0,0,0.8);} 
 
 .gradient{
  background:linear-gradient(45deg,#00c6ff,#ff3c3c,#ffd700);
  -webkit-background-clip:text;
- color:transparent;
+ color:transparent !important;
  font-weight:700;
 }
 
@@ -48,55 +35,43 @@ body::before{
 .btn-glow{
  background:linear-gradient(45deg,#00c6ff,#ff3c3c,#ffd700);
  border:none;
- color:#fff;
- padding:12px 28px;
- border-radius:30px;
- box-shadow:0 0 20px #00c6ff;
- transition:0.3s;
+ padding:12px 25px;
+ border-radius:25px;
+ box-shadow:0 0 15px #00c6ff;
 }
-.btn-glow:hover{transform:scale(1.1);box-shadow:0 0 30px #ff3c3c;}
 
-.section{padding:90px 0;}
+.section{padding:70px 0;}
 
 .card{
  background:rgba(255,255,255,0.05);
- border:1px solid rgba(255,255,255,0.15);
- border-radius:20px;
- backdrop-filter:blur(12px);
- transition:0.4s;
+ border:1px solid rgba(255,255,255,0.2);
+ border-radius:15px;
+ transition:0.3s;
 }
-.card:hover{
- transform:translateY(-10px) scale(1.03);
- box-shadow:0 0 30px #00c6ff;
-}
+.card:hover{box-shadow:0 0 20px #00c6ff;transform:translateY(-5px);} 
 
 .whatsapp{
  position:fixed;
  bottom:20px;
  right:20px;
  background:#25D366;
- color:#fff;
- padding:18px;
+ padding:15px;
  border-radius:50%;
- font-size:20px;
- box-shadow:0 0 20px #25D366;
 }
 
-.footer{
- background:#000;
- padding:30px;
- text-align:center;
+img{
+ filter:brightness(1.2);
 }
 </style></head><body><nav class="navbar navbar-dark fixed-top">
 <div class="container">
 <a class="navbar-brand gradient">NR Visuals</a>
 </div>
 </nav><section class="hero">
-<div data-aos="zoom-in">
+<div>
 <h1 class="gradient">NR Visuals</h1>
-<h3>High-End Graphic Design Studio</h3>
-<p style="color:#aaa;">We create scroll-stopping designs for creators & brands</p>
-<a href="#services" class="btn btn-glow mt-3">Explore Services</a>
+<p>Premium Graphic Designs</p>
+<p style="color:#00c6ff;">Fast • High Quality • Affordable</p>
+<a href="#services" class="btn btn-glow">Explore</a>
 </div>
 </section><section id="services" class="section text-center">
 <div class="container">
@@ -104,19 +79,16 @@ body::before{
 <div class="row g-4 mt-4"><div class="col-md-4">
 <div class="card p-4">
 <h4>DP Design</h4>
-<p style="color:#aaa;">Premium profile branding</p>
 <button onclick="confirmOrder('DP')" class="btn btn-glow mt-2">Order</button>
 </div>
 </div><div class="col-md-4">
 <div class="card p-4">
-<h4>Poster Design</h4>
-<p style="color:#aaa;">High impact visuals</p>
+<h4>Poster</h4>
 <button onclick="confirmOrder('Poster')" class="btn btn-glow mt-2">Order</button>
 </div>
 </div><div class="col-md-4">
 <div class="card p-4">
 <h4>Thumbnail</h4>
-<p style="color:#aaa;">High CTR YouTube designs</p>
 <button onclick="confirmOrder('Thumbnail')" class="btn btn-glow mt-2">Order</button>
 </div>
 </div></div>
@@ -127,33 +99,27 @@ body::before{
 <div class="row g-4 mt-4"><div class="col-md-6">
 <div class="card p-4">
 <h3>₹499</h3>
-<p>1 Month Unlimited Designs</p>
+<p>1 Month Unlimited</p>
 <button onclick="confirmOrder('1 Month Membership ₹499')" class="btn btn-glow">Buy</button>
 </div>
 </div><div class="col-md-6">
-<div class="card p-4" style="border:2px solid gold;">
+<div class="card p-4">
 <h3>₹899</h3>
-<p>2 Months (Best Value)</p>
+<p>2 Months Best Value</p>
 <button onclick="confirmOrder('2 Month Membership ₹899')" class="btn btn-glow">Buy</button>
 </div>
 </div></div>
 </div>
 </section><section class="section text-center">
 <div class="container">
-<h2 class="gradient">Connect</h2>
-<a href="https://wa.me/917630076047" class="btn btn-glow m-2"><i class="fab fa-whatsapp"></i></a>
-<a href="https://www.instagram.com/nabanit._?igsh=YzFqMGd1YmkydjBq" class="btn btn-glow m-2"><i class="fab fa-instagram"></i></a>
-</div>
-</section><section class="section text-center">
-<div class="container">
 <h2 class="gradient">Payment</h2>
-<p><b>UPI ID:</b> roynabanit5@oksbi</p><div class="mt-4 d-flex justify-content-center gap-4 flex-wrap">
-  <div class="card p-3">Google Pay</div>
-  <div class="card p-3">PhonePe</div>
-  <div class="card p-3">Paytm</div>
-  <div class="card p-3">BHIM</div>
-  <div class="card p-3">Amazon Pay</div>
-</div><p class="mt-3" style="color:#aaa;">After payment, send screenshot on WhatsApp</p>
+<p><b>UPI:</b> roynabanit5@oksbi</p><div class="mt-4 d-flex justify-content-center gap-4 flex-wrap">
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Google_Pay_Logo.svg" height="40">
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/09/PhonePe_Logo.svg" height="40">
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Paytm_logo.png" height="40">
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/89/BHIM_logo.svg" height="40">
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_Pay_logo.svg" height="40">
+</div><p class="mt-3">Send payment screenshot on WhatsApp</p>
 </div>
 </section><section class="section text-center">
 <div class="container">
@@ -165,9 +131,7 @@ body::before{
 </div>
 </section><a href="https://wa.me/917630076047" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
 
-<footer class="footer">
-<p>© NR Visuals • Premium Design Studio</p>
-</footer><script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script><script>AOS.init();</script><script>
+<script>
 function confirmOrder(service){
  if(confirm("Do you want to order "+service+"?")){
   let msg="Hello NR Visuals, I want to order "+service+".";
