@@ -93,7 +93,45 @@ img:hover{transform:scale(1.1);}
 </head>
 
 <body>
+.profile-card{
+  max-width:350px;
+  margin:auto;
+  padding:30px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.2);
+  transition:0.4s;
+}
 
+.profile-card:hover{
+  transform:translateY(-10px) scale(1.02);
+  box-shadow:0 0 30px #00c6ff;
+}
+
+.profile-img{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  border:3px solid #00c6ff;
+}
+
+.bio{
+  color:#ccc;
+  font-size:14px;
+  margin-top:10px;
+}
+
+.stats{
+  display:flex;
+  justify-content:space-around;
+  margin-top:15px;
+}
+
+.stats h4{
+  margin:0;
+  color:#ffd700;
+}
 <!-- HERO -->
 <section class="section text-center">
 <div class="container">
@@ -188,7 +226,7 @@ img:hover{transform:scale(1.1);}
 <div class="col-md-6">
 <div class="card p-4">
 <h3>₹499</h3>
-<p>1 Month Unlimited Designs</p>
+<p>1 month, any 10 design </p>
 <button onclick="orderNow('1 Month Membership ₹499')" class="btn btn-glow">Buy Now</button>
 </div>
 </div>
@@ -196,7 +234,8 @@ img:hover{transform:scale(1.1);}
 <div class="col-md-6">
 <div class="card p-4">
 <h3 style="color:#ffd700;">₹899</h3>
-<p>2 Months Best Value</p>
+<p>2 Months 20 design 
+BEST CHOICE</p>
 <button onclick="orderNow('2 Month Membership ₹899')" class="btn btn-glow">Buy Now</button>
 </div>
 </div>
