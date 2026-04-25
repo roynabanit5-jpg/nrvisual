@@ -11,36 +11,23 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 
-body{
-background:#0d1117;
-color:#fff;
-}
+body{background:#0d1117;color:#fff;}
 
 /* NAV */
 nav{
-display:flex;
-justify-content:space-between;
-padding:15px 30px;
-position:fixed;
-width:100%;
-top:0;
-background:rgba(0,0,0,0.6);
-backdrop-filter:blur(10px);
-z-index:999;
+display:flex;justify-content:space-between;
+padding:15px 30px;position:fixed;width:100%;
+top:0;background:rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);z-index:999;
 }
-nav a{color:#fff;margin-left:15px;text-decoration:none;}
 nav h2{color:#00c6ff;}
+nav a{color:#fff;margin-left:15px;text-decoration:none;}
 
 /* HERO */
 .hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:
-url('https://www.transparenttextures.com/patterns/cubes.png'),
+height:100vh;display:flex;flex-direction:column;
+justify-content:center;align-items:center;text-align:center;
+background:url('https://www.transparenttextures.com/patterns/cubes.png'),
 linear-gradient(135deg,#0d1117,#1a1f2b);
 }
 .hero h1{font-size:60px;}
@@ -48,11 +35,8 @@ linear-gradient(135deg,#0d1117,#1a1f2b);
 
 .btn{
 background:linear-gradient(45deg,#00c6ff,#ff4d4d);
-padding:12px 25px;
-border-radius:30px;
-color:#fff;
-border:none;
-cursor:pointer;
+padding:12px 25px;border-radius:30px;color:#fff;
+border:none;cursor:pointer;
 }
 
 /* SECTION */
@@ -60,26 +44,16 @@ cursor:pointer;
 
 /* TOGGLE */
 .toggle-title{
-text-align:center;
-font-size:40px;
+text-align:center;font-size:40px;
 background:linear-gradient(45deg,#00c6ff,#ff4d4d,#ffc107);
--webkit-background-clip:text;
-color:transparent;
+-webkit-background-clip:text;color:transparent;
 }
 .toggle-box{text-align:center;margin:20px;}
 .toggle-box button{
-background:#111;
-color:#fff;
-padding:10px 20px;
-border:none;
-border-radius:20px;
-margin:5px;
-cursor:pointer;
+background:#111;color:#fff;padding:10px 20px;
+border:none;border-radius:20px;margin:5px;cursor:pointer;
 }
-.toggle-box .active{
-background:#00c6ff;
-color:#000;
-}
+.toggle-box .active{background:#00c6ff;color:#000;}
 
 /* GRID */
 .grid{
@@ -90,11 +64,8 @@ gap:20px;
 
 /* CARD */
 .plan-card{
-background:#111;
-padding:25px;
-border-radius:20px;
-text-align:center;
-transition:0.3s;
+background:#111;padding:25px;border-radius:20px;
+text-align:center;transition:0.3s;
 border:1px solid rgba(255,255,255,0.1);
 }
 .plan-card:hover{
@@ -107,44 +78,46 @@ box-shadow:0 0 30px rgba(0,198,255,0.5);
 .btn-plan{
 margin-top:10px;
 background:linear-gradient(45deg,#00c6ff,#ff4d4d);
-border:none;
-padding:10px 20px;
-border-radius:25px;
-color:#fff;
+border:none;padding:10px 20px;border-radius:25px;color:#fff;
 cursor:pointer;
 }
 
-/* PAYMENT */
-.payment-box{
-text-align:center;
-margin-top:40px;
+/* CART */
+.cart-box{
+position:fixed;top:80px;right:20px;
+background:#111;padding:10px 15px;border-radius:10px;
 }
+
+/* PAYMENT */
 .payment-card{
-background:#111;
-padding:25px;
-border-radius:20px;
-max-width:350px;
-margin:auto;
+background:#111;padding:25px;border-radius:20px;
+max-width:350px;margin:auto;text-align:center;
+}
+
+/* ORDER BTN */
+.order-now-btn{
+position:fixed;left:20px;bottom:20px;
+background:linear-gradient(45deg,#ff4d4d,#00c6ff);
+padding:12px 20px;border-radius:30px;color:#fff;
+text-decoration:none;font-weight:600;
 }
 
 /* WHATSAPP */
 .wp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-padding:15px;
-border-radius:50%;
+position:fixed;bottom:20px;right:20px;
+background:#25D366;padding:15px;border-radius:50%;
 }
 
-/* TRUST */
-.trust{text-align:center;margin-top:20px;color:#aaa;}
+/* FOOTER */
+.footer{
+background:#0a0a0a;text-align:center;padding:30px;margin-top:50px;
+}
+.copy{color:#777;font-size:14px;}
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
 <nav>
 <h2>NR Visuals</h2>
 <div>
@@ -154,14 +127,14 @@ border-radius:50%;
 </div>
 </nav>
 
-<!-- HERO -->
+<div class="cart-box">🛒 <span id="cartCount">0</span></div>
+
 <section class="hero">
 <h1><span>NR</span> Visuals</h1>
 <p>All Designs in One Place</p>
 <button onclick="document.getElementById('plans').scrollIntoView()" class="btn">Get Started</button>
 </section>
 
-<!-- PLANS -->
 <section id="plans" class="section">
 
 <h2 class="toggle-title">Choose Your Plan</h2>
@@ -175,86 +148,73 @@ border-radius:50%;
 <div id="regularPlans" class="grid">
 
 <div class="plan-card">
-<h3>Starter</h3>
-<h1>₹79</h1>
-<p>Basic Design<br>1 Revision</p>
-<button onclick="selectPlan('Starter ₹79')" class="btn-plan">Order Now</button>
+<h3>Starter</h3><h1>₹79</h1>
+<button onclick="addToCart('Starter ₹79')" class="btn-plan">Add to Cart</button>
 </div>
 
 <div class="plan-card highlight">
-<h3>Standard 🔥</h3>
-<h1>₹99</h1>
-<p>HD Design<br>2 Revisions</p>
-<button onclick="selectPlan('Standard ₹99')" class="btn-plan">Most Popular</button>
+<h3>Standard 🔥</h3><h1>₹99</h1>
+<button onclick="addToCart('Standard ₹99')" class="btn-plan">Most Popular</button>
 </div>
 
 <div class="plan-card">
-<h3>Advanced</h3>
-<h1>₹149</h1>
-<p>High Quality<br>Fast Delivery</p>
-<button onclick="selectPlan('Advanced ₹149')" class="btn-plan">Order Fast</button>
+<h3>Advanced</h3><h1>₹149</h1>
+<button onclick="addToCart('Advanced ₹149')" class="btn-plan">Order Fast</button>
 </div>
 
 <div class="plan-card premium">
-<h3>Ultimate 🚀</h3>
-<h1>₹199</h1>
-<p>Top Level Design<br>Priority Work</p>
-<button onclick="selectPlan('Ultimate ₹199')" class="btn-plan">Best Value</button>
+<h3>Ultimate 🚀</h3><h1>₹199</h1>
+<button onclick="addToCart('Ultimate ₹199')" class="btn-plan">Best Value</button>
 </div>
 
 </div>
 
 <!-- MEMBERSHIP -->
 <div id="membershipPlans" class="grid" style="display:none;">
-
 <div class="plan-card">
-<h3>Starter Plan</h3>
-<h1>₹499</h1>
-<p>1 Month<br>Unlimited Designs</p>
-<button onclick="selectPlan('Starter ₹499')" class="btn-plan">Join Now</button>
+<h3>Starter Plan</h3><h1>₹499</h1>
+<button onclick="addToCart('Starter ₹499')" class="btn-plan">Join Now</button>
 </div>
 
 <div class="plan-card premium">
-<h3>Growth Plan ⭐</h3>
-<h1>₹899</h1>
-<p>2 Months<br>Priority + Unlimited</p>
-<button onclick="selectPlan('Growth ₹899')" class="btn-plan">Best Deal</button>
+<h3>Growth Plan ⭐</h3><h1>₹899</h1>
+<button onclick="addToCart('Growth ₹899')" class="btn-plan">Best Deal</button>
 </div>
-
 </div>
-
-<p class="trust">💬 200+ Clients | ⚡ Fast Delivery | 🔒 Trusted</p>
 
 </section>
 
-<!-- PAYMENT -->
-<section id="payment" class="section payment-box">
-
-<h2>Complete Payment</h2>
-<p>Selected Plan: <span id="planText">None</span></p>
+<section id="payment" class="section">
+<h2 style="text-align:center;">Payment</h2>
+<p style="text-align:center;">Selected: <span id="planText">None</span></p>
 
 <div class="payment-card">
-<p>UPI ID:</p>
-<p style="color:#00c6ff;font-size:18px;">roynabanit5@oksbi</p>
+<p>UPI ID</p>
+<p style="color:#00c6ff;">roynabanit5@oksbi</p>
 
 <br>
-
 <a id="payBtn" href="#" class="btn">Pay Now</a>
-
 <br><br>
-
 <button onclick="orderNow()" class="btn">I Have Paid</button>
 </div>
-
 </section>
+
+<a href="#plans" class="order-now-btn">Order Now</a>
 
 <a href="https://wa.me/917630076047" class="wp">
 <i class="fab fa-whatsapp"></i>
 </a>
 
+<footer class="footer">
+<h3>NR Visuals</h3>
+<p>Nabanit Roy</p>
+<p>📧 roynabanit5@gmail.com</p>
+<p>📱 7630076047</p>
+<p class="copy">© 2026 NR Visuals. All Rights Reserved.</p>
+</footer>
+
 <script>
-let selectedPlan="";
-let amount="";
+let cart=[];let amount=0;
 
 function showPlans(type){
 document.getElementById("regularPlans").style.display = type==="regular"?"grid":"none";
@@ -263,15 +223,14 @@ document.getElementById("membershipPlans").style.display = type==="membership"?"
 document.getElementById("btnRegular").classList.remove("active");
 document.getElementById("btnMember").classList.remove("active");
 
-if(type==="regular"){
-document.getElementById("btnRegular").classList.add("active");
-}else{
-document.getElementById("btnMember").classList.add("active");
-}
+if(type==="regular"){document.getElementById("btnRegular").classList.add("active");}
+else{document.getElementById("btnMember").classList.add("active");}
 }
 
-function selectPlan(plan){
-selectedPlan=plan;
+function addToCart(plan){
+cart=[plan];
+document.getElementById("cartCount").innerText=1;
+document.getElementById("planText").innerText=plan;
 
 if(plan.includes("79")) amount=79;
 if(plan.includes("99")) amount=99;
@@ -280,8 +239,6 @@ if(plan.includes("199")) amount=199;
 if(plan.includes("499")) amount=499;
 if(plan.includes("899")) amount=899;
 
-document.getElementById("planText").innerText=plan;
-
 document.getElementById("payBtn").href =
 `upi://pay?pa=roynabanit5@oksbi&pn=NRVisuals&am=${amount}&cu=INR`;
 
@@ -289,11 +246,8 @@ document.getElementById("payment").scrollIntoView({behavior:"smooth"});
 }
 
 function orderNow(){
-if(selectedPlan===""){
-alert("Select a plan first!");
-return;
-}
-let msg=`Hello NR Visuals, I paid ₹${amount} for ${selectedPlan}`;
+if(cart.length===0){alert("Select a plan first!");return;}
+let msg=`Hello NR Visuals, I paid ₹${amount} for ${cart[0]}`;
 window.location.href="https://wa.me/917630076047?text="+encodeURIComponent(msg);
 }
 </script>
