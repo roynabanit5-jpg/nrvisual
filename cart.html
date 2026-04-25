@@ -1,77 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Checkout</title>
 
 <style>
 body{
-background:#0d1117;
-color:#fff;
+background:#0d1117;color:#fff;
 font-family:sans-serif;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
+display:flex;justify-content:center;align-items:center;height:100vh;
 }
-
-/* BOX */
 .box{
-width:350px;
-background:#111;
-padding:25px;
-border-radius:20px;
-text-align:center;
+width:350px;background:#111;padding:20px;border-radius:15px;text-align:center;
 }
-
-/* ITEM */
 .item{
-display:flex;
-justify-content:space-between;
-background:#1a1a1a;
-padding:10px;
-border-radius:10px;
-margin-bottom:10px;
+display:flex;justify-content:space-between;
+background:#1a1a1a;padding:10px;margin:5px;border-radius:10px;
 }
-
-/* BTN */
 .btn{
-width:100%;
-padding:12px;
-margin-top:10px;
-border:none;
-border-radius:12px;
-background:linear-gradient(45deg,#00c6ff,#ff4d4d);
-color:#fff;
-cursor:pointer;
+width:100%;padding:10px;margin-top:10px;
+border:none;border-radius:10px;
+background:#00c6ff;color:#fff;
 }
-
-/* LOADER */
-.loader{
-display:none;
-margin-top:20px;
-}
-.circle{
-width:50px;height:50px;
-border:5px solid #333;
-border-top:5px solid #00c6ff;
-border-radius:50%;
-animation:spin 1s linear infinite;
-margin:auto;
-}
-@keyframes spin{
-100%{transform:rotate(360deg);}
-}
-
-/* SUCCESS */
-.success{
-display:none;
-}
-.tick{
-font-size:50px;
-color:#00ff88;
-}
+.loader,.success{display:none;}
 </style>
 </head>
 
@@ -85,70 +36,52 @@ color:#00ff88;
 
 <h3>Total: ₹<span id="total">0</span></h3>
 
+<p>UPI: roynabanit5@oksbi</p>
+
 <button onclick="payNow()" class="btn">Pay Now</button>
 <button onclick="confirmOrder()" class="btn">Confirm Order</button>
 
-<!-- LOADER -->
 <div class="loader" id="loader">
-<div class="circle"></div>
 <p>Processing...</p>
 </div>
 
-<!-- SUCCESS -->
 <div class="success" id="success">
-<div class="tick">✔</div>
-<h3>Order Confirmed</h3>
-<p>Redirecting...</p>
+<p>✅ Order Confirmed</p>
 </div>
 
 </div>
 
 <script>
-let cart=JSON.parse(localStorage.getItem("cart")) || [];
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
 let items=document.getElementById("items");
 let total=0;
 
-/* LOAD */
 cart.forEach(i=>{
 total+=i.price;
-items.innerHTML+=`
-<div class="item">
-<span>${i.name}</span>
-<span>₹${i.price}</span>
-</div>`;
+items.innerHTML+=`<div class="item"><span>${i.name}</span><span>₹${i.price}</span></div>`;
 });
 
 document.getElementById("total").innerText=total;
 
-/* PAY */
 function payNow(){
 window.open(`upi://pay?pa=roynabanit5@oksbi&pn=NRVisuals&am=${total}&cu=INR`);
 }
 
-/* CONFIRM */
 function confirmOrder(){
-if(total===0){
-alert("Cart empty");
-return;
-}
-
 document.getElementById("loader").style.display="block";
 
 setTimeout(()=>{
 document.getElementById("loader").style.display="none";
 document.getElementById("success").style.display="block";
 
-let msg="✨ NR Visuals Order ✨%0A%0A";
-
+let msg="NR Visuals Order:%0A";
 cart.forEach(i=>{
 msg+=`${i.name} - ₹${i.price}%0A`;
 });
-
-msg+=`%0ATotal: ₹${total}%0A%0AI have paid, sharing screenshot 🙌`;
+msg+=`Total: ₹${total}%0AI have paid`;
 
 setTimeout(()=>{
-window.location.href=
-`https://wa.me/917630076047?text=${msg}`;
+window.location.href=`https://wa.me/917630076047?text=${msg}`;
 },2000);
 
 },2000);
