@@ -10,7 +10,6 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-
 body{background:#0d1117;color:#fff;}
 
 /* NAV */
@@ -42,6 +41,12 @@ border:none;cursor:pointer;
 /* SECTION */
 .section{padding:80px 20px;}
 
+/* ABOUT */
+.about{
+max-width:700px;margin:auto;text-align:center;
+background:#111;padding:25px;border-radius:20px;
+}
+
 /* TOGGLE */
 .toggle-title{
 text-align:center;font-size:40px;
@@ -63,15 +68,16 @@ gap:20px;
 }
 
 /* CARD */
-.plan-card{
+.plan-card,.review-card{
 background:#111;padding:25px;border-radius:20px;
 text-align:center;transition:0.3s;
 border:1px solid rgba(255,255,255,0.1);
 }
-.plan-card:hover{
+.plan-card:hover,.review-card:hover{
 transform:translateY(-10px);
 box-shadow:0 0 30px rgba(0,198,255,0.5);
 }
+
 .highlight{border:2px solid #00c6ff;}
 .premium{border:2px solid gold;}
 
@@ -99,13 +105,22 @@ max-width:350px;margin:auto;text-align:center;
 position:fixed;left:20px;bottom:20px;
 background:linear-gradient(45deg,#ff4d4d,#00c6ff);
 padding:12px 20px;border-radius:30px;color:#fff;
-text-decoration:none;font-weight:600;
+text-decoration:none;
 }
 
 /* WHATSAPP */
 .wp{
 position:fixed;bottom:20px;right:20px;
 background:#25D366;padding:15px;border-radius:50%;
+}
+
+/* REVIEW */
+.stars{color:gold;margin-bottom:5px;}
+.review-form input,
+.review-form textarea,
+.review-form select{
+width:100%;padding:10px;margin-top:10px;
+border:none;border-radius:10px;background:#111;color:#fff;
 }
 
 /* FOOTER */
@@ -132,9 +147,18 @@ background:#0a0a0a;text-align:center;padding:30px;margin-top:50px;
 <section class="hero">
 <h1><span>NR</span> Visuals</h1>
 <p>All Designs in One Place</p>
-<button onclick="document.getElementById('plans').scrollIntoView()" class="btn">Get Started</button>
 </section>
 
+<!-- ABOUT -->
+<section class="section">
+<div class="about">
+<h2>About Creator</h2>
+<p><b>Nabanit Roy</b> | 1+ Year Experience | 200+ Clients</p>
+<p style="color:#aaa;">Professional thumbnails, posters & branding designs</p>
+</div>
+</section>
+
+<!-- PLANS -->
 <section id="plans" class="section">
 
 <h2 class="toggle-title">Choose Your Plan</h2>
@@ -144,73 +168,59 @@ background:#0a0a0a;text-align:center;padding:30px;margin-top:50px;
 <button onclick="showPlans('membership')" id="btnMember">Membership</button>
 </div>
 
-<!-- REGULAR -->
 <div id="regularPlans" class="grid">
-
-<div class="plan-card">
-<h3>Starter</h3><h1>₹79</h1>
-<button onclick="addToCart('Starter ₹79')" class="btn-plan">Add to Cart</button>
+<div class="plan-card"><h3>₹79</h3><button onclick="addToCart('₹79')" class="btn-plan">Add</button></div>
+<div class="plan-card highlight"><h3>₹99</h3><button onclick="addToCart('₹99')" class="btn-plan">Popular</button></div>
+<div class="plan-card"><h3>₹149</h3><button onclick="addToCart('₹149')" class="btn-plan">Fast</button></div>
+<div class="plan-card premium"><h3>₹199</h3><button onclick="addToCart('₹199')" class="btn-plan">Best</button></div>
 </div>
 
-<div class="plan-card highlight">
-<h3>Standard 🔥</h3><h1>₹99</h1>
-<button onclick="addToCart('Standard ₹99')" class="btn-plan">Most Popular</button>
-</div>
-
-<div class="plan-card">
-<h3>Advanced</h3><h1>₹149</h1>
-<button onclick="addToCart('Advanced ₹149')" class="btn-plan">Order Fast</button>
-</div>
-
-<div class="plan-card premium">
-<h3>Ultimate 🚀</h3><h1>₹199</h1>
-<button onclick="addToCart('Ultimate ₹199')" class="btn-plan">Best Value</button>
-</div>
-
-</div>
-
-<!-- MEMBERSHIP -->
 <div id="membershipPlans" class="grid" style="display:none;">
-<div class="plan-card">
-<h3>Starter Plan</h3><h1>₹499</h1>
-<button onclick="addToCart('Starter ₹499')" class="btn-plan">Join Now</button>
-</div>
-
-<div class="plan-card premium">
-<h3>Growth Plan ⭐</h3><h1>₹899</h1>
-<button onclick="addToCart('Growth ₹899')" class="btn-plan">Best Deal</button>
-</div>
+<div class="plan-card"><h3>₹499</h3><button onclick="addToCart('₹499')" class="btn-plan">Join</button></div>
+<div class="plan-card premium"><h3>₹899</h3><button onclick="addToCart('₹899')" class="btn-plan">Best</button></div>
 </div>
 
 </section>
 
+<!-- PAYMENT -->
 <section id="payment" class="section">
 <h2 style="text-align:center;">Payment</h2>
 <p style="text-align:center;">Selected: <span id="planText">None</span></p>
 
 <div class="payment-card">
-<p>UPI ID</p>
-<p style="color:#00c6ff;">roynabanit5@oksbi</p>
-
-<br>
-<a id="payBtn" href="#" class="btn">Pay Now</a>
-<br><br>
+<p>UPI: roynabanit5@oksbi</p>
+<a id="payBtn" href="#" class="btn">Pay Now</a><br><br>
 <button onclick="orderNow()" class="btn">I Have Paid</button>
 </div>
 </section>
 
-<a href="#plans" class="order-now-btn">Order Now</a>
+<!-- REVIEWS -->
+<section class="section">
+<h2 style="text-align:center;">Reviews</h2>
 
-<a href="https://wa.me/917630076047" class="wp">
-<i class="fab fa-whatsapp"></i>
-</a>
+<div class="grid" id="reviewList"></div>
+
+<div class="review-form">
+<input id="name" placeholder="Name">
+<textarea id="review" placeholder="Review"></textarea>
+<select id="rating">
+<option>★★★★★</option>
+<option>★★★★☆</option>
+<option>★★★☆☆</option>
+</select>
+<button onclick="addReview()" class="btn">Submit</button>
+</div>
+</section>
+
+<a href="#plans" class="order-now-btn">Order Now</a>
+<a href="https://wa.me/917630076047" class="wp"><i class="fab fa-whatsapp"></i></a>
 
 <footer class="footer">
 <h3>NR Visuals</h3>
 <p>Nabanit Roy</p>
 <p>📧 roynabanit5@gmail.com</p>
 <p>📱 7630076047</p>
-<p class="copy">© 2026 NR Visuals. All Rights Reserved.</p>
+<p class="copy">© 2026 NR Visuals</p>
 </footer>
 
 <script>
@@ -219,12 +229,8 @@ let cart=[];let amount=0;
 function showPlans(type){
 document.getElementById("regularPlans").style.display = type==="regular"?"grid":"none";
 document.getElementById("membershipPlans").style.display = type==="membership"?"grid":"none";
-
-document.getElementById("btnRegular").classList.remove("active");
-document.getElementById("btnMember").classList.remove("active");
-
-if(type==="regular"){document.getElementById("btnRegular").classList.add("active");}
-else{document.getElementById("btnMember").classList.add("active");}
+document.getElementById("btnRegular").classList.toggle("active", type==="regular");
+document.getElementById("btnMember").classList.toggle("active", type==="membership");
 }
 
 function addToCart(plan){
@@ -232,13 +238,7 @@ cart=[plan];
 document.getElementById("cartCount").innerText=1;
 document.getElementById("planText").innerText=plan;
 
-if(plan.includes("79")) amount=79;
-if(plan.includes("99")) amount=99;
-if(plan.includes("149")) amount=149;
-if(plan.includes("199")) amount=199;
-if(plan.includes("499")) amount=499;
-if(plan.includes("899")) amount=899;
-
+amount=parseInt(plan.replace("₹",""));
 document.getElementById("payBtn").href =
 `upi://pay?pa=roynabanit5@oksbi&pn=NRVisuals&am=${amount}&cu=INR`;
 
@@ -247,8 +247,21 @@ document.getElementById("payment").scrollIntoView({behavior:"smooth"});
 
 function orderNow(){
 if(cart.length===0){alert("Select a plan first!");return;}
-let msg=`Hello NR Visuals, I paid ₹${amount} for ${cart[0]}`;
-window.location.href="https://wa.me/917630076047?text="+encodeURIComponent(msg);
+window.location.href="https://wa.me/917630076047?text=I paid ₹"+amount;
+}
+
+/* reviews */
+function addReview(){
+let name=document.getElementById("name").value;
+let review=document.getElementById("review").value;
+let rating=document.getElementById("rating").value;
+
+if(!name||!review)return alert("Fill all fields");
+
+let r=document.createElement("div");
+r.className="review-card";
+r.innerHTML=`<div class="stars">${rating}</div><p>${review}</p><h4>- ${name}</h4>`;
+document.getElementById("reviewList").appendChild(r);
 }
 </script>
 
