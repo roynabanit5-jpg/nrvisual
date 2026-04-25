@@ -16,11 +16,11 @@ background:#0d1117;
 color:#fff;
 }
 
-/* NAVBAR */
+/* NAV */
 nav{
 display:flex;
 justify-content:space-between;
-padding:15px 40px;
+padding:15px 30px;
 position:fixed;
 width:100%;
 top:0;
@@ -28,7 +28,7 @@ background:rgba(0,0,0,0.6);
 backdrop-filter:blur(10px);
 z-index:999;
 }
-nav a{color:#fff;margin-left:20px;text-decoration:none;}
+nav a{color:#fff;margin-left:15px;text-decoration:none;}
 nav h2{color:#00c6ff;}
 
 /* HERO */
@@ -51,26 +51,34 @@ background:linear-gradient(45deg,#00c6ff,#ff4d4d);
 padding:12px 25px;
 border-radius:30px;
 color:#fff;
-text-decoration:none;
 border:none;
 cursor:pointer;
 }
 
 /* SECTION */
-.section{padding:80px 20px;text-align:center;}
+.section{padding:80px 20px;}
 
-/* GLASS */
-.glass{
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(15px);
-border-radius:20px;
-padding:20px;
-border:1px solid rgba(255,255,255,0.1);
-transition:.3s;
+/* TOGGLE */
+.toggle-title{
+text-align:center;
+font-size:40px;
+background:linear-gradient(45deg,#00c6ff,#ff4d4d,#ffc107);
+-webkit-background-clip:text;
+color:transparent;
 }
-.glass:hover{
-transform:translateY(-10px);
-box-shadow:0 0 30px rgba(0,198,255,0.5);
+.toggle-box{text-align:center;margin:20px;}
+.toggle-box button{
+background:#111;
+color:#fff;
+padding:10px 20px;
+border:none;
+border-radius:20px;
+margin:5px;
+cursor:pointer;
+}
+.toggle-box .active{
+background:#00c6ff;
+color:#000;
 }
 
 /* GRID */
@@ -78,72 +86,45 @@ box-shadow:0 0 30px rgba(0,198,255,0.5);
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
-margin-top:30px;
 }
 
-/* PRICING */
-.price-card{
-background:rgba(255,255,255,0.05);
-padding:30px;
-border-radius:20px;
-transition:0.4s;
-border:1px solid rgba(255,255,255,0.1);
-position:relative;
-}
-.price-card:hover{
-transform:scale(1.05);
-box-shadow:0 0 40px #00c6ff;
-}
-
-.popular{
-border:2px solid #00c6ff;
-}
-.ultra{
-border:2px solid gold;
-}
-
-.badge{
-position:absolute;
-top:-10px;
-left:50%;
-transform:translateX(-50%);
-background:#00c6ff;
-color:#000;
-padding:5px 10px;
-border-radius:20px;
-font-size:12px;
-}
-<section class="section">
-<h2>Membership Plans</h2>
-
-<div class="grid">
-
-<div class="price-card">
-<h3>Starter Plan</h3>
-<h1>₹499</h1>
-<p>1 Month Access<br>All Designs Included</p>
-<button onclick="selectPlan('Starter ₹499')" class="btn">Select</button>
-</div>
-
-<div class="price-card ultra">
-<div class="badge">BEST VALUE</div>
-<h3>Growth Plan</h3>
-<h1>₹899</h1>
-<p>2 Months Access<br>Priority Work</p>
-<button onclick="selectPlan('Growth ₹899')" class="btn">Select</button>
-</div>
-
-</div>
-</section>
-  
-/* CART */
-.cart{
-position:fixed;
-top:80px;
-right:20px;
+/* CARD */
+.plan-card{
 background:#111;
-padding:10px;
-border-radius:10px;
+padding:25px;
+border-radius:20px;
+text-align:center;
+transition:0.3s;
+border:1px solid rgba(255,255,255,0.1);
+}
+.plan-card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 30px rgba(0,198,255,0.5);
+}
+.highlight{border:2px solid #00c6ff;}
+.premium{border:2px solid gold;}
+
+.btn-plan{
+margin-top:10px;
+background:linear-gradient(45deg,#00c6ff,#ff4d4d);
+border:none;
+padding:10px 20px;
+border-radius:25px;
+color:#fff;
+cursor:pointer;
+}
+
+/* PAYMENT */
+.payment-box{
+text-align:center;
+margin-top:40px;
+}
+.payment-card{
+background:#111;
+padding:25px;
+border-radius:20px;
+max-width:350px;
+margin:auto;
 }
 
 /* WHATSAPP */
@@ -156,10 +137,8 @@ padding:15px;
 border-radius:50%;
 }
 
-/* PAYMENT BOX */
-.pay-box{
-margin-top:20px;
-}
+/* TRUST */
+.trust{text-align:center;margin-top:20px;color:#aaa;}
 </style>
 </head>
 
@@ -170,70 +149,93 @@ margin-top:20px;
 <h2>NR Visuals</h2>
 <div>
 <a href="#">Home</a>
-<a href="#pricing">Pricing</a>
-<a href="#contact">Contact</a>
+<a href="#plans">Plans</a>
+<a href="#payment">Payment</a>
 </div>
 </nav>
-
-<div class="cart">🛒 <span id="count">0</span></div>
 
 <!-- HERO -->
 <section class="hero">
 <h1><span>NR</span> Visuals</h1>
-<p>Graphic Designer Website</p>
-<p style="color:#ff4d4d;">ESTD 2026</p>
-<a href="#pricing" class="btn">View Pricing</a>
+<p>All Designs in One Place</p>
+<button onclick="document.getElementById('plans').scrollIntoView()" class="btn">Get Started</button>
 </section>
 
-<!-- PRICING -->
-<section id="pricing" class="section">
-<h2>Pricing Plans</h2>
+<!-- PLANS -->
+<section id="plans" class="section">
 
-<div class="grid">
+<h2 class="toggle-title">Choose Your Plan</h2>
 
-<div class="price-card">
-<h3>Basic</h3>
+<div class="toggle-box">
+<button onclick="showPlans('regular')" id="btnRegular" class="active">Regular</button>
+<button onclick="showPlans('membership')" id="btnMember">Membership</button>
+</div>
+
+<!-- REGULAR -->
+<div id="regularPlans" class="grid">
+
+<div class="plan-card">
+<h3>Starter</h3>
 <h1>₹79</h1>
-<p>Standard Quality</p>
-<button onclick="selectPlan('Basic ₹79')" class="btn">Select</button>
+<p>Basic Design<br>1 Revision</p>
+<button onclick="selectPlan('Starter ₹79')" class="btn-plan">Order Now</button>
 </div>
 
-<div class="price-card popular">
-<div class="badge">POPULAR</div>
-<h3>Pro</h3>
+<div class="plan-card highlight">
+<h3>Standard 🔥</h3>
 <h1>₹99</h1>
-<p>HD Quality</p>
-<button onclick="selectPlan('Pro ₹99')" class="btn">Select</button>
+<p>HD Design<br>2 Revisions</p>
+<button onclick="selectPlan('Standard ₹99')" class="btn-plan">Most Popular</button>
 </div>
 
-<div class="price-card">
-<h3>Premium</h3>
+<div class="plan-card">
+<h3>Advanced</h3>
 <h1>₹149</h1>
-<p>High Quality</p>
-<button onclick="selectPlan('Premium ₹149')" class="btn">Select</button>
+<p>High Quality<br>Fast Delivery</p>
+<button onclick="selectPlan('Advanced ₹149')" class="btn-plan">Order Fast</button>
 </div>
 
-<div class="price-card ultra">
-<h3>Ultra</h3>
+<div class="plan-card premium">
+<h3>Ultimate 🚀</h3>
 <h1>₹199</h1>
-<p>Top Level</p>
-<button onclick="selectPlan('Ultra ₹199')" class="btn">Select</button>
+<p>Top Level Design<br>Priority Work</p>
+<button onclick="selectPlan('Ultimate ₹199')" class="btn-plan">Best Value</button>
 </div>
 
 </div>
-<section id="payment" class="section">
-<h2>Complete Your Payment</h2>
 
-<p style="color:#aaa;">Selected Plan: <span id="selectedPlanText">None</span></p>
+<!-- MEMBERSHIP -->
+<div id="membershipPlans" class="grid" style="display:none;">
 
-<br>
+<div class="plan-card">
+<h3>Starter Plan</h3>
+<h1>₹499</h1>
+<p>1 Month<br>Unlimited Designs</p>
+<button onclick="selectPlan('Starter ₹499')" class="btn-plan">Join Now</button>
+</div>
 
-<div class="glass" style="max-width:400px;margin:auto;">
+<div class="plan-card premium">
+<h3>Growth Plan ⭐</h3>
+<h1>₹899</h1>
+<p>2 Months<br>Priority + Unlimited</p>
+<button onclick="selectPlan('Growth ₹899')" class="btn-plan">Best Deal</button>
+</div>
 
-<h3>Pay via UPI</h3>
+</div>
 
-<p style="font-size:18px;">UPI ID:</p>
-<p style="color:#00c6ff;font-size:20px;">roynabanit5@oksbi</p>
+<p class="trust">💬 200+ Clients | ⚡ Fast Delivery | 🔒 Trusted</p>
+
+</section>
+
+<!-- PAYMENT -->
+<section id="payment" class="section payment-box">
+
+<h2>Complete Payment</h2>
+<p>Selected Plan: <span id="planText">None</span></p>
+
+<div class="payment-card">
+<p>UPI ID:</p>
+<p style="color:#00c6ff;font-size:18px;">roynabanit5@oksbi</p>
 
 <br>
 
@@ -242,34 +244,8 @@ margin-top:20px;
 <br><br>
 
 <button onclick="orderNow()" class="btn">I Have Paid</button>
-
-<p style="margin-top:10px;font-size:13px;color:#aaa;">
-After payment click "I Have Paid"
-</p>
-
-</div>
-</section>
-  
-<!-- PAYMENT -->
-<div class="pay-box">
-<br>
-<h3>Payment</h3>
-<p>UPI ID: roynabanit5@oksbi</p>
-
-<a id="payBtn" href="#" class="btn">Pay Now</a>
-<br><br>
-
-<button onclick="orderNow()" class="btn">Confirm Order</button>
 </div>
 
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="section">
-<h2>Contact</h2>
-<p>Nabanit Roy</p>
-<p>📧 roynabanit5@gmail.com</p>
-<p>📱 7630076047</p>
 </section>
 
 <a href="https://wa.me/917630076047" class="wp">
@@ -280,6 +256,20 @@ After payment click "I Have Paid"
 let selectedPlan="";
 let amount="";
 
+function showPlans(type){
+document.getElementById("regularPlans").style.display = type==="regular"?"grid":"none";
+document.getElementById("membershipPlans").style.display = type==="membership"?"grid":"none";
+
+document.getElementById("btnRegular").classList.remove("active");
+document.getElementById("btnMember").classList.remove("active");
+
+if(type==="regular"){
+document.getElementById("btnRegular").classList.add("active");
+}else{
+document.getElementById("btnMember").classList.add("active");
+}
+}
+
 function selectPlan(plan){
 selectedPlan=plan;
 
@@ -287,21 +277,23 @@ if(plan.includes("79")) amount=79;
 if(plan.includes("99")) amount=99;
 if(plan.includes("149")) amount=149;
 if(plan.includes("199")) amount=199;
+if(plan.includes("499")) amount=499;
+if(plan.includes("899")) amount=899;
 
-document.getElementById("count").innerText="1";
+document.getElementById("planText").innerText=plan;
 
-/* set UPI link */
 document.getElementById("payBtn").href =
 `upi://pay?pa=roynabanit5@oksbi&pn=NRVisuals&am=${amount}&cu=INR`;
+
+document.getElementById("payment").scrollIntoView({behavior:"smooth"});
 }
 
 function orderNow(){
-if(selectedPlan==""){
+if(selectedPlan===""){
 alert("Select a plan first!");
 return;
 }
-
-let msg="Hello NR Visuals, I paid ₹"+amount+" for "+selectedPlan;
+let msg=`Hello NR Visuals, I paid ₹${amount} for ${selectedPlan}`;
 window.location.href="https://wa.me/917630076047?text="+encodeURIComponent(msg);
 }
 </script>
