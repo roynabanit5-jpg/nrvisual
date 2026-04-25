@@ -114,5 +114,16 @@ Click Order Now → Fill details → Send on WhatsApp → Pay via UPI → Get yo
 <footer class="footer">
 <p>Made with ❤️ in 2026</p>
 <p>© NR Visuals All rights reserved</p>
-</footer><script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script><script>AOS.init();</script></body>
+</footer><script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script><script>AOS.init();</script><script>
+function confirmOrder(service) {
+  let confirmAction = confirm("Do you want to order " + service + "?");
+  if (confirmAction) {
+    let message = "Hello NR Visuals, I want to order a " + service + " design.
+
+Please guide me with details.";
+    let url = "https://wa.me/917630076047?text=" + encodeURIComponent(message);
+    window.open(url, "_blank");
+  }
+}
+</script></body>
 </html>
