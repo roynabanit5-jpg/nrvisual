@@ -14,7 +14,6 @@
 body{
 background:#0d1117;
 color:#fff;
-overflow-x:hidden;
 }
 
 /* NAVBAR */
@@ -29,13 +28,8 @@ background:rgba(0,0,0,0.6);
 backdrop-filter:blur(10px);
 z-index:999;
 }
-
+nav a{color:#fff;margin-left:20px;text-decoration:none;}
 nav h2{color:#00c6ff;}
-nav a{
-color:#fff;
-margin-left:20px;
-text-decoration:none;
-}
 
 /* HERO */
 .hero{
@@ -45,41 +39,35 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-
 background:
 url('https://www.transparenttextures.com/patterns/cubes.png'),
 linear-gradient(135deg,#0d1117,#1a1f2b);
 }
-
-.hero h1{
-font-size:60px;
-}
-
-.hero span{
-color:#00c6ff;
-}
+.hero h1{font-size:60px;}
+.hero span{color:#00c6ff;}
 
 .btn{
-margin-top:20px;
 background:linear-gradient(45deg,#00c6ff,#ff4d4d);
 padding:12px 25px;
 border-radius:30px;
-text-decoration:none;
 color:#fff;
+text-decoration:none;
+border:none;
+cursor:pointer;
 }
 
 /* SECTION */
 .section{padding:80px 20px;text-align:center;}
 
+/* GLASS */
 .glass{
 background:rgba(255,255,255,0.05);
 backdrop-filter:blur(15px);
 border-radius:20px;
 padding:20px;
-transition:.3s;
 border:1px solid rgba(255,255,255,0.1);
+transition:.3s;
 }
-
 .glass:hover{
 transform:translateY(-10px);
 box-shadow:0 0 30px rgba(0,198,255,0.5);
@@ -93,7 +81,38 @@ gap:20px;
 margin-top:30px;
 }
 
-img{width:100%;border-radius:10px;}
+/* PRICING */
+.price-card{
+background:rgba(255,255,255,0.05);
+padding:30px;
+border-radius:20px;
+transition:0.4s;
+border:1px solid rgba(255,255,255,0.1);
+position:relative;
+}
+.price-card:hover{
+transform:scale(1.05);
+box-shadow:0 0 40px #00c6ff;
+}
+
+.popular{
+border:2px solid #00c6ff;
+}
+.ultra{
+border:2px solid gold;
+}
+
+.badge{
+position:absolute;
+top:-10px;
+left:50%;
+transform:translateX(-50%);
+background:#00c6ff;
+color:#000;
+padding:5px 10px;
+border-radius:20px;
+font-size:12px;
+}
 
 /* CART */
 .cart{
@@ -101,7 +120,7 @@ position:fixed;
 top:80px;
 right:20px;
 background:#111;
-padding:10px 15px;
+padding:10px;
 border-radius:10px;
 }
 
@@ -115,37 +134,21 @@ padding:15px;
 border-radius:50%;
 }
 
-/* MODAL */
-.modal{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.7);
-display:none;
-justify-content:center;
-align-items:center;
-}
-
-.modal-box{
-background:#111;
-padding:25px;
-border-radius:15px;
-text-align:center;
+/* PAYMENT BOX */
+.pay-box{
+margin-top:20px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<!-- NAV -->
 <nav>
 <h2>NR Visuals</h2>
 <div>
 <a href="#">Home</a>
-<a href="#portfolio">Portfolio</a>
-<a href="#services">Services</a>
+<a href="#pricing">Pricing</a>
 <a href="#contact">Contact</a>
 </div>
 </nav>
@@ -157,91 +160,98 @@ text-align:center;
 <h1><span>NR</span> Visuals</h1>
 <p>Graphic Designer Website</p>
 <p style="color:#ff4d4d;">ESTD 2026</p>
-<a href="#portfolio" class="btn">View Our Work</a>
+<a href="#pricing" class="btn">View Pricing</a>
 </section>
 
-<!-- PORTFOLIO -->
-<section id="portfolio" class="section">
-<h2>Portfolio</h2>
+<!-- PRICING -->
+<section id="pricing" class="section">
+<h2>Pricing Plans</h2>
 
 <div class="grid">
-<div class="glass"><img src="https://via.placeholder.com/300"><p>Brand Identity</p></div>
-<div class="glass"><img src="https://via.placeholder.com/300"><p>UI Design</p></div>
-<div class="glass"><img src="https://via.placeholder.com/300"><p>Motion Design</p></div>
-</div>
-</section>
 
-<!-- SERVICES -->
-<section id="services" class="section">
-<h2>Services</h2>
-
-<div class="grid">
-<div class="glass">
-<h3>DP Design</h3>
-<button onclick="add('DP ₹79')" class="btn">Add</button>
+<div class="price-card">
+<h3>Basic</h3>
+<h1>₹79</h1>
+<p>Standard Quality</p>
+<button onclick="selectPlan('Basic ₹79')" class="btn">Select</button>
 </div>
 
-<div class="glass">
-<h3>Poster</h3>
-<button onclick="add('Poster ₹99')" class="btn">Add</button>
+<div class="price-card popular">
+<div class="badge">POPULAR</div>
+<h3>Pro</h3>
+<h1>₹99</h1>
+<p>HD Quality</p>
+<button onclick="selectPlan('Pro ₹99')" class="btn">Select</button>
 </div>
 
-<div class="glass">
-<h3>Thumbnail</h3>
-<button onclick="add('Thumbnail ₹149')" class="btn">Add</button>
+<div class="price-card">
+<h3>Premium</h3>
+<h1>₹149</h1>
+<p>High Quality</p>
+<button onclick="selectPlan('Premium ₹149')" class="btn">Select</button>
 </div>
-</div>
-</section>
 
-<!-- ORDER -->
-<section class="section">
-<h2>Place Order</h2>
-<button onclick="openModal()" class="btn">Order Now</button>
+<div class="price-card ultra">
+<h3>Ultra</h3>
+<h1>₹199</h1>
+<p>Top Level</p>
+<button onclick="selectPlan('Ultra ₹199')" class="btn">Select</button>
+</div>
+
+</div>
+
+<!-- PAYMENT -->
+<div class="pay-box">
+<br>
+<h3>Payment</h3>
+<p>UPI ID: roynabanit5@oksbi</p>
+
+<a id="payBtn" href="#" class="btn">Pay Now</a>
+<br><br>
+
+<button onclick="orderNow()" class="btn">Confirm Order</button>
+</div>
+
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="section">
 <h2>Contact</h2>
 <p>Nabanit Roy</p>
-<p>roynabanit5@gmail.com</p>
-<p>7630076047</p>
+<p>📧 roynabanit5@gmail.com</p>
+<p>📱 7630076047</p>
 </section>
 
 <a href="https://wa.me/917630076047" class="wp">
 <i class="fab fa-whatsapp"></i>
 </a>
 
-<!-- MODAL -->
-<div id="modal" class="modal">
-<div class="modal-box">
-<h3>Confirm Order?</h3>
-<button onclick="confirmOrder()" class="btn">Yes</button>
-<button onclick="closeModal()" class="btn">Cancel</button>
-</div>
-</div>
-
 <script>
-let cart=[];
+let selectedPlan="";
+let amount="";
 
-function add(item){
-cart.push(item);
-document.getElementById("count").innerText=cart.length;
+function selectPlan(plan){
+selectedPlan=plan;
+
+if(plan.includes("79")) amount=79;
+if(plan.includes("99")) amount=99;
+if(plan.includes("149")) amount=149;
+if(plan.includes("199")) amount=199;
+
+document.getElementById("count").innerText="1";
+
+/* set UPI link */
+document.getElementById("payBtn").href =
+`upi://pay?pa=roynabanit5@oksbi&pn=NRVisuals&am=${amount}&cu=INR`;
 }
 
-function openModal(){
-if(cart.length==0){
-alert("Cart empty");
+function orderNow(){
+if(selectedPlan==""){
+alert("Select a plan first!");
 return;
 }
-document.getElementById("modal").style.display="flex";
-}
 
-function closeModal(){
-document.getElementById("modal").style.display="none";
-}
-
-function confirmOrder(){
-let msg="Hello NR Visuals, I want:\n"+cart.join(", ");
+let msg="Hello NR Visuals, I paid ₹"+amount+" for "+selectedPlan;
 window.location.href="https://wa.me/917630076047?text="+encodeURIComponent(msg);
 }
 </script>
