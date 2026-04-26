@@ -11,78 +11,60 @@
 <style>
 
 /* GLOBAL */
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #B3E5FC, #4FC3F7, #0288D1);
-  color: #111;
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background: linear-gradient(135deg,#0b1120,#0288D1);
+  color:#fff;
 }
 
 /* NAV */
 nav{
   display:flex;
-  justify-content:center;
+  justify-content:space-between;
   align-items:center;
-  padding:20px;
-  position:relative;
+  padding:20px 40px;
 }
 
 nav a{
+  color:#fff;
   text-decoration:none;
-  color:#111;
+  margin:0 10px;
+  transition:.3s;
+}
+
+nav a:hover{
+  color:#00B7FF;
 }
 
 .logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
   font-weight:700;
   font-size:20px;
-}
-
-.logo-img{
-  width:35px;
-  height:35px;
-  border-radius:6px;
-}
-
-.menu-icon{
-  position:absolute;
-  right:20px;
-  font-size:26px;
-  cursor:pointer;
-  display:none;
-}
-
-.nav-links{
-  position:absolute;
-  right:80px;
-  display:flex;
-  gap:25px;
 }
 
 /* HERO */
 .hero{
   text-align:center;
-  padding:100px 20px;
+  padding:120px 20px;
 }
 
 .hero h1{
-  font-size:40px;
+  font-size:42px;
+  max-width:700px;
+  margin:auto;
 }
 
 .hero p{
-  margin:15px 0;
-  color:#333;
+  color:#cbd5e1;
+  margin:20px 0;
 }
 
-/* BUTTON */
 .btn{
   padding:12px 25px;
-  background: linear-gradient(135deg, #00B7FF, #0288D1);
-  color:#fff;
-  border-radius:8px;
+  background: linear-gradient(135deg,#00B7FF,#0288D1);
   border:none;
+  border-radius:10px;
+  color:#fff;
   cursor:pointer;
 }
 
@@ -99,107 +81,68 @@ nav a{
   gap:25px;
 }
 
-/* CARD */
+/* GLASS CARD */
 .card{
-  background:#fff;
-  padding:20px;
-  border-radius:12px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.08);
-  transition:0.3s;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  padding:25px;
+  border-radius:15px;
+  border:1px solid rgba(255,255,255,0.1);
+  transition:.3s;
 }
 
 .card:hover{
   transform:translateY(-5px);
-  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+  box-shadow:0 10px 30px rgba(0,183,255,0.3);
 }
 
-/* CART */
-.cart{
-  position:absolute;
-  top:20px;
-  left:20px;
-}
-
-/* FORM */
-input,select,textarea{
-  width:100%;
-  padding:10px;
-  margin:10px 0;
-}
-
-/* SERVICE */
+/* SERVICES */
 .service-card{
   text-align:center;
-  padding:30px 20px;
 }
 
 .service-card i{
-  font-size:40px;
-  margin-bottom:15px;
-  color:#0288D1;
+  font-size:35px;
+  margin-bottom:10px;
+  color:#00B7FF;
 }
 
-.service-card p{
-  color:#555;
+/* PRICING */
+.price{
+  font-size:24px;
+  margin:10px 0;
 }
 
-/* PAYMENT */
-.pay-box{
-  display:flex;
-  gap:15px;
-  justify-content:center;
-  margin-top:10px;
-}
-
-.pay-box button{
-  padding:10px 15px;
-  border:none;
-  background:#111;
-  color:#fff;
-  border-radius:8px;
-  cursor:pointer;
+/* HIGHLIGHT PLAN */
+.highlight{
+  border:2px solid #00B7FF;
+  transform:scale(1.05);
 }
 
 /* CONTACT */
-.contact-card{
-  background:#fff;
-  padding:30px;
-  border-radius:20px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.1);
-  max-width:400px;
-  margin:auto;
+.contact{
   text-align:center;
 }
 
-.tagline{
-  color:#666;
+.contact a{
+  display:inline-block;
+  margin:10px;
 }
 
-/* BUTTON COLORS */
-.btn.wa{ background:#25D366; }
-.btn.insta{ background:#E1306C; }
-
-/* MOBILE */
-@media(max-width:768px){
-  .menu-icon{display:block;}
-
-  .nav-links{
-    top:70px;
-    right:20px;
-    flex-direction:column;
-    background:#fff;
-    padding:20px;
-    border-radius:10px;
-    display:none;
-  }
-
-  .nav-links.active{display:flex;}
+/* FORM */
+input,textarea,select{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+  border-radius:8px;
+  border:none;
 }
 
 /* FOOTER */
 footer{
   text-align:center;
-  padding:30px;
+  padding:20px;
+  color:#aaa;
 }
 
 </style>
@@ -209,66 +152,45 @@ footer{
 
 <!-- NAV -->
 <nav>
-
-<div class="cart">
-🛒 <span id="cartCount">0</span>
-</div>
-
-<div class="logo">
-<img src="logo.png" class="logo-img">
-NR Visuals
-</div>
-
-<div style="position:absolute; right:20px; display:flex; align-items:center; gap:15px;">
-<div class="nav-links" id="navLinks">
+<div class="logo">NR Visuals</div>
+<div>
 <a href="#services">Services</a>
 <a href="#pricing">Pricing</a>
-<a href="#membership">Membership</a>
 <a href="#contact">Contact</a>
 </div>
-
-<div class="menu-icon" onclick="toggleMenu()">
-<i class="fas fa-bars"></i>
-</div>
-</div>
-
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-<h1>Designs That Grow Your Brand</h1>
-<p>High-quality thumbnails, posters, social media designs & Website design for any brand</p>
+<h1>I Design High-Converting Thumbnails & Social Media Content 🚀</h1>
+<p>Grow your brand with professional designs • Fast delivery • Affordable pricing</p>
 <button class="btn" onclick="scrollToPricing()">Get Started</button>
 </section>
 
 <!-- SERVICES -->
 <section class="container" id="services">
 <h2>Services</h2>
+<div class="grid">
 
 <div class="card service-card">
 <i class="fas fa-play-circle"></i>
 <h3>YouTube Thumbnails</h3>
-<p>High CTR thumbnail designs</p>
+<p>High CTR thumbnails</p>
 </div>
 
 <div class="card service-card">
 <i class="fab fa-instagram"></i>
 <h3>Instagram Designs</h3>
-<p>Posts, reels & branding</p>
+<p>Posts & reels</p>
 </div>
 
 <div class="card service-card">
 <i class="fas fa-image"></i>
 <h3>Posters</h3>
-<p>Creative digital posters</p>
+<p>Creative posters</p>
 </div>
 
-<div class="card service-card">
-<i class="fab fa-google"></i>
-<h3>Website</h3>
-<p>Creative Website Design</p>
 </div>
-
 </section>
 
 <!-- PRICING -->
@@ -277,113 +199,39 @@ NR Visuals
 <div class="grid">
 
 <div class="card">
-<h3>Youtube Video Thumbnail📌</h3>
-<p>₹99</p>
-<button class="btn" onclick="addToCart('Youtube Video Thumbnail ₹99')">Add</button>
+<h3>Thumbnail</h3>
+<p class="price">₹99</p>
+<button class="btn" onclick="addToCart('Thumbnail ₹99')">Add</button>
 </div>
 
-<div class="card">
-<h3>Instagram Post each / DP edit</h3>
-<p>₹49</p>
+<div class="card highlight">
+<h3>Instagram Post</h3>
+<p class="price">₹49</p>
 <button class="btn" onclick="addToCart('Instagram ₹49')">Add</button>
 </div>
 
 <div class="card">
-<h3>Buisness / Startup Logo Design</h3>
-<p>₹149</p>
+<h3>Logo Design</h3>
+<p class="price">₹149</p>
 <button class="btn" onclick="addToCart('Logo ₹149')">Add</button>
 </div>
 
-<div class="card">
-<h3>Website Designing</h3>
-<p>₹2499</p>
-<button class="btn" onclick="addToCart('Website ₹2499')">Add</button>
-</div>
-
 </div>
 </section>
 
-<!-- MEMBERSHIP -->
-<section class="container" id="membership">
-<h2>Membership</h2>
-<div class="grid">
-
-<div class="card">
-<h3>Creator</h3>
-<p>₹299/month</p>
-<button class="btn" onclick="addToCart('Creator ₹299')">Add</button>
-</div>
-
-<div class="card">
-<h3>Part time CREATOR</h3>
-<p>₹599/month</p>
-<button class="btn" onclick="addToCart('Part-time ₹599')">Add</button>
-</div>
-
-<div class="card">
-<h3>INFLUENCER / Agency</h3>
-<p>₹1999/month</p>
-<button class="btn" onclick="addToCart('Agency ₹1999')">Add</button>
-</div>
-
-</div>
-</section>
-
-<!-- PORTFOLIO -->
+<!-- ORDER FORM -->
 <section class="container">
-<h2>Portfolio</h2>
-<div class="grid">
-<img src="https://via.placeholder.com/300x200">
-<img src="https://via.placeholder.com/300x200">
-<img src="https://via.placeholder.com/300x200">
-</div>
-</section>
-
-<!-- CONTACT -->
-<div class="contact-card">
-
-<h3>Nabanit Roy</h3>
-<p class="tagline">Graphic Designer • NR Visuals</p>
-
-<p>
-<i class="fa fa-envelope"></i>
-roynabanit5@gmail.com
-</p>
-
-<p>
-<i class="fab fa-whatsapp"></i>
-<a href="https://wa.me/917630076047" target="_blank">Chat on WhatsApp</a>
-</p>
-
-<p>
-<i class="fab fa-instagram"></i>
-<a href="https://www.instagram.com/nrvisuals.design" target="_blank">@nrvisuals.design</a>
-</p>
-
-<div class="contact-buttons">
-<a href="https://wa.me/917630076047?text=Hello%20I%20want%20to%20order" target="_blank" class="btn wa">
-<i class="fab fa-whatsapp"></i> Order Now
-</a>
-
-<a href="https://www.instagram.com/nrvisuals.design" target="_blank" class="btn insta">
-<i class="fab fa-instagram"></i> Follow
-</a>
-</div>
-
-</div>
+<h2>Place Order</h2>
 
 <form onsubmit="sendOrder(event)">
 <input id="name" placeholder="Name" required>
 <input id="phone" placeholder="Phone" required>
 
 <select id="service">
-<option>Website designing</option>
-<option>Youtube Thumbnail</option>
-<option>Instagram post / DP</option>
-<option>Logo Design</option>
+<option>Thumbnail</option>
+<option>Instagram</option>
+<option>Logo</option>
 </select>
-
-<input id="quantity" type="number" placeholder="Quantity">
 
 <textarea id="details" placeholder="Details"></textarea>
 
@@ -391,40 +239,46 @@ roynabanit5@gmail.com
 </form>
 
 </section>
+
+<!-- CONTACT -->
+<section class="container contact" id="contact">
+<h2>Contact</h2>
+
+<a href="https://wa.me/917630076047" class="btn">
+<i class="fab fa-whatsapp"></i> WhatsApp
+</a>
+
+<a href="https://instagram.com/nrvisuals.design" class="btn">
+<i class="fab fa-instagram"></i> Instagram
+</a>
+
+</section>
+
 <footer>
-<p>Made with ❤️</p>
-<p>© 2026 NR Visuals</p>
+© 2026 NR Visuals
 </footer>
 
 <script>
 let cart=[];
 
-function toggleMenu(){
-  document.getElementById("navLinks").classList.toggle("active");
-}
-
 function addToCart(item){
   cart.push(item);
-  document.getElementById("cartCount").innerText=cart.length;
   alert("Added ✅");
+}
+
+function sendOrder(e){
+  e.preventDefault();
+  let msg=`Name: ${name.value}
+Phone: ${phone.value}
+Service: ${service.value}
+Details: ${details.value}`;
+  window.open(`https://wa.me/917630076047?text=${encodeURIComponent(msg)}`);
 }
 
 function scrollToPricing(){
   document.getElementById("pricing").scrollIntoView();
 }
 </script>
-  function sendOrder(e){
-  e.preventDefault();
-
-  let msg = `New Order:%0A
-Name: ${name.value}%0A
-Phone: ${phone.value}%0A
-Service: ${service.value}%0A
-Quantity: ${quantity.value}%0A
-Details: ${details.value}`;
-
-  window.open(`https://wa.me/917630076047?text=${msg}`);
-}
 
 </body>
 </html>
