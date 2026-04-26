@@ -10,6 +10,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
  <style>
 *{margin:0;padding:0;box-sizing:border-box;}
+  <script>
+
 
 body{
   font-family:'Poppins',sans-serif;
@@ -120,7 +122,44 @@ footer{
   padding:30px;
   border-top:1px solid #ddd;
 }
+.menu-icon{
+  font-size:28px;
+  cursor:pointer;
+  display:none;
+}
 
+.nav-links{
+  display:flex;
+  gap:20px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .menu-icon{
+    display:block;
+  }
+
+  .nav-links{
+    position:absolute;
+    top:70px;
+    right:20px;
+    background:#fff;
+    flex-direction:column;
+    padding:15px;
+    border-radius:10px;
+    display:none;
+  }
+
+  .nav-links.active{
+    display:flex;
+  }
+}
+  }
+
+  .nav-links.active{
+    display:flex;
+  }
+}
 </style>
 </head>
 
@@ -129,15 +168,20 @@ footer{
 <!-- NAV -->
 <nav>
   <div class="logo">
-  <img src="logo.png" class="logo-img">
-  NR Visuals
+    <img src="logo.png" class="logo-img">
+    NR Visuals
   </div>
-  <div>
-    <a href="#services">Services</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#membership">Membership</a>
-    <a href="#contact">Contact</a>
-  </div>
+<div class="menu-icon" onclick="toggleMenu()">
+  <i class="fas fa-bars"></i>
+</div>
+ <div class="nav-links" id="navLinks">
+  <a href="#services">Services</a>
+  <a href="#pricing">Pricing</a>
+  <a href="#membership">Membership</a>
+  <a href="#contact">Contact</a>
+ </div>
+
+  
 </nav>
 
 <!-- CART -->
@@ -411,5 +455,10 @@ Please confirm price.`;
 
 </script>
 
+ <script>
+function toggleMenu(){
+  document.getElementById("navLinks").classList.toggle("active");
+}
+ </script>
 </body>
 </html
