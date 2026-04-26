@@ -60,7 +60,22 @@ nav a{
   text-decoration:none;
   color:#444;
 }
+/* 🔥 PAYMENT BOX */
+.pay-box{
+  display:flex;
+  gap:15px;
+  justify-content:center;
+  margin-top:10px;
+}
 
+.pay-box button{
+  padding:10px 15px;
+  border:none;
+  background:#111;
+  color:#fff;
+  border-radius:8px;
+  cursor:pointer;
+}
 /* MOBILE */
 @media(max-width:768px){
   .menu-icon{display:block;}
@@ -314,7 +329,29 @@ footer{
 <!-- CHECKOUT -->
 <section class="container">
 <h2>Checkout</h2>
+
 <button class="btn" onclick="checkout()">Order on WhatsApp</button>
+
+<br><br>
+
+<h3>Pay Now (UPI)</h3>
+
+<div class="pay-box">
+
+  <button onclick="payUPI()">
+    <i class="fab fa-google"></i> GPay
+  </button>
+
+  <button onclick="payUPI()">
+    <i class="fas fa-wallet"></i> Paytm
+  </button>
+
+  <button onclick="payUPI()">
+    <i class="fas fa-mobile-alt"></i> PhonePe
+  </button>
+
+</div>
+
 </section>
 
 <!-- CONTACT -->
@@ -349,6 +386,22 @@ footer{
 
 </section>
 
+.pay-box{
+  display:flex;
+  gap:15px;
+  justify-content:center;
+  margin-top:10px;
+}
+
+.pay-box button{
+  padding:10px 15px;
+  border:none;
+  background:#111;
+  color:#fff;
+  border-radius:8px;
+  cursor:pointer;
+}
+  
 <footer>
 <p>Made with ❤️</p>
 <p>© 2026 NR Visuals</p>
