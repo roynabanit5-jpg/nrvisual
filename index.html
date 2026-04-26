@@ -123,6 +123,62 @@ footer{
   text-align:center;
   padding:20px;
 }
+  .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: linear-gradient(145deg, #0f4c75, #1b6ca8);
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+  transition: 0.3s;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 0 25px #00c3ff;
+}
+
+.icon {
+  font-size: 30px;
+  margin-bottom: 10px;
+  color: #00c3ff;
+}
+
+.tagline {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.price {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.btn {
+  background: #00c3ff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: black;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: white;
+  color: #000;
+}
+
+.premium {
+  border: 2px solid #00c3ff;
+}
 </style>
 </head>
 
@@ -196,31 +252,40 @@ footer{
 
 <!-- PRICING -->
 <section class="container" id="pricing">
-<h2>Pricing</h2>
+<h2>🔥 Our Creative Pricing</h2>
+
 <div class="grid">
 
 <div class="card">
-<h3>Thumbnail</h3>
-<p>₹99</p>
-<button class="btn" onclick="add('Thumbnail ₹99')">Add</button>
+<div class="icon"><i class="fas fa-image"></i></div>
+<h3>Thumbnail Design</h3>
+<p class="tagline">Eye-catching YouTube thumbnails 🚀</p>
+<p class="price">₹99</p>
+<button class="btn" onclick="add('Thumbnail ₹99')">Get Now</button>
 </div>
 
 <div class="card">
+<div class="icon"><i class="fab fa-instagram"></i></div>
 <h3>Instagram Post / DP</h3>
-<p>₹49</p>
-<button class="btn" onclick="add('Instagram ₹49')">Add</button>
+<p class="tagline">Boost your Insta vibe 📸</p>
+<p class="price">₹49</p>
+<button class="btn" onclick="add('Instagram ₹49')">Get Now</button>
 </div>
 
 <div class="card">
+<div class="icon"><i class="fas fa-pen-nib"></i></div>
 <h3>Logo Design</h3>
-<p>₹149</p>
-<button class="btn" onclick="add('Logo ₹149')">Add</button>
+<p class="tagline">Unique brand identity 💎</p>
+<p class="price">₹149</p>
+<button class="btn" onclick="add('Logo ₹149')">Get Now</button>
 </div>
 
-<div class="card">
+<div class="card premium">
+<div class="icon"><i class="fas fa-laptop-code"></i></div>
 <h3>Website Designing</h3>
-<p>₹3499</p>
-<button class="btn" onclick="add('Website ₹3499')">Add</button>
+<p class="tagline">Modern & professional websites 🌐</p>
+<p class="price">₹3499</p>
+<button class="btn" onclick="add('Website ₹3499')">Start Project</button>
 </div>
 
 </div>
