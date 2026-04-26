@@ -3,322 +3,187 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NR Visuals</title>
+<title>NR Visuals | Premium Design Studio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins;}
-
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
 body{
-background:#0d1117 url('https://www.transparenttextures.com/patterns/cubes.png');
-color:#fff;
+  font-family:'Inter',sans-serif;
+  background:#050505;
+  color:#fff;
 }
 
-/* NAVBAR */
-.navbar{
-position:fixed;
-top:0;width:100%;
-display:flex;
-justify-content:space-between;
-padding:15px 30px;
-background:rgba(0,0,0,0.6);
-backdrop-filter:blur(10px);
-z-index:1000;
+/* LOADER */
+#loader{
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+  font-family:Poppins;
+  font-size:25px;
 }
 
-.navbar ul{
-display:flex;
-list-style:none;
+/* NAV */
+nav{
+  position:sticky;top:0;
+  background:rgba(0,0,0,0.7);
+  backdrop-filter:blur(10px);
+  padding:15px;
+  display:flex;
+  justify-content:space-between;
 }
 
-.navbar li{margin:0 10px;}
-.navbar a{
-color:#fff;text-decoration:none;font-size:14px;
-}
-.navbar a:hover{color:#00c6ff;}
+nav a{color:#fff;text-decoration:none;margin-left:15px;}
 
-/* HERO */
-.hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.9));
-}
+.container{max-width:1100px;margin:auto;padding:60px 20px;}
 
-.logo{width:150px;margin-bottom:10px;}
+h1,h2,h3{font-family:Poppins;}
 
 .btn{
-background:linear-gradient(45deg,#6a5cff,#00c6ff);
-padding:12px 25px;
-border:none;border-radius:25px;
-color:#fff;cursor:pointer;
-margin-top:10px;
-box-shadow:0 0 20px rgba(0,198,255,0.5);
+  background:#00bfff;
+  padding:12px 25px;
+  border-radius:8px;
+  text-decoration:none;
+  color:#000;
+  font-weight:bold;
 }
 
-/* SECTION */
-.section{padding:80px 20px;text-align:center;}
+/* HERO */
+.hero{text-align:center;padding:100px 20px;}
+.hero h1{font-size:42px;}
+.hero p{color:#aaa;margin:15px 0;}
 
+/* GRID */
 .grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
 }
 
 /* CARD */
 .card{
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(12px);
-padding:20px;border-radius:20px;
-border:1px solid rgba(255,255,255,0.1);
-transition:.3s;
+  background:rgba(255,255,255,0.05);
+  padding:20px;
+  border-radius:15px;
+  transition:0.3s;
 }
-.card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 20px rgba(0,198,255,0.4);
+.card:hover{transform:translateY(-10px);}
+
+/* FORM */
+input,select,textarea{
+  width:100%;
+  padding:10px;
+  margin:8px 0;
+  border:none;
+  border-radius:5px;
 }
 
-/* CART */
-.cart-box{
-max-width:500px;margin:auto;
-background:#111;padding:20px;border-radius:20px;
-text-align:left;
+form button{
+  width:100%;
+  padding:12px;
+  background:#00bfff;
+  border:none;
+  font-weight:bold;
 }
 
-.cart-item{
-display:flex;
-justify-content:space-between;
-background:#1a1a1a;
-padding:10px;
-border-radius:10px;
-margin-bottom:10px;
+/* WHATSAPP */
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  padding:15px;
+  border-radius:50%;
+  text-decoration:none;
+  color:#fff;
+  font-size:20px;
 }
 
-.total{
-text-align:right;
-font-size:18px;
-color:#00c6ff;
-}
-
-/* PAYMENT */
-.payment{text-align:center;}
-.payment img{width:60px;margin:5px;}
-
-/* POPUP */
-.popup{
-position:fixed;
-top:0;left:0;width:100%;height:100%;
-background:rgba(0,0,0,0.8);
-display:none;
-justify-content:center;
-align-items:center;
-}
-.popup-box{
-background:#111;padding:20px;border-radius:15px;
-}
-
-/* LOADER */
-.loader{display:none;text-align:center;}
-.circle{
-width:40px;height:40px;
-border:5px solid #333;
-border-top:5px solid #00c6ff;
-border-radius:50%;
-animation:spin 1s linear infinite;
-margin:auto;
-}
-@keyframes spin{100%{transform:rotate(360deg);}}
-
-/* SUCCESS */
-.success{display:none;color:#00ff88;text-align:center;}
-
-/* FOOTER */
-.footer{
-background:#000;
-padding:20px;
-text-align:center;
-color:#aaa;
-}
-.footer a{color:#00c6ff;text-decoration:none;}
 </style>
 </head>
 
 <body>
 
+<!-- LOADER -->
+<div id="loader">NR Visuals Loading...</div>
+
 <!-- NAV -->
-<div class="navbar">
-<h3>NR</h3>
-<ul>
-<li><a href="#">Home</a></li>
-<li><a href="#services">Services</a></li>
-<li><a href="#plans">Plans</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-</div>
+<nav>
+  <h3>NR Visuals</h3>
+  <div>
+    <a href="#services">Services</a>
+    <a href="#order">Order</a>
+  </div>
+</nav>
 
 <!-- HERO -->
 <section class="hero">
-<img src="logo.png" class="logo">
-<h1>NR Visuals</h1>
-<p>Premium Graphic Design • 200+ Clients</p>
-<button onclick="scrollToSection('plans')" class="btn">Start Order</button>
+  <h1>Premium Graphic Design</h1>
+  <p>High quality thumbnails, posters & social media designs</p>
+  <a href="#order" class="btn">Place Order</a>
 </section>
 
 <!-- SERVICES -->
-<section id="services" class="section">
+<section class="container" id="services">
 <h2>Services</h2>
 <div class="grid">
-<div class="card">Poster Design</div>
-<div class="card">Thumbnail</div>
-<div class="card">Reel Cover</div>
-<div class="card">Banner</div>
-<div class="card">DP Design</div>
-<div class="card">Custom Design</div>
+<div class="card">YouTube Thumbnails (1280×720)</div>
+<div class="card">Instagram Designs (1080×1080)</div>
+<div class="card">Poster Designs (A4/A3)</div>
 </div>
 </section>
 
-<!-- PLANS -->
-<section id="plans" class="section">
-<h2>Plans</h2>
-<div class="grid">
-<div class="card"><h3>₹79</h3><button onclick="addToCart('Starter',79)" class="btn">Add</button></div>
-<div class="card"><h3>₹99</h3><button onclick="addToCart('Creator',99)" class="btn">Add</button></div>
-<div class="card"><h3>₹149</h3><button onclick="addToCart('Pro',149)" class="btn">Add</button></div>
-<div class="card"><h3>₹199</h3><button onclick="addToCart('Elite',199)" class="btn">Add</button></div>
-</div>
-</section>
+<!-- ORDER FORM -->
+<section class="container" id="order">
+<h2>Place Your Order</h2>
 
-<!-- MEMBERSHIP -->
-<section class="section">
-<h2>Membership</h2>
-<div class="grid">
-<div class="card"><h3>30 Days ₹499</h3><button onclick="addToCart('30 Days',499)" class="btn">Join</button></div>
-<div class="card"><h3>60 Days ₹899</h3><button onclick="addToCart('60 Days',899)" class="btn">Best</button></div>
-</div>
-</section>
+<form onsubmit="sendWhatsApp(); return false;">
+<input type="text" id="name" placeholder="Your Name" required>
+<select id="service">
+<option>YouTube Thumbnail</option>
+<option>Instagram Post</option>
+<option>Poster</option>
+</select>
+<textarea id="details" placeholder="Describe your design..." required></textarea>
+<input type="file" id="file">
+<button type="submit">Send Order</button>
+</form>
 
-<!-- CART -->
-<section class="section">
-<h2>Your Cart</h2>
-<div class="cart-box">
-<div id="cartItems"></div>
-<div class="total">Total: ₹<span id="total">0</span></div>
-
-<div class="payment">
-<p>UPI: roynabanit5@oksbi</p>
-
-<img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Google_Pay_%28GPay%29_Logo.svg">
-<img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/PhonePe_Logo.svg">
-<img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Paytm_logo.png">
-
-<button onclick="payNow()" class="btn">Pay Now</button>
-<button onclick="openPopup()" class="btn">Confirm Order</button>
-
-<div class="loader" id="loader">
-<div class="circle"></div>
-<p>Processing...</p>
-</div>
-
-<div class="success" id="success">
-<p>✅ Order Confirmed</p>
-</div>
-
-</div>
-</div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="section">
-<h2>Contact</h2>
-<p><b>Nabanit Roy</b></p>
-<p>📞 7630076047</p>
-<p>📧 roynabanit5@gmail.com</p>
-<a href="https://wa.me/917630076047" class="btn">WhatsApp</a>
 </section>
 
 <!-- FOOTER -->
-<div class="footer">
-<p>© 2026 NR Visuals</p>
-<p>
-Instagram:
-<a href="https://www.instagram.com/nabanit._/?igsh=YzFqMGd1YmkydjBq">@nabanit._</a>
-</p>
+<div class="container">
+<p style="text-align:center;">© 2026 NR Visuals</p>
 </div>
 
-<!-- POPUP -->
-<div class="popup" id="popup">
-<div class="popup-box">
-<p>Confirm your order?</p>
-<button onclick="confirmOrder()" class="btn">Yes</button>
-<button onclick="closePopup()" class="btn">Cancel</button>
-</div>
-</div>
+<!-- WHATSAPP -->
+<a href="https://wa.me/917630076047" class="whatsapp">💬</a>
 
 <script>
-let cart=[];
 
-function scrollToSection(id){
-document.getElementById(id).scrollIntoView({behavior:"smooth"});
+/* LOADER */
+window.onload = () => {
+  document.getElementById("loader").style.display="none";
+};
+
+/* WHATSAPP AUTO MESSAGE */
+function sendWhatsApp(){
+  let name=document.getElementById("name").value;
+  let service=document.getElementById("service").value;
+  let details=document.getElementById("details").value;
+
+  let msg=`Hello, I want to order:\nName: ${name}\nService: ${service}\nDetails: ${details}`;
+  let url=`https://wa.me/917630076047?text=${encodeURIComponent(msg)}`;
+  
+  window.open(url,'_blank');
 }
 
-function addToCart(name,price){
-cart.push({name,price});
-updateCart();
-}
-
-function updateCart(){
-let items=document.getElementById("cartItems");
-let total=0;
-items.innerHTML="";
-
-cart.forEach(i=>{
-total+=i.price;
-items.innerHTML+=`<div class="cart-item"><span>${i.name}</span><span>₹${i.price}</span></div>`;
-});
-
-document.getElementById("total").innerText=total;
-}
-
-function payNow(){
-let total=document.getElementById("total").innerText;
-window.open(`upi://pay?pa=roynabanit5@oksbi&pn=NRVisuals&am=${total}&cu=INR`);
-}
-
-function openPopup(){
-if(cart.length===0){alert("Cart empty");return;}
-document.getElementById("popup").style.display="flex";
-}
-
-function closePopup(){
-document.getElementById("popup").style.display="none";
-}
-
-function confirmOrder(){
-closePopup();
-document.getElementById("loader").style.display="block";
-
-setTimeout(()=>{
-document.getElementById("loader").style.display="none";
-document.getElementById("success").style.display="block";
-
-let total=document.getElementById("total").innerText;
-
-let msg="NR Visuals Order:%0A";
-cart.forEach(i=>{
-msg+=`${i.name} - ₹${i.price}%0A`;
-});
-msg+=`Total: ₹${total}%0AI have paid`;
-
-setTimeout(()=>{
-window.location.href=`https://wa.me/917630076047?text=${msg}`;
-},2000);
-
-},2000);
-}
 </script>
 
 </body>
