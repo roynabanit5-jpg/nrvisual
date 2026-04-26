@@ -219,6 +219,61 @@ footer{
 .btn.insta{
   background:#E1306C;
 }
+  /* PROFILE IMAGE */
+.profile-img{
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  margin-bottom:10px;
+}
+
+/* CARD */
+.contact-card{
+  background:#fff;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  max-width:400px;
+  margin:auto;
+  text-align:center;
+  transition:0.3s;
+}
+
+/* HOVER EFFECT 🔥 */
+.contact-card:hover{
+  transform:translateY(-10px);
+}
+
+/* TEXT */
+.tagline{
+  color:#777;
+  font-size:14px;
+  margin-bottom:15px;
+}
+
+.contact-info p{
+  margin:10px 0;
+}
+
+/* BUTTONS */
+.contact-buttons{
+  margin-top:15px;
+  display:flex;
+  justify-content:center;
+  gap:10px;
+}
+
+.btn{
+  padding:10px 15px;
+  border-radius:8px;
+  text-decoration:none;
+  color:#fff;
+  font-weight:600;
+}
+
+/* COLORS */
+.btn.wa{ background:#25D366; }
+.btn.insta{ background:#E1306C; }
 </style>
 </head>
 
@@ -394,36 +449,52 @@ footer{
 
 <div class="contact-card">
 
-  <p><i class="fa fa-user"></i> Nabanit Roy</p>
+  <!-- PROFILE -->
+  <img src="logo.png" class="profile-img">
 
-  <p>
-    <i class="fa fa-envelope"></i> 
-    <a href="mailto:roynabanit5@gmail.com">roynabanit5@gmail.com</a>
-  </p>
+  <h3>Nabanit Roy</h3>
+  <p class="tagline">Graphic Designer • NR Visuals</p>
 
-  <p>
-    <i class="fab fa-whatsapp"></i> 
-    <a href="https://wa.me/917630076047?text=Hello%20NR%20Visuals" target="_blank">
-      Chat on WhatsApp
-    </a>
-  </p>
+  <div class="contact-info">
 
-  <p><i class="fa fa-money-bill"></i> UPI: roynabanit5@oksbi</p>
+    <p>
+      <i class="fa fa-envelope"></i>
+      <a href="mailto:roynabanit5@gmail.com">roynabanit5@gmail.com</a>
+    </p>
 
-  <p>
-    <i class="fab fa-instagram"></i> 
-    <a href="https://www.instagram.com/nrvisuals.design" target="_blank">
-      @nrvisuals.design
-    </a>
-  </p>
+    <p>
+      <i class="fab fa-whatsapp"></i>
+      <a href="https://wa.me/917630076047?text=Hello%20NR%20Visuals" target="_blank">
+        Chat on WhatsApp
+      </a>
+    </p>
 
+    <p>
+      <i class="fab fa-instagram"></i>
+      <a href="https://www.instagram.com/nrvisuals.design" target="_blank">
+        @nrvisuals.design
+      </a>
+    </p>
+
+    <p><i class="fa fa-money-bill"></i> UPI: roynabanit5@oksbi</p>
+
+  </div>
+
+  <!-- BUTTONS -->
   <div class="contact-buttons">
-    <a href="https://wa.me/917630076047" target="_blank" class="btn wa">WhatsApp</a>
-    <a href="https://www.instagram.com/nrvisuals.design" target="_blank" class="btn insta">Instagram</a>
+    <a href="https://wa.me/917630076047?text=Hello%20I%20want%20to%20order" target="_blank" class="btn wa">
+      <i class="fab fa-whatsapp"></i> Order Now
+    </a>
+
+    <a href="https://www.instagram.com/nrvisuals.design" target="_blank" class="btn insta">
+      <i class="fab fa-instagram"></i> Follow
+    </a>
   </div>
 
 </div>
 </section>
+
+  <div class="contact-button
 
 <!-- ORDER FORM -->
 <section class="container">
@@ -484,6 +555,12 @@ function scrollToPricing(){
   document.getElementById("pricing").scrollIntoView();
 }
 </script>
+<a href="https://wa.me/917630076047" class="wa-float" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
 
+<a href="https://www.instagram.com/nrvisuals.design" class="insta-float" target="_blank">
+  <i class="fab fa-instagram"></i>
+</a>
 </body>
 </html>
