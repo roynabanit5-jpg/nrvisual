@@ -179,6 +179,29 @@ footer{
 .premium {
   border: 2px solid #00c3ff;
 }
+  ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+ul li {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.popular {
+  border: 2px solid #00c3ff;
+  transform: scale(1.05);
+}
+
+.popular::before {
+  content: "🔥 Most Popular";
+  display: block;
+  margin-bottom: 10px;
+  color: #00c3ff;
+  font-size: 12px;
+}
 </style>
 </head>
 
@@ -295,38 +318,50 @@ footer{
 <section class="container" id="membership">
 <h2>Membership</h2>
 <div class="grid">
+  <div class="card">
+<h3>Starter Creator 🚀</h3>
+<p class="price">₹299/month</p>
+<p class="tagline">Best for beginners starting out</p>
 
-<div class="card">
-<h3>Part Time Creator</h3>
-<p>₹299/month</p>
-<p>Perfect for beginners starting their journey 🚀</p>
-<p>• 5 Designs / month</p>
-<p>• Basic edits included</p>
-<p>• Fast delivery</p>
-<button class="btn" onclick="add('Part Time Creator ₹299')">Add</button>
+<ul>
+<li>5 Designs / month</li>
+<li>Basic edits included</li>
+<li>48hr delivery</li>
+</ul>
+
+<button class="btn" onclick="add('Starter ₹299')">Get Started</button>
 </div>
 
-<div class="card">
-<h3>Creator</h3>
-<p>₹599/month</p>
-<p>For growing creators who need consistency 📈</p>
-<p>• 12 Designs / month</p>
-<p>• Priority support</p>
-<p>• Custom style options</p>
-<button class="btn" onclick="add('Creator ₹599')">Add</button>
+
+<div class="card popular">
+<h3>Growth Creator 📈</h3>
+<p class="price">₹599/month</p>
+<p class="tagline">For consistent content creators</p>
+
+<ul>
+<li>12 Designs / month</li>
+<li>Priority support</li>
+<li>Custom styles</li>
+</ul>
+
+<button class="btn" onclick="add('Growth ₹599')">Most Popular</button>
 </div>
 
-<div class="card">
-<h3>Influencer / Agency</h3>
-<p>₹1999/month</p>
-<p>For brands & influencers who want premium results 💎</p>
-<p>• Unlimited Designs</p>
-<p>• Premium quality + strategy</p>
-<p>• 24/7 priority support</p>
-<button class="btn" onclick="add('Agency ₹1999')">Add</button>
+
+<div class="card premium">
+<h3>Pro Influencer 💎</h3>
+<p class="price">₹1999/month</p>
+<p class="tagline">For brands & agencies</p>
+
+<ul>
+<li>Unlimited Designs</li>
+<li>Premium quality</li>
+<li>24/7 priority support</li>
+</ul>
+
+<button class="btn" onclick="add('Pro ₹1999')">Go Premium</button>
 </div>
 
-</div>
 </section>
 
 <!-- ORDER -->
