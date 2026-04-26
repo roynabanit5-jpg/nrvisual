@@ -10,109 +10,13 @@
 
 <style>
 
-  .nav-links a{
-  position:relative;
-  padding:5px 10px;
-  transition:0.3s;
-}
-
-:root {
-  --primary: #00B7FF;
-  --primary-dark: #0288D1;
-  --bg-gradient: linear-gradient(135deg, #B3E5FC, #4FC3F7, #0288D1);
-  --card-bg: #111827;
-  --text-main: #ffffff;
-  --text-secondary: #cbd5e1;
-  --border-glow: rgba(0, 183, 255, 0.2);
-}
+/* GLOBAL */
 body {
-  background: var(--bg-gradient);
-  color: #000; /* BLACK text */
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #B3E5FC, #4FC3F7, #0288D1);
+  color: #111; /* MAIN TEXT BLACK */
 }
-
-
-/* NAV */
-nav a{
-  text-decoration:none;
-  color:#111; /* FIX: was too light */
-}
-
-/* HERO */
-.hero p{
-  color:#333;
-}
-
-/* CARDS (keep white for classy look) */
-.card{
-  background:#fff;
-  padding:20px;
-  border-radius:10px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.08);
-  transition:0.3s;
-}
-
-.card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 10px 25px rgba(0,0,0,0.15);
-}
-
-/* BUTTON */
-.btn{
-  padding:12px 25px;
-  background: linear-gradient(135deg, #00B7FF, #0288D1);
-  color:#fff;
-  border-radius:8px;
-  border:none;
-  cursor:pointer;
-  transition:0.3s;
-}
-
-.btn:hover{
-  transform:scale(1.05);
-}
-
-/* SERVICE ICON */
-.service-card i{
-  color:#0288D1;
-}
-
-/* CONTACT CARD */
-.contact-card{
-  background:#fff;
-  padding:30px;
-  border-radius:20px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.1);
-}
-
-/* FIX TEXT COLORS */
-.service-card p,
-.tagline{
-  color:#555;
-}
-
-/* FIX CART BUG */
-.cart{
-  position:absolute;
-  top:20px;
-  left:20px;
-}
-body {
-  background: var(--bg-gradient);
-  color: var(--text-main);
-}
-
-.card {
-  background: var(--card-bg);
-  border: 1px solid var(--border-glow);
-  border-radius: 15px;
-}
-
-button {
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-  color: white;
-  border-radius: 10px;
-}
-
 
 /* NAV */
 nav{
@@ -121,6 +25,11 @@ nav{
   align-items:center;
   padding:20px;
   position:relative;
+}
+
+nav a{
+  text-decoration:none;
+  color:#111;
 }
 
 .logo{
@@ -153,45 +62,6 @@ nav{
   gap:25px;
 }
 
-nav a{
-  text-decoration:none;
-  color:#444;
-}
-/* 🔥 PAYMENT BOX */
-.pay-box{
-  display:flex;
-  gap:15px;
-  justify-content:center;
-  margin-top:10px;
-}
-
-.pay-box button{
-  padding:10px 15px;
-  border:none;
-  background:#111;
-  color:#fff;
-  border-radius:8px;
-  cursor:pointer;
-}
-/* MOBILE */
-@media(max-width:768px){
-  .menu-icon{display:block;}
-
-  .nav-links{
-    top:70px;
-    right:20px;
-    flex-direction:column;
-    background:#fff;
-    padding:20px;
-    border-radius:10px;
-    display:none;
-    gap:18px;
-    box-shadow:0 5px 10px rgba(0,0,0,0.1);
-  }
-
-  .nav-links.active{display:flex;}
-}
-
 /* HERO */
 .hero{
   text-align:center;
@@ -202,15 +72,24 @@ nav a{
   font-size:40px;
 }
 
-.hero p{margin:15px 0;color:#555;}
+.hero p{
+  margin:15px 0;
+  color:#333;
+}
 
+/* BUTTON */
 .btn{
   padding:12px 25px;
-  background:#111;
+  background: linear-gradient(135deg, #00B7FF, #0288D1);
   color:#fff;
   border-radius:8px;
   border:none;
   cursor:pointer;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.05);
 }
 
 /* SECTION */
@@ -226,21 +105,26 @@ nav a{
   gap:25px;
 }
 
+/* CARD */
 .card{
   background:#fff;
   padding:20px;
-  border-radius:10px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.05);
+  border-radius:12px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
 }
 
 /* CART */
-..cart{
+.cart{
   position:absolute;
   top:20px;
   left:20px;
 }
-
-
 
 /* FORM */
 input,select,textarea{
@@ -248,7 +132,8 @@ input,select,textarea{
   padding:10px;
   margin:10px 0;
 }
-/* 🔥 SERVICE CARD UPGRADE */
+
+/* SERVICE */
 .service-card{
   text-align:center;
   padding:30px 20px;
@@ -258,73 +143,35 @@ input,select,textarea{
 .service-card i{
   font-size:40px;
   margin-bottom:15px;
-  color:#111;
-}
-
-.service-card h3{
-  margin-bottom:10px;
+  color:#0288D1;
 }
 
 .service-card p{
-  color:#666;
-  font-size:14px;
+  color:#555;
 }
 
 .service-card:hover{
   transform:translateY(-8px);
-  box-shadow:0 10px 25px rgba(0,0,0,0.1);
 }
 
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:30px;
-  border-top:1px solid #ddd;
-}
-.contact-card{
-  background:#fff;
-  padding:25px;
-  border-radius:15px;
-  box-shadow:0 5px 20px rgba(0,0,0,0.08);
-  max-width:400px;
-  margin:auto;
-  text-align:center;
-}
-
-.contact-card p{
-  margin:10px 0;
-  font-size:16px;
-}
-
-.contact-card i{
-  margin-right:8px;
-  color:#111;
-}
-
-/* buttons */
-.contact-buttons{
-  margin-top:15px;
+/* PAYMENT */
+.pay-box{
   display:flex;
+  gap:15px;
   justify-content:center;
-  gap:10px;
+  margin-top:10px;
 }
 
-.btn.wa{
-  background:#25D366;
+.pay-box button{
+  padding:10px 15px;
+  border:none;
+  background:#111;
+  color:#fff;
+  border-radius:8px;
+  cursor:pointer;
 }
 
-.btn.insta{
-  background:#E1306C;
-}
-  /* PROFILE IMAGE */
-.profile-img{
-  width:80px;
-  height:80px;
-  border-radius:50%;
-  margin-bottom:10px;
-}
-
-/* CARD */
+/* CONTACT */
 .contact-card{
   background:#fff;
   padding:30px;
@@ -333,328 +180,38 @@ footer{
   max-width:400px;
   margin:auto;
   text-align:center;
-  transition:0.3s;
 }
 
-/* HOVER EFFECT 🔥 */
-.contact-card:hover{
-  transform:translateY(-10px);
-}
-
-/* TEXT */
 .tagline{
-  color:#777;
-  font-size:14px;
-  margin-bottom:15px;
+  color:#666;
 }
 
-.contact-info p{
-  margin:10px 0;
-}
-
-/* BUTTONS */
-.contact-buttons{
-  margin-top:15px;
-  display:flex;
-  justify-content:center;
-  gap:10px;
-}
-
-.btn{
-  padding:10px 15px;
-  border-radius:8px;
-  text-decoration:none;
-  color:#fff;
-  font-weight:600;
-}
-
-/* COLORS */
+/* BUTTON COLORS */
 .btn.wa{ background:#25D366; }
 .btn.insta{ background:#E1306C; }
+
+/* MOBILE */
+@media(max-width:768px){
+  .menu-icon{display:block;}
+
+  .nav-links{
+    top:70px;
+    right:20px;
+    flex-direction:column;
+    background:#fff;
+    padding:20px;
+    border-radius:10px;
+    display:none;
+  }
+
+  .nav-links.active{display:flex;}
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+}
+
 </style>
 </head>
-
-<body>
-
-<!-- NAV -->
-<nav>
-
-
-  
-<!-- 🛒 LEFT CART -->
-
- <div class="cart">
-  🛒 <span id="cartCount">0</span>
- </div>
-
-<!-- 🔥 CENTER LOGO -->
-<div class="logo">
-  <img src="logo.png" class="logo-img">
-  NR Visuals
-</div>
-
-<!-- RIGHT SIDE -->
-<div style="position:absolute; right:20px; display:flex; align-items:center; gap:15px;">
-
-  <div class="nav-links" id="navLinks">
-    <a href="#services">Services</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#membership">Membership</a>
-    <a href="#contact">Contact</a>
-  </div>
-
-  <div class="menu-icon" onclick="toggleMenu()">
-    <i class="fas fa-bars"></i>
-  </div>
-
-</div>
-
-</nav>
-
-
-
-<!-- HERO -->
-<section class="hero">
-<h1>Designs That Grow Your Brand</h1>
-<p>High-quality thumbnails, posters, social media designs & Website design for any brand / restaurant</p>
-<button class="btn" onclick="scrollToPricing()">Get Started</button>
-</section>
-
-<!-- SERVICES -->
-<section class="container" id="services">
-<h2>Services</h2>
-<div class="card service-card">
-  <i class="fas fa-play-circle"></i>
-  <h3>YouTube Thumbnails</h3>
-  <p>High CTR thumbnail designs</p>
-</div>
-
-<div class="card service-card">
-  <i class="fab fa-instagram"></i>
-  <h3>Instagram Designs</h3>
-  <p>Posts, reels & branding</p>
-</div>
-
-<div class="card service-card">
-  <i class="fas fa-image"></i>
-  <h3>Posters</h3>
-  <p>Creative digital posters</p>
-</div>
-
-  <div class="card service-card">
-  <i class="fab fa-google"></i>
-  <h3>Website</h3>
-  <p>Creative Website Design for any brand</p>
-  </div>
-  
-<!-- REGULAR PRICING -->
-<section class="container" id="pricing">
-<h2>Pricing</h2>
-<div class="grid">
-
-<div class="card">
-<h3>Youtube Video Thumbnail📌</h3>
-<p>₹99</p>
-<button class="btn" onclick="addToCart('Youtube Video Thumbnail ₹99')">Add</button>
-</div>
-
-<div class="card">
-<h3>Instagram Post each / DP edit</h3>
-<p>₹49</p>
-<button class="btn" onclick="addToCart('Instagram post edit each / DP edit ₹49')">Add</button>
-</div>
-
-<div class="card">
-<h3>Buisness / Startup Logo Design</h3>
-<p>₹149</p>
-<button class="btn" onclick="addToCart('Buisness / Startup Logo Design ₹149')">Add</button>
-</div>
-
-<div class="card">
-<h3>Website Designing</h3>
-<p>₹2499</p>
-<button class="btn" onclick="addToCart('Website Designing esigning ₹2499')">Add</button>
-</div>  
-  
-</section>
-
-<!-- MEMBERSHIP PLAN -->
-<section class="container" id="membership">
-<h2>Membership</h2>
-<div class="grid">
-
-<div class="card">
-<h3>Creator</h3>
-<p>₹299/month</p>
-<button class="btn" onclick="addToCart('Creator ₹299')">Add</button>
-</div>
-
-<div class="card">
-<h3>Part time CREATOR</h3>
-<p>₹599/month</p>
-<button class="btn" onclick="addToCart('Part time CREATOR ₹599')">Add</button>
-</div>
-
-<div class="card">
-<h3>INFLUENCER / Agency</h3>
-<p>₹1999/month</p>
-<button class="btn" onclick="addToCart('INFLUENCER / Agency ₹1999')">Add</button>
-</div>
-
-</div>
-</section>
-
-<!-- PORTFOLIO -->
-<section class="container">
-<h2>Portfolio</h2>
-<div class="grid">
-<img src="https://via.placeholder.com/300x200">
-<img src="https://via.placeholder.com/300x200">
-<img src="https://via.placeholder.com/300x200">
-</div>
-</section>
-
-<!-- CHECKOUT -->
-<section class="container">
-<h2>Checkout</h2>
-
-<button class="btn" onclick="checkout()">Order on WhatsApp</button>
-
-<br><br>
-
-<h3>Payment Accepted Through (UPI)</h3>
-
-<div class="pay-box">
-
-  <button onclick="payUPI()">
-    <i class="fab fa-google"></i> GPay
-  </button>
-
-  <button onclick="payUPI()">
-    <i class="fas fa-wallet"></i> Paytm
-  </button>
-
-  <button onclick="payUPI()">
-    <i class="fas fa-mobile-alt"></i> PhonePe
-  </button>
-
-</div>
-
-</section>
-
-<!-- CONTACT -->
-<section class="container" id="contact">
-<h2>Contact Me</h2>
-
-<div class="contact-card">
-
-  <!-- PROFILE -->
-  <img src="logo.png" class="profile-img">
-
-  <h3>Nabanit Roy</h3>
-  <p class="tagline">Graphic Designer • NR Visuals</p>
-
-  <div class="contact-info">
-
-    <p>
-      <i class="fa fa-envelope"></i>
-      <a href="mailto:roynabanit5@gmail.com">roynabanit5@gmail.com</a>
-    </p>
-
-    <p>
-      <i class="fab fa-whatsapp"></i>
-      <a href="https://wa.me/917630076047?text=Hello%20NR%20Visuals" target="_blank">
-        Chat on WhatsApp
-      </a>
-    </p>
-
-    <p>
-      <i class="fab fa-instagram"></i>
-      <a href="https://www.instagram.com/nrvisuals.design" target="_blank">
-        @nrvisuals.design
-      </a>
-    </p>
-
-    <p><i class="fa fa-money-bill"></i> UPI: roynabanit5@oksbi</p>
-
-  </div>
-
-  <!-- BUTTONS -->
-  <div class="contact-buttons">
-    <a href="https://wa.me/917630076047?text=Hello%20I%20want%20to%20order" target="_blank" class="btn wa">
-      <i class="fab fa-whatsapp"></i> Order Now
-    </a>
-
-    <a href="https://www.instagram.com/nrvisuals.design" target="_blank" class="btn insta">
-      <i class="fab fa-instagram"></i> Follow
-    </a>
-  </div>
-
-</div>
-</section>
-
-  <div class="contact-button
-
-<!-- ORDER FORM -->
-<section class="container">
-<h2>Place Order</h2>
-
-<form onsubmit="sendOrder(event)">
-<input id="name" placeholder="Name" required>
-<input id="phone" placeholder="Phone" required>
-<select id="service">
-<option>Website designing</option>
-<option>Youtube Thumbnail</option>
-<option>Instagram post / Dp</option>
-<option>Buisness / Startup Logo</option>
-</select>
-<input id="quantity" type="number" placeholder="Quantity">
-<textarea id="details" placeholder="Details"></textarea>
-<button class="btn">Send</button>
-</form>
-
-</section>
-
-  
-<footer>
-<p>Made with ❤️</p>
-<p>© 2026 NR Visuals</p>
-</footer>
-
-<script>
-let cart=[];
-
-function toggleMenu(){
-  document.getElementById("navLinks").classList.toggle("active");
-}
-
-function addToCart(item){
-  cart.push(item);
-  document.getElementById("cartCount").innerText=cart.length;
-  alert("Added ✅");
-}
-
-function checkout(){
-  if(cart.length===0){alert("Cart empty");return;}
-  let msg="Order:\n"+cart.join("\n");
-  window.open(`https://wa.me/917630076047?text=${encodeURIComponent(msg)}`);
-}
-
-function sendOrder(e){
-  e.preventDefault();
-  let msg=`Name: ${name.value}
-Phone: ${phone.value}
-Service: ${service.value}
-Qty: ${quantity.value}
-Details: ${details.value}`;
-  window.open(`https://wa.me/917630076047?text=${encodeURIComponent(msg)}`);
-}
-
-function scrollToPricing(){
-  document.getElementById("pricing").scrollIntoView();
-}
-</script>
-
-</a>
-</body>
-</html>
