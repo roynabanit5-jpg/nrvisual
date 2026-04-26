@@ -16,14 +16,33 @@
   transition:0.3s;
 }
 
-
-
-body{
-  font-family:'Poppins',sans-serif; 
-  background: linear-gradient(135deg, #b3e5fc, #4fc3f7, #0288d1);
-  min-height: 100vh;
-  }
+:root {
+  --primary: #00B7FF;
+  --primary-dark: #0288D1;
+  --bg-gradient: linear-gradient(135deg, #B3E5FC, #4FC3F7, #0288D1);
+  --card-bg: #111827;
+  --text-main: #ffffff;
+  --text-secondary: #cbd5e1;
+  --border-glow: rgba(0, 183, 255, 0.2);
 }
+
+body {
+  background: var(--bg-gradient);
+  color: var(--text-main);
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-glow);
+  border-radius: 15px;
+}
+
+button {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  border-radius: 10px;
+}
+
 
 /* NAV */
 nav{
