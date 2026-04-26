@@ -308,13 +308,69 @@ function sendOrder(e){
 ⏳ Deadline: ${deadline}
 
 Please confirm price.`;
+>
 
   let url = `https://wa.me/917630076047?text=${encodeURIComponent(msg)}`;
   window.open(url, "_blank");
 }
 </script>
+  <script>
+let cart = [];
+
+function addToCart(item){
+  cart.push(item);
+  document.getElementById("cartCount").innerText = cart.length;
+  alert(item + " added to cart ✅");
+}
+
+function checkout(){
+  if(cart.length===0){
+    alert("Cart is empty");
+    return;
+  }
+
+  let msg = `Hello NR Visuals 👋
+
+🧾 Order Details:
+${cart.join("\n")}
+
+Please confirm total price & payment.`;
+
+  let url = `https://wa.me/917630076047?text=${encodeURIComponent(msg)}`;
+  window.open(url,'_blank');
+}
+
+function sendOrder(e){
+  e.preventDefault();
+
+  let name = document.getElementById("name").value;
+  let phone = document.getElementById("phone").value;
+  let service = document.getElementById("service").value;
+  let quantity = document.getElementById("quantity").value;
+  let details = document.getElementById("details").value;
+  let deadline = document.getElementById("deadline").value;
+
+  let msg = `Hello NR Visuals 👋
+
+🧾 New Order
+
+👤 Name: ${name}
+📞 Phone: ${phone}
+
+🎨 Service: ${service}
+📦 Quantity: ${quantity}
+
+📝 Details: ${details}
+⏳ Deadline: ${deadline}
+
+Please confirm price.`;
+
+  let url = `https://wa.me/917630076047?text=${encodeURIComponent(msg)}`;
+  window.open(url, "_blank");
+}
+  </script>
 
 </script>
 
 </body>
-</html>
+</html
