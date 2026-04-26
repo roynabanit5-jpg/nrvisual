@@ -111,18 +111,34 @@ footer{
 
 </style>
 </head>
+ <head>
+  <style>
+    /* Paste your CSS here */
+    .menu {
+      display: none;
+      position: absolute;
+      top: 60px;
+      right: 10px;
+      background: white;
+      padding: 10px;
+    }
+  </style>
+  </head>
 
 <body>
 
 <!-- NAV -->
 <nav>
-  <div class="logo">NR Visuals</div>
-  <div>
-    <a href="#services">Services</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#membership">Membership</a>
-    <a href="#contact">Contact</a>
-  </div>
+  <div class="menu-icon" onclick="toggleMenu()">
+  ⋮
+</div>
+
+<ul id="menu" class="menu">
+  <li><a href="#">Services</a></li>
+  <li><a href="#">Pricing</a></li>
+  <li><a href="#">Membership</a></li>
+  <li><a href="#">Contact</a></li>
+</ul>
 </nav>
 
 <!-- CART -->
