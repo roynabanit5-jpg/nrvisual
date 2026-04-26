@@ -136,12 +136,40 @@ input,select,textarea{
   padding:10px;
   margin:10px 0;
 }
+/* 🔥 SERVICE CARD UPGRADE */
+.service-card{
+  text-align:center;
+  padding:30px 20px;
+  transition:0.3s;
+}
 
+.service-card i{
+  font-size:40px;
+  margin-bottom:15px;
+  color:#111;
+}
+
+.service-card h3{
+  margin-bottom:10px;
+}
+
+.service-card p{
+  color:#666;
+  font-size:14px;
+}
+
+.service-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* FOOTER */
 footer{
   text-align:center;
   padding:30px;
   border-top:1px solid #ddd;
 }
+
 </style>
 </head>
 
@@ -151,9 +179,10 @@ footer{
 <nav>
 
 <!-- 🛒 LEFT CART -->
-<div class="cart">
+
+ <div class="cart">
   🛒 <span id="cartCount">0</span>
-</div>
+ </div>
 
 <!-- 🔥 CENTER LOGO -->
 <div class="logo">
@@ -191,40 +220,51 @@ footer{
 <!-- SERVICES -->
 <section class="container" id="services">
 <h2>Services</h2>
-<div class="grid">
-<div class="card">YouTube Thumbnails</div>
-<div class="card">Instagram Designs</div>
-<div class="card">Posters</div>
+<div class="card service-card">
+  <i class="fas fa-play-circle"></i>
+  <h3>YouTube Thumbnails</h3>
+  <p>High CTR thumbnail designs</p>
 </div>
-</section>
 
-<!-- PRICING -->
+<div class="card service-card">
+  <i class="fab fa-instagram"></i>
+  <h3>Instagram Designs</h3>
+  <p>Posts, reels & branding</p>
+</div>
+
+<div class="card service-card">
+  <i class="fas fa-image"></i>
+  <h3>Posters</h3>
+  <p>Creative digital posters</p>
+</div>
+
+<!-- REGULAR PRICING -->
 <section class="container" id="pricing">
 <h2>Pricing</h2>
 <div class="grid">
 
 <div class="card">
-<h3>Thumbnail</h3>
+<h3>Youtube Video Thumbnail📌</h3>
 <p>₹49</p>
-<button class="btn" onclick="addToCart('Thumbnail ₹49')">Add</button>
+<button class="btn" onclick="addToCart('Youtube Video Thumbnail ₹89')">Add</button>
 </div>
 
 <div class="card">
-<h3>Instagram Post</h3>
+<h3>Instagram Post each / DP edit</h3>
 <p>₹49</p>
-<button class="btn" onclick="addToCart('Instagram ₹49')">Add</button>
+<button class="btn" onclick="addToCart('Instagram post edit each / DP edit ₹49')">Add</button>
 </div>
 
 <div class="card">
-<h3>Logo Design</h3>
+<h3>Buisness / Startup Logo Design</h3>
 <p>₹149</p>
-<button class="btn" onclick="addToCart('Logo ₹149')">Add</button>
+<button class="btn" onclick="addToCart('Buisness / Startup Logo Design ₹149')">Add</button>
 </div>
 
 </div>
 </section>
 
-<!-- MEMBERSHIP -->
+<!-- MEMBERSHIP PLAN -->
 <section class="container" id="membership">
 <h2>Membership</h2>
 <div class="grid">
@@ -236,15 +276,15 @@ footer{
 </div>
 
 <div class="card">
-<h3>Studio</h3>
+<h3>Part time CREATOR</h3>
 <p>₹599/month</p>
-<button class="btn" onclick="addToCart('Studio ₹599')">Add</button>
+<button class="btn" onclick="addToCart('Part time CREATOR ₹599')">Add</button>
 </div>
 
 <div class="card">
-<h3>Agency</h3>
+<h3>INFLUENCER / Agency</h3>
 <p>₹1999/month</p>
-<button class="btn" onclick="addToCart('Agency ₹1999')">Add</button>
+<button class="btn" onclick="addToCart('INFLUENCER / Agency ₹1999')">Add</button>
 </div>
 
 </div>
@@ -298,6 +338,7 @@ footer{
 </section>
 
 <footer>
+<p>Made with ❤️</p>
 <p>© 2026 NR Visuals</p>
 </footer>
 
