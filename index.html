@@ -122,11 +122,10 @@ nav a{
 }
 
 /* CART */
-.cart{
-  position:fixed;
+..cart{
+  position:absolute;
   top:20px;
-  left:90px;   /* perfect spacing from logo */
-  z-index:1000;
+  left:10px;
 }
 
 
@@ -151,20 +150,31 @@ footer{
 <!-- NAV -->
 <nav>
 
+<!-- 🛒 LEFT CART -->
+<div class="cart">
+  🛒 <span id="cartCount">0</span>
+</div>
+
+<!-- 🔥 CENTER LOGO -->
 <div class="logo">
   <img src="logo.png" class="logo-img">
   NR Visuals
 </div>
 
-<div class="menu-icon" onclick="toggleMenu()">
-  <i class="fas fa-bars"></i>
-</div>
+<!-- RIGHT SIDE -->
+<div style="position:absolute; right:20px; display:flex; align-items:center; gap:15px;">
 
-<div class="nav-links" id="navLinks">
-  <a href="#services">Services</a>
-  <a href="#pricing">Pricing</a>
-  <a href="#membership">Membership</a>
-  <a href="#contact">Contact</a>
+  <div class="nav-links" id="navLinks">
+    <a href="#services">Services</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#membership">Membership</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <div class="menu-icon" onclick="toggleMenu()">
+    <i class="fas fa-bars"></i>
+  </div>
+
 </div>
 
 </nav>
