@@ -8,6 +8,25 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
+  .main-heading{
+  font-family:'Poppins', sans-serif;
+  font-size:48px;
+  font-weight:800;
+  color:#00bfff;
+  text-align:center;
+  letter-spacing:2px;
+  text-shadow:0 0 10px #00bfff, 0 0 25px rgba(0,191,255,0.7);
+  animation:glowPulse 2s infinite alternate;
+}
+
+@keyframes glowPulse{
+  from{
+    text-shadow:0 0 8px #00bfff;
+  }
+  to{
+    text-shadow:0 0 25px #00bfff, 0 0 50px rgba(0,191,255,0.8);
+  }
+}
 *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
 
 body{
@@ -54,9 +73,7 @@ nav a{
   padding:60px 20px;
 }
 
-.hero{
-  text-align:center;
-  padding:100px 20px;
+<h1 class="main-heading">NR Visuals</h1>
 }
 
 .btn{
