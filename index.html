@@ -235,6 +235,35 @@ footer{
 <p>UPI: roynabanit5@oksbi</p>
 </section>
 
+  <!-- ORDER FORM -->
+  
+<section class="container" id="order">
+<h2>Place Your Order</h2>
+
+<form id="orderForm" onsubmit="sendOrder(event)">
+
+<input type="text" id="name" placeholder="Your Name" required style="width:100%;padding:10px;margin:10px 0;">
+
+<input type="text" id="phone" placeholder="WhatsApp Number" required style="width:100%;padding:10px;margin:10px 0;">
+
+<select id="service" required style="width:100%;padding:10px;margin:10px 0;">
+  <option value="">Select Service</option>
+  <option>YouTube Thumbnail</option>
+  <option>Instagram Post/DP</option>
+  <option>Logo Design</option>
+</select>
+
+<input type="number" id="quantity" placeholder="Quantity" required style="width:100%;padding:10px;margin:10px 0;">
+
+<textarea id="details" placeholder="Design details (text, theme, etc.)" style="width:100%;padding:10px;margin:10px 0;"></textarea>
+
+<input type="date" id="deadline" style="width:100%;padding:10px;margin:10px 0;">
+
+<button type="submit" class="btn">Send Order</button>
+
+</form>
+</section>
+  
 <!-- FOOTER -->
 <footer>
 <p>Made with ❤️</p>
@@ -242,6 +271,48 @@ footer{
 </footer>
 
 <script>
+
+  function checkout(){
+  if(cart.length===0){
+    alert("Cart is empty");
+    return;
+  }
+
+  let msg="Order:\n"+cart.join("\n");
+  let url=`https://wa.me/917630076047?text=${encodeURIComponent(msg)}`;
+  window.open(url,'_blank');
+}
+
+/* 🔥 PASTE HERE */
+function sendOrder(e){
+  e.preventDefault();
+
+  let name = document.getElementById("name").value;
+  let phone = document.getElementById("phone").value;
+  let service = document.getElementById("service").value;
+  let quantity = document.getElementById("quantity").value;
+  let details = document.getElementById("details").value;
+  let deadline = document.getElementById("deadline").value;
+
+  let msg = `Hello NR Visuals 👋
+
+🧾 New Order
+
+👤 Name: ${name}
+📞 Phone: ${phone}
+
+🎨 Service: ${service}
+📦 Quantity: ${quantity}
+
+📝 Details: ${details}
+⏳ Deadline: ${deadline}
+
+Please confirm price.`;
+
+  let url = `https://wa.me/917630076047?text=${encodeURIComponent(msg)}`;
+  window.open(url, "_blank");
+}
+</script>
 let cart=[];
 
 function addToCart(item){
