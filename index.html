@@ -9,11 +9,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
-  margin:0;
   font-family:'Poppins',sans-serif;
-  background: linear-gradient(135deg,#0b1120,#0288D1);
+  background:linear-gradient(135deg,#0b1120,#0288D1);
   color:#fff;
 }
 
@@ -22,56 +22,30 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:15px 20px;
-  flex-wrap:wrap;
+  padding:15px;
+  background:rgba(0,0,0,0.3);
+  backdrop-filter:blur(10px);
 }
 
-.logo{
-  font-weight:700;
-  font-size:18px;
-}
+.logo{font-weight:700;}
 
-/* NAV BUTTONS */
 .nav-links{
   display:flex;
+  gap:10px;
   flex-wrap:wrap;
-  gap:8px;
-  justify-content:center;
 }
 
 .nav-btn{
   padding:8px 12px;
+  background:rgba(255,255,255,0.1);
   border-radius:8px;
-  background: rgba(255,255,255,0.1);
   cursor:pointer;
-  font-size:14px;
-  transition:0.3s;
 }
 
+.nav-btn.active,
 .nav-btn:hover{
   background:#00B7FF;
   color:#000;
-}
-
-.nav-btn.active{
-  background:#fff;
-  color:#000;
-  font-weight:600;
-}
-
-/* ORDER BAR */
-.order-bar{
-  text-align:center;
-  padding:10px;
-}
-
-.order-bar button{
-  background:#00B7FF;
-  border:none;
-  padding:10px 20px;
-  border-radius:8px;
-  color:#000;
-  font-weight:600;
 }
 
 /* CART */
@@ -84,12 +58,21 @@ nav{
   padding:8px 12px;
   border-radius:20px;
   cursor:pointer;
-  z-index:1000;
 }
 
-/* PAGE SYSTEM */
-.page{display:none;}
-.active{display:block;}
+/* PAGE */
+.page{
+  display:none;
+  opacity:0;
+  transform:translateY(20px);
+  transition:0.4s;
+}
+
+.page.active{
+  display:block;
+  opacity:1;
+  transform:translateY(0);
+}
 
 /* HERO */
 .hero{
@@ -97,27 +80,23 @@ nav{
   padding:80px 20px;
 }
 
-.hero h1{
-  font-size:28px;
-}
-
 /* CONTAINER */
 .container{
   max-width:1100px;
   margin:auto;
-  padding:40px 15px;
+  padding:40px 20px;
 }
 
 /* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:15px;
+  gap:20px;
 }
 
 /* CARD */
 .card{
-  background:rgba(255,255,255,0.1);
+  background:rgba(255,255,255,0.08);
   padding:20px;
   border-radius:15px;
   text-align:center;
@@ -125,18 +104,20 @@ nav{
 }
 
 .card:hover{
-  transform:translateY(-5px);
+  transform:translateY(-8px);
+  box-shadow:0 10px 30px rgba(0,183,255,0.4);
 }
 
 /* BUTTON */
 .btn{
   margin-top:10px;
-  padding:8px 15px;
+  padding:10px 18px;
   border:none;
   background:#00B7FF;
   color:#000;
   border-radius:8px;
   cursor:pointer;
+  font-weight:600;
 }
 
 /* CONTACT */
@@ -150,23 +131,27 @@ nav{
   text-align:center;
 }
 
-.contact-card a{
-  color:#0288D1;
+.status{
+  color:#00ffcc;
+}
+
+/* FLOAT BUTTON */
+.float-btn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:#fff;
+  padding:15px;
+  border-radius:50%;
   text-decoration:none;
 }
 
-/* MOBILE FIX */
-@media(max-width:600px){
-  .hero h1{
-    font-size:22px;
-  }
-}
-
+/* FOOTER */
 footer{
   text-align:center;
   padding:20px;
 }
-
 </style>
 </head>
 
@@ -180,19 +165,13 @@ footer{
 <!-- NAV -->
 <nav>
 <div class="logo">NR Visuals</div>
-
 <div class="nav-links">
-<a class="nav-btn active" onclick="showPage('home', this)">Home</a>
-<a class="nav-btn" onclick="showPage('pricing', this)">Pricing</a>
-<a class="nav-btn" onclick="showPage('membership', this)">Membership</a>
-<a class="nav-btn" onclick="showPage('contact', this)">Contact</a>
+<a class="nav-btn active" onclick="showPage('home',this)">Home</a>
+<a class="nav-btn" onclick="showPage('pricing',this)">Pricing</a>
+<a class="nav-btn" onclick="showPage('membership',this)">Membership</a>
+<a class="nav-btn" onclick="showPage('contact',this)">Contact</a>
 </div>
 </nav>
-
-<!-- ORDER BUTTON -->
-<div class="order-bar">
-<button onclick="showPage('order')">Order Now</button>
-</div>
 
 <!-- HOME -->
 <div id="home" class="page active">
@@ -205,8 +184,7 @@ footer{
 <!-- PRICING -->
 <div id="pricing" class="page">
 <div class="container">
-<h2>Regular Plans</h2>
-
+<h2>Pricing</h2>
 <div class="grid">
 
 <div class="card">
@@ -240,8 +218,7 @@ footer{
 <!-- MEMBERSHIP -->
 <div id="membership" class="page">
 <div class="container">
-<h2>Membership Plans</h2>
-
+<h2>Membership</h2>
 <div class="grid">
 
 <div class="card">
@@ -270,10 +247,33 @@ footer{
 <div id="order" class="page">
 <div class="container">
 <h2>Your Order</h2>
-
 <ul id="cartList"></ul>
+<button class="btn" onclick="goToPayment()">Proceed to Payment</button>
+</div>
+</div>
 
-<button class="btn" onclick="checkout()">Send Order on WhatsApp</button>
+<!-- PAYMENT -->
+<div id="payment" class="page">
+<div class="container">
+<h2>Complete Payment</h2>
+
+<div class="grid">
+<div class="card"><h3>GPay</h3><button class="btn" onclick="payNow()">Pay</button></div>
+<div class="card"><h3>PhonePe</h3><button class="btn" onclick="payNow()">Pay</button></div>
+<div class="card"><h3>Paytm</h3><button class="btn" onclick="payNow()">Pay</button></div>
+</div>
+
+<p>UPI ID: roynabanit5@oksbi</p>
+
+</div>
+</div>
+
+<!-- SUCCESS -->
+<div id="success" class="page">
+<div class="container" style="text-align:center;">
+<h1>✅ Payment Successful</h1>
+<p>Your order is confirmed</p>
+<button class="btn" onclick="finalWhatsApp()">Send on WhatsApp</button>
 </div>
 </div>
 
@@ -284,71 +284,65 @@ footer{
 
 <div class="contact-card">
 <h3>Nabanit Roy</h3>
-<p>🚀 Available for freelance work</p>
-
+<p class="status">🟢 Available Now</p>
 <p>📧 roynabanit5@gmail.com</p>
-
-<p>
-<i class="fab fa-whatsapp"></i>
-<a href="https://wa.me/917630076047"> WhatsApp</a>
-</p>
-
-<p>
-<i class="fab fa-instagram"></i>
-<a href="https://instagram.com/nrvisuals.design"> @nrvisuals.design</a>
-</p>
-
+<p><i class="fab fa-whatsapp"></i> WhatsApp</p>
+<p><i class="fab fa-instagram"></i> @nrvisuals.design</p>
 </div>
 
 </div>
 </div>
 
 <footer>
-© 2026 NR Visuals. All rights reserved.
+© 2026 NR Visuals
 </footer>
 
-<script>
+<a href="https://wa.me/917630076047" class="float-btn">💬</a>
 
+<script>
 let cart=[];
 
-function showPage(pageId, el){
+function showPage(pageId,el){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById(pageId).classList.add('active');
 
   document.querySelectorAll('.nav-btn').forEach(btn=>btn.classList.remove('active'));
   if(el) el.classList.add('active');
 
-  if(pageId === 'order'){
-    displayCart();
-  }
+  if(pageId==='order') displayCart();
 }
 
 function addToCart(item){
   cart.push(item);
-  document.getElementById("cartCount").innerText = cart.length;
-  alert("Added to cart ✅");
+  document.getElementById("cartCount").innerText=cart.length;
+  alert("Added ✅");
 }
 
 function displayCart(){
-  let list = document.getElementById("cartList");
-  list.innerHTML = "";
+  let list=document.getElementById("cartList");
+  list.innerHTML="";
   cart.forEach(i=>{
-    let li = document.createElement("li");
-    li.innerText = i;
+    let li=document.createElement("li");
+    li.innerText=i;
     list.appendChild(li);
   });
 }
 
-function checkout(){
-  if(cart.length===0){
-    alert("Cart is empty");
-    return;
-  }
-
-  let msg = "Order:%0A" + cart.join("%0A");
-  window.open(`https://wa.me/917630076047?text=${msg}`);
+function goToPayment(){
+  if(cart.length===0){alert("Cart empty");return;}
+  showPage('payment');
 }
 
+function payNow(){
+  setTimeout(()=>{
+    showPage('success');
+  },1000);
+}
+
+function finalWhatsApp(){
+  let msg="Order:%0A"+cart.join("%0A");
+  window.open(`https://wa.me/917630076047?text=${msg}`);
+}
 </script>
 
 </body>
