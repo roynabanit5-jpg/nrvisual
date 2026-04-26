@@ -25,7 +25,78 @@
   --text-secondary: #cbd5e1;
   --border-glow: rgba(0, 183, 255, 0.2);
 }
+body {
+  background: linear-gradient(135deg, #B3E5FC, #4FC3F7, #0288D1);
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: #111; /* FIX: readable text */
+}
 
+/* NAV */
+nav a{
+  text-decoration:none;
+  color:#111; /* FIX: was too light */
+}
+
+/* HERO */
+.hero p{
+  color:#333;
+}
+
+/* CARDS (keep white for classy look) */
+.card{
+  background:#fff;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* BUTTON */
+.btn{
+  padding:12px 25px;
+  background: linear-gradient(135deg, #00B7FF, #0288D1);
+  color:#fff;
+  border-radius:8px;
+  border:none;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.05);
+}
+
+/* SERVICE ICON */
+.service-card i{
+  color:#0288D1;
+}
+
+/* CONTACT CARD */
+.contact-card{
+  background:#fff;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* FIX TEXT COLORS */
+.service-card p,
+.tagline{
+  color:#555;
+}
+
+/* FIX CART BUG */
+.cart{
+  position:absolute;
+  top:20px;
+  left:20px;
+}
 body {
   background: var(--bg-gradient);
   color: var(--text-main);
