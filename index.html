@@ -7,15 +7,12 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
- <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-  <script>
 
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
-  font-family: 'Poppins', sans-serif !important;
-}
+  font-family:'Poppins',sans-serif;
   background:#f9fafb;
   color:#111;
 }
@@ -23,8 +20,10 @@ body{
 /* NAV */
 nav{
   display:flex;
-  justify-content:space-between;
-  padding:20px 40px;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  position:relative;
 }
 
 .logo{
@@ -38,15 +37,47 @@ nav{
 .logo-img{
   width:35px;
   height:35px;
-  object-fit:cover;
   border-radius:6px;
 }
 
+/* MENU */
+.menu-icon{
+  position:absolute;
+  right:20px;
+  font-size:26px;
+  cursor:pointer;
+  display:none;
+}
+
+.nav-links{
+  position:absolute;
+  right:80px;
+  display:flex;
+  gap:25px;
+}
 
 nav a{
-  margin-left:20px;
   text-decoration:none;
   color:#444;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .menu-icon{display:block;}
+
+  .nav-links{
+    top:70px;
+    right:20px;
+    flex-direction:column;
+    background:#fff;
+    padding:20px;
+    border-radius:10px;
+    display:none;
+    gap:18px;
+    box-shadow:0 5px 10px rgba(0,0,0,0.1);
+  }
+
+  .nav-links.active{display:flex;}
 }
 
 /* HERO */
@@ -56,30 +87,25 @@ nav a{
 }
 
 .hero h1{
-  font-size:50px;
-  font-weight:700;
+  font-size:40px;
 }
 
-.hero p{
-  margin:15px 0;
-  color:#555;
-}
+.hero p{margin:15px 0;color:#555;}
 
 .btn{
-  display:inline-block;
   padding:12px 25px;
   background:#111;
   color:#fff;
   border-radius:8px;
-  text-decoration:none;
-  margin-top:15px;
+  border:none;
+  cursor:pointer;
 }
 
-/* SECTIONS */
+/* SECTION */
 .container{
   max-width:1100px;
   margin:auto;
-  padding:80px 20px;
+  padding:60px 20px;
 }
 
 .grid{
@@ -90,81 +116,33 @@ nav a{
 
 .card{
   background:#fff;
-  padding:25px;
-  border-radius:12px;
+  padding:20px;
+  border-radius:10px;
   box-shadow:0 5px 15px rgba(0,0,0,0.05);
-  transition:0.3s;
-}
-
-.card:hover{
-  transform:translateY(-8px);
-}
-
-/* PRICING */
-.price{
-  font-size:22px;
-  margin:10px 0;
 }
 
 /* CART */
 .cart{
   position:fixed;
   top:20px;
-  right:70px;
+  right:20px;
   background:#fff;
   padding:10px 15px;
   border-radius:20px;
   box-shadow:0 5px 10px rgba(0,0,0,0.1);
 }
 
-/* FOOTER */
+/* FORM */
+input,select,textarea{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+}
+
 footer{
   text-align:center;
   padding:30px;
   border-top:1px solid #ddd;
-}
-.menu-icon{
-  font-size:28px;
-  cursor:pointer;
-  display:none;
-  position:relative;
-  z-index:1100;
-}
-}
-
-.nav-links{
-  display:flex;
-  gap:20px;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-  .menu-icon{
-    display:block;
-  }
-
-.nav-links{
-  position:absolute;
-  top:70px;
-  right:20px;
-  background:#fff;
-  flex-direction:column;
-  padding:20px;
-  border-radius:10px;
-  display:none;
-  gap:15px;              /* 🔥 space between items */
-}
-  
-
-  .nav-links.active{
-    display:flex;
-  }
-}
-  }
-
-  .nav-links.active{
-    display:flex;
-  }
 }
 </style>
 </head>
@@ -173,21 +151,23 @@ footer{
 
 <!-- NAV -->
 <nav>
-  <div class="logo">
-    <img src="logo.png" class="logo-img">
-    NR Visuals
-  </div>
+
+<div class="logo">
+  <img src="logo.png" class="logo-img">
+  NR Visuals
+</div>
+
 <div class="menu-icon" onclick="toggleMenu()">
   <i class="fas fa-bars"></i>
 </div>
- <div class="nav-links" id="navLinks">
+
+<div class="nav-links" id="navLinks">
   <a href="#services">Services</a>
   <a href="#pricing">Pricing</a>
   <a href="#membership">Membership</a>
   <a href="#contact">Contact</a>
- </div>
+</div>
 
-  
 </nav>
 
 <!-- CART -->
@@ -195,31 +175,18 @@ footer{
 
 <!-- HERO -->
 <section class="hero">
-  <h1>Designs That Grow Your Brand</h1>
-  <p>High-quality thumbnails, posters & social media designs</p>
-  <a href="#pricing" class="btn">Get Started</a>
+<h1>Designs That Grow Your Brand</h1>
+<p>High-quality thumbnails, posters & social media designs</p>
+<button class="btn" onclick="scrollToPricing()">Get Started</button>
 </section>
 
 <!-- SERVICES -->
 <section class="container" id="services">
 <h2>Services</h2>
 <div class="grid">
-
-<div class="card">
-<h3>YouTube Thumbnails</h3>
-<p>High CTR designs for creators</p>
-</div>
-
-<div class="card">
-<h3>Instagram Designs</h3>
-<p>Posts, stories & branding</p>
-</div>
-
-<div class="card">
-<h3>Posters</h3>
-<p>Creative digital & print posters</p>
-</div>
-
+<div class="card">YouTube Thumbnails</div>
+<div class="card">Instagram Designs</div>
+<div class="card">Posters</div>
 </div>
 </section>
 
@@ -229,47 +196,47 @@ footer{
 <div class="grid">
 
 <div class="card">
-<h3> Youtube Thumbnail Normal</h3>
-<p class="price">₹49</p>
-<button class="btn" onclick="addToCart('Youtube Thumbnail Normal ₹99')">Add to Cart</button>
+<h3>Thumbnail</h3>
+<p>₹49</p>
+<button class="btn" onclick="addToCart('Thumbnail ₹49')">Add</button>
 </div>
 
 <div class="card">
-<h3>Instagram DP/ Post Edit each photo</h3>
-<p class="price">₹49</p>
-<button class="btn" onclick="addToCart('Instagram DP/ Post Edit each photo ₹89')">Add to Cart</button>
+<h3>Instagram Post</h3>
+<p>₹49</p>
+<button class="btn" onclick="addToCart('Instagram ₹49')">Add</button>
 </div>
 
 <div class="card">
-<h3>Buisness / Startup LOGO</h3>
-<p class="price">₹149</p>
-<button class="btn" onclick="addToCart('Buisness / Startup LOGO ₹149')">Add to Cart</button>
+<h3>Logo Design</h3>
+<p>₹149</p>
+<button class="btn" onclick="addToCart('Logo ₹149')">Add</button>
 </div>
 
 </div>
 </section>
 
-<!-- MEMBERSHIP PLANS -->
+<!-- MEMBERSHIP -->
 <section class="container" id="membership">
-<h2>Membership Plans</h2>
+<h2>Membership</h2>
 <div class="grid">
 
 <div class="card">
-<h3>CREATOR</h3>
-<p class="price">₹299/month</p>
-<button class="btn" onclick="addToCart('CREATOR ₹299')">Add</button>
+<h3>Creator</h3>
+<p>₹299/month</p>
+<button class="btn" onclick="addToCart('Creator ₹299')">Add</button>
 </div>
 
 <div class="card">
-<h3>STUDIO</h3>
-<p class="price">₹599/month</p>
-<button class="btn" onclick="addToCart('STUDIO ₹599')">Add</button>
+<h3>Studio</h3>
+<p>₹599/month</p>
+<button class="btn" onclick="addToCart('Studio ₹599')">Add</button>
 </div>
 
 <div class="card">
-<h3>AGENCY / INFLUENCER</h3>
-<p class="price">₹1999/month</p>
-<button class="btn" onclick="addToCart('AGENCY / INFLUENCER ₹1999')">Add</button>
+<h3>Agency</h3>
+<p>₹1999/month</p>
+<button class="btn" onclick="addToCart('Agency ₹1999')">Add</button>
 </div>
 
 </div>
@@ -296,175 +263,69 @@ footer{
 <h2>Contact</h2>
 
 <p><i class="fa fa-user"></i> Nabanit Roy</p>
-
-<p>
-<i class="fa fa-envelope"></i> 
-<a href="mailto:roynabanit5@gmail.com">roynabanit5@gmail.com</a>
-</p>
-
-<p>
-<i class="fab fa-whatsapp"></i> 
-<a href="https://wa.me/917630076047" target="_blank">7630076047</a>
-</p>
-
-<p>
-<i class="fa fa-money-bill"></i> 
-UPI: roynabanit5@oksbi
-</p>
-
-<p>
-<i class="fab fa-instagram"></i> 
-<a href="https://www.instagram.com/nrvisuals.design" target="_blank">
-@nrvisuals.design
-</a>
-</p>
+<p><i class="fa fa-envelope"></i> roynabanit5@gmail.com</p>
+<p><i class="fab fa-whatsapp"></i> 7630076047</p>
+<p><i class="fa fa-money-bill"></i> UPI: roynabanit5@oksbi</p>
+<p><i class="fab fa-instagram"></i> @nrvisuals.design</p>
 
 </section>
 
-  <!-- ORDER FORM -->
-  
-<section class="container" id="order">
-<h2>Place Your Order</h2>
+<!-- ORDER FORM -->
+<section class="container">
+<h2>Place Order</h2>
 
-<form id="orderForm" onsubmit="sendOrder(event)">
-
-<input type="text" id="name" placeholder="Your Name" required style="width:100%;padding:10px;margin:10px 0;">
-
-<input type="text" id="phone" placeholder="WhatsApp Number" required style="width:100%;padding:10px;margin:10px 0;">
-
-<select id="service" required style="width:100%;padding:10px;margin:10px 0;">
-  <option value="">Select Service</option>
-  <option>YouTube Thumbnail</option>
-  <option>Instagram Post/DP</option>
-  <option>Logo Design</option>
+<form onsubmit="sendOrder(event)">
+<input id="name" placeholder="Name" required>
+<input id="phone" placeholder="Phone" required>
+<select id="service">
+<option>Thumbnail</option>
+<option>Instagram</option>
+<option>Logo</option>
 </select>
-
-<input type="number" id="quantity" placeholder="Quantity" required style="width:100%;padding:10px;margin:10px 0;">
-
-<textarea id="details" placeholder="Design details (text, theme, etc.)" style="width:100%;padding:10px;margin:10px 0;"></textarea>
-
-<input type="date" id="deadline" style="width:100%;padding:10px;margin:10px 0;">
-
-<button type="submit" class="btn">Send Order</button>
-
+<input id="quantity" type="number" placeholder="Quantity">
+<textarea id="details" placeholder="Details"></textarea>
+<button class="btn">Send</button>
 </form>
+
 </section>
-  
-<!-- FOOTER -->
+
 <footer>
-  <a href="https://www.instagram.com/nrvisuals.design" target="_blank" class="btn" style="background:#E1306C;">
-  <i class="fab fa-instagram"></i> Follow on Instagram
-  </a>
-<p>Made with ❤️</p>
 <p>© 2026 NR Visuals</p>
 </footer>
 
 <script>
+let cart=[];
 
-  function checkout(){
-  if(cart.length===0){
-    alert("Cart is empty");
-    return;
-  }
-
-  let msg="Order:\n"+cart.join("\n");
-  let url=`https://wa.me/917630076047?text=${encodeURIComponent(msg)}`;
-  window.open(url,'_blank');
-}
-
-/* 🔥 PASTE HERE */
-function sendOrder(e){
-  e.preventDefault();
-
-  let name = document.getElementById("name").value;
-  let phone = document.getElementById("phone").value;
-  let service = document.getElementById("service").value;
-  let quantity = document.getElementById("quantity").value;
-  let details = document.getElementById("details").value;
-  let deadline = document.getElementById("deadline").value;
-
-  let msg = `Hello NR Visuals 👋
-
-🧾 New Order
-
-👤 Name: ${name}
-📞 Phone: ${phone}
-
-🎨 Service: ${service}
-📦 Quantity: ${quantity}
-
-📝 Details: ${details}
-⏳ Deadline: ${deadline}
-
-Please confirm price.`;
->
-
-  let url = `https://wa.me/917630076047?text=${encodeURIComponent(msg)}`;
-  window.open(url, "_blank");
-}
-</script>
-  <script>
-let cart = [];
-
-function addToCart(item){
-  cart.push(item);
-  document.getElementById("cartCount").innerText = cart.length;
-  alert(item + " added to cart ✅");
-}
-
-function checkout(){
-  if(cart.length===0){
-    alert("Cart is empty");
-    return;
-  }
-
-  let msg = `Hello NR Visuals 👋
-
-🧾 Order Details:
-${cart.join("\n")}
-
-Please confirm total price & payment.`;
-
-  let url = `https://wa.me/917630076047?text=${encodeURIComponent(msg)}`;
-  window.open(url,'_blank');
-}
-
-function sendOrder(e){
-  e.preventDefault();
-
-  let name = document.getElementById("name").value;
-  let phone = document.getElementById("phone").value;
-  let service = document.getElementById("service").value;
-  let quantity = document.getElementById("quantity").value;
-  let details = document.getElementById("details").value;
-  let deadline = document.getElementById("deadline").value;
-
-  let msg = `Hello NR Visuals 👋
-
-🧾 New Order
-
-👤 Name: ${name}
-📞 Phone: ${phone}
-
-🎨 Service: ${service}
-📦 Quantity: ${quantity}
-
-📝 Details: ${details}
-⏳ Deadline: ${deadline}
-
-Please confirm price.`;
-
-  let url = `https://wa.me/917630076047?text=${encodeURIComponent(msg)}`;
-  window.open(url, "_blank");
-}
-  </script>
-
-</script>
-
- <script>
 function toggleMenu(){
   document.getElementById("navLinks").classList.toggle("active");
 }
- </script>
+
+function addToCart(item){
+  cart.push(item);
+  document.getElementById("cartCount").innerText=cart.length;
+  alert("Added ✅");
+}
+
+function checkout(){
+  if(cart.length===0){alert("Cart empty");return;}
+  let msg="Order:\n"+cart.join("\n");
+  window.open(`https://wa.me/917630076047?text=${encodeURIComponent(msg)}`);
+}
+
+function sendOrder(e){
+  e.preventDefault();
+  let msg=`Name: ${name.value}
+Phone: ${phone.value}
+Service: ${service.value}
+Qty: ${quantity.value}
+Details: ${details.value}`;
+  window.open(`https://wa.me/917630076047?text=${encodeURIComponent(msg)}`);
+}
+
+function scrollToPricing(){
+  document.getElementById("pricing").scrollIntoView();
+}
+</script>
+
 </body>
-</html
+</html>
