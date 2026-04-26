@@ -14,7 +14,8 @@
 
 
 body{
-  font-family:'Poppins',sans-serif;
+  font-family: 'Poppins', sans-serif !important;
+}
   background:#f9fafb;
   color:#111;
 }
@@ -142,16 +143,18 @@ footer{
     display:block;
   }
 
-  .nav-links{
-    position:absolute;
-    top:70px;
-    right:20px;
-    background:#fff;
-    flex-direction:column;
-    padding:15px;
-    border-radius:10px;
-    display:none;
-  }
+.nav-links{
+  position:absolute;
+  top:70px;
+  right:20px;
+  background:#fff;
+  flex-direction:column;
+  padding:20px;
+  border-radius:10px;
+  display:none;
+  gap:15px;              /* 🔥 space between items */
+}
+  
 
   .nav-links.active{
     display:flex;
