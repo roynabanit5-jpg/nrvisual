@@ -184,7 +184,41 @@ footer{
   padding:30px;
   border-top:1px solid #ddd;
 }
+.contact-card{
+  background:#fff;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.08);
+  max-width:400px;
+  margin:auto;
+  text-align:center;
+}
 
+.contact-card p{
+  margin:10px 0;
+  font-size:16px;
+}
+
+.contact-card i{
+  margin-right:8px;
+  color:#111;
+}
+
+/* buttons */
+.contact-buttons{
+  margin-top:15px;
+  display:flex;
+  justify-content:center;
+  gap:10px;
+}
+
+.btn.wa{
+  background:#25D366;
+}
+
+.btn.insta{
+  background:#E1306C;
+}
 </style>
 </head>
 
@@ -356,28 +390,39 @@ footer{
 
 <!-- CONTACT -->
 <section class="container" id="contact">
-<h2>Contact</h2>
+<h2>Contact Me</h2>
 
-<p><i class="fa fa-user"></i> Nabanit Roy</p>
-<p><i class="fa fa-envelope"></i> roynabanit5@gmail.com</p>
-<a href="https://wa.me/917630076047?text=Hello%20NR%20Visuals%20I%20want%20to%20order" 
-   target="_blank" 
-   class="wa-btn">
-  <i class="fab fa-whatsapp"></i> Order Now
-</a>
-<p><i class="fa fa-money-bill"></i> UPI: roynabanit5@oksbi</p>
-<p><i class="fab fa-instagram"></i> 
-  <a href="https://www.instagram.com/nrvisuals.design" target="_blank" class="insta-link">
-    @nrvisuals.design
-  </a>
-</p>
+<div class="contact-card">
 
-<br>
+  <p><i class="fa fa-user"></i> Nabanit Roy</p>
 
-<a href="https://www.instagram.com/nrvisuals.design" target="_blank" class="insta-btn">
-  <i class="fab fa-instagram"></i> Follow on Instagram
-</a>
+  <p>
+    <i class="fa fa-envelope"></i> 
+    <a href="mailto:roynabanit5@gmail.com">roynabanit5@gmail.com</a>
+  </p>
 
+  <p>
+    <i class="fab fa-whatsapp"></i> 
+    <a href="https://wa.me/917630076047?text=Hello%20NR%20Visuals" target="_blank">
+      Chat on WhatsApp
+    </a>
+  </p>
+
+  <p><i class="fa fa-money-bill"></i> UPI: roynabanit5@oksbi</p>
+
+  <p>
+    <i class="fab fa-instagram"></i> 
+    <a href="https://www.instagram.com/nrvisuals.design" target="_blank">
+      @nrvisuals.design
+    </a>
+  </p>
+
+  <div class="contact-buttons">
+    <a href="https://wa.me/917630076047" target="_blank" class="btn wa">WhatsApp</a>
+    <a href="https://www.instagram.com/nrvisuals.design" target="_blank" class="btn insta">Instagram</a>
+  </div>
+
+</div>
 </section>
 
 <!-- ORDER FORM -->
