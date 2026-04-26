@@ -15,7 +15,7 @@ body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(135deg, #B3E5FC, #4FC3F7, #0288D1);
-  color: #111; /* MAIN TEXT BLACK */
+  color: #111;
 }
 
 /* NAV */
@@ -46,7 +46,6 @@ nav a{
   border-radius:6px;
 }
 
-/* MENU */
 .menu-icon{
   position:absolute;
   right:20px;
@@ -85,11 +84,6 @@ nav a{
   border-radius:8px;
   border:none;
   cursor:pointer;
-  transition:0.3s;
-}
-
-.btn:hover{
-  transform:scale(1.05);
 }
 
 /* SECTION */
@@ -137,7 +131,6 @@ input,select,textarea{
 .service-card{
   text-align:center;
   padding:30px 20px;
-  transition:0.3s;
 }
 
 .service-card i{
@@ -148,10 +141,6 @@ input,select,textarea{
 
 .service-card p{
   color:#555;
-}
-
-.service-card:hover{
-  transform:translateY(-8px);
 }
 
 /* PAYMENT */
@@ -215,3 +204,183 @@ footer{
 
 </style>
 </head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+
+<div class="cart">
+🛒 <span id="cartCount">0</span>
+</div>
+
+<div class="logo">
+<img src="logo.png" class="logo-img">
+NR Visuals
+</div>
+
+<div style="position:absolute; right:20px; display:flex; align-items:center; gap:15px;">
+<div class="nav-links" id="navLinks">
+<a href="#services">Services</a>
+<a href="#pricing">Pricing</a>
+<a href="#membership">Membership</a>
+<a href="#contact">Contact</a>
+</div>
+
+<div class="menu-icon" onclick="toggleMenu()">
+<i class="fas fa-bars"></i>
+</div>
+</div>
+
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<h1>Designs That Grow Your Brand</h1>
+<p>High-quality thumbnails, posters, social media designs & Website design for any brand</p>
+<button class="btn" onclick="scrollToPricing()">Get Started</button>
+</section>
+
+<!-- SERVICES -->
+<section class="container" id="services">
+<h2>Services</h2>
+
+<div class="card service-card">
+<i class="fas fa-play-circle"></i>
+<h3>YouTube Thumbnails</h3>
+<p>High CTR thumbnail designs</p>
+</div>
+
+<div class="card service-card">
+<i class="fab fa-instagram"></i>
+<h3>Instagram Designs</h3>
+<p>Posts, reels & branding</p>
+</div>
+
+<div class="card service-card">
+<i class="fas fa-image"></i>
+<h3>Posters</h3>
+<p>Creative digital posters</p>
+</div>
+
+<div class="card service-card">
+<i class="fab fa-google"></i>
+<h3>Website</h3>
+<p>Creative Website Design</p>
+</div>
+
+</section>
+
+<!-- PRICING -->
+<section class="container" id="pricing">
+<h2>Pricing</h2>
+<div class="grid">
+
+<div class="card">
+<h3>Youtube Video Thumbnail📌</h3>
+<p>₹99</p>
+<button class="btn" onclick="addToCart('Youtube Video Thumbnail ₹99')">Add</button>
+</div>
+
+<div class="card">
+<h3>Instagram Post each / DP edit</h3>
+<p>₹49</p>
+<button class="btn" onclick="addToCart('Instagram ₹49')">Add</button>
+</div>
+
+<div class="card">
+<h3>Buisness / Startup Logo Design</h3>
+<p>₹149</p>
+<button class="btn" onclick="addToCart('Logo ₹149')">Add</button>
+</div>
+
+<div class="card">
+<h3>Website Designing</h3>
+<p>₹2499</p>
+<button class="btn" onclick="addToCart('Website ₹2499')">Add</button>
+</div>
+
+</div>
+</section>
+
+<!-- MEMBERSHIP -->
+<section class="container" id="membership">
+<h2>Membership</h2>
+<div class="grid">
+
+<div class="card">
+<h3>Creator</h3>
+<p>₹299/month</p>
+<button class="btn" onclick="addToCart('Creator ₹299')">Add</button>
+</div>
+
+<div class="card">
+<h3>Part time CREATOR</h3>
+<p>₹599/month</p>
+<button class="btn" onclick="addToCart('Part-time ₹599')">Add</button>
+</div>
+
+<div class="card">
+<h3>INFLUENCER / Agency</h3>
+<p>₹1999/month</p>
+<button class="btn" onclick="addToCart('Agency ₹1999')">Add</button>
+</div>
+
+</div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="container">
+<h2>Portfolio</h2>
+<div class="grid">
+<img src="https://via.placeholder.com/300x200">
+<img src="https://via.placeholder.com/300x200">
+<img src="https://via.placeholder.com/300x200">
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="container" id="contact">
+<h2>Contact</h2>
+
+<div class="contact-card">
+<h3>Nabanit Roy</h3>
+<p class="tagline">Graphic Designer • NR Visuals</p>
+
+<p>📧 roynabanit5@gmail.com</p>
+<p>💬 WhatsApp: 7630076047</p>
+<p>📸 Instagram: @nrvisuals.design</p>
+
+<div class="contact-buttons">
+<a href="https://wa.me/917630076047" class="btn wa">Order Now</a>
+<a href="https://instagram.com/nrvisuals.design" class="btn insta">Follow</a>
+</div>
+
+</div>
+</section>
+
+<footer>
+<p>Made with ❤️</p>
+<p>© 2026 NR Visuals</p>
+</footer>
+
+<script>
+let cart=[];
+
+function toggleMenu(){
+  document.getElementById("navLinks").classList.toggle("active");
+}
+
+function addToCart(item){
+  cart.push(item);
+  document.getElementById("cartCount").innerText=cart.length;
+  alert("Added ✅");
+}
+
+function scrollToPricing(){
+  document.getElementById("pricing").scrollIntoView();
+}
+</script>
+
+</body>
+</html>
