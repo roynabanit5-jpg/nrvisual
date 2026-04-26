@@ -14,14 +14,16 @@
 body{
   font-family:'Poppins',sans-serif;
   background:#f9fafb;
+  color:#111;
 }
 
 /* NAV */
 nav{
   display:flex;
+  justify-content:center;
   align-items:center;
-  justify-content:space-between;
-  padding:15px 20px;
+  padding:20px;
+  position:relative;
 }
 
 .logo{
@@ -29,30 +31,41 @@ nav{
   align-items:center;
   gap:10px;
   font-weight:700;
+  font-size:20px;
 }
 
 .logo-img{
   width:35px;
+  height:35px;
   border-radius:6px;
 }
 
 /* MENU */
 .menu-icon{
-  font-size:24px;
+  position:absolute;
+  right:20px;
+  font-size:26px;
   cursor:pointer;
   display:none;
 }
 
 .nav-links{
+  position:absolute;
+  right:80px;
   display:flex;
   gap:25px;
 }
 
+nav a{
+  text-decoration:none;
+  color:#444;
+}
+
+/* MOBILE */
 @media(max-width:768px){
   .menu-icon{display:block;}
 
   .nav-links{
-    position:absolute;
     top:70px;
     right:20px;
     flex-direction:column;
@@ -60,77 +73,75 @@ nav{
     padding:20px;
     border-radius:10px;
     display:none;
+    gap:18px;
+    box-shadow:0 5px 10px rgba(0,0,0,0.1);
   }
 
   .nav-links.active{display:flex;}
 }
 
-/* CART */
-.cart{
-  cursor:pointer;
-  font-size:18px;
+/* HERO */
+.hero{
+  text-align:center;
+  padding:100px 20px;
 }
 
-/* CART BOX */
-.cart-box{
-  position:fixed;
-  top:70px;
-  right:20px;
-  width:260px;
-  background:#fff;
-  padding:15px;
-  border-radius:10px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.2);
-  display:none;
+.hero h1{
+  font-size:40px;
 }
 
-.cart-box ul{
-  list-style:none;
-  max-height:200px;
-  overflow:auto;
-}
-
-.cart-box li{
-  display:flex;
-  justify-content:space-between;
-  margin:5px 0;
-}
+.hero p{margin:15px 0;color:#555;}
 
 .btn{
-  padding:10px;
+  padding:12px 25px;
   background:#111;
   color:#fff;
+  border-radius:8px;
   border:none;
-  border-radius:6px;
   cursor:pointer;
-  margin-top:10px;
-  width:100%;
 }
 
 /* SECTION */
 .container{
   max-width:1100px;
   margin:auto;
-  padding:50px 20px;
+  padding:60px 20px;
 }
 
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
+  gap:25px;
 }
 
 .card{
   background:#fff;
   padding:20px;
   border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.05);
 }
+
+/* CART */
+.cart{
+  position:fixed;
+  top:20px;
+  left:90px;   /* perfect spacing from logo */
+  z-index:1000;
+}
+
+
 
 /* FORM */
 input,select,textarea{
   width:100%;
   padding:10px;
   margin:10px 0;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  border-top:1px solid #ddd;
 }
 </style>
 </head>
@@ -145,6 +156,10 @@ input,select,textarea{
   NR Visuals
 </div>
 
+<div class="menu-icon" onclick="toggleMenu()">
+  <i class="fas fa-bars"></i>
+</div>
+
 <div class="nav-links" id="navLinks">
   <a href="#services">Services</a>
   <a href="#pricing">Pricing</a>
@@ -152,29 +167,26 @@ input,select,textarea{
   <a href="#contact">Contact</a>
 </div>
 
-<div class="cart" onclick="toggleCart()">
-  🛒 <span id="cartCount">0</span>
-</div>
-
-<div class="menu-icon" onclick="toggleMenu()">
-  <i class="fas fa-bars"></i>
-</div>
-
 </nav>
 
-<!-- CART BOX -->
-<div class="cart-box" id="cartBox">
-<h3>Your Cart</h3>
-<ul id="cartItems"></ul>
-
-<button class="btn" onclick="clearCart()">Clear Cart</button>
-<button class="btn" onclick="checkout()">Order on WhatsApp</button>
-</div>
+<!-- CART -->
+<div class="cart">🛒 <span id="cartCount">0</span></div>
 
 <!-- HERO -->
-<section class="container">
+<section class="hero">
 <h1>Designs That Grow Your Brand</h1>
 <p>High-quality thumbnails, posters & social media designs</p>
+<button class="btn" onclick="scrollToPricing()">Get Started</button>
+</section>
+
+<!-- SERVICES -->
+<section class="container" id="services">
+<h2>Services</h2>
+<div class="grid">
+<div class="card">YouTube Thumbnails</div>
+<div class="card">Instagram Designs</div>
+<div class="card">Posters</div>
+</div>
 </section>
 
 <!-- PRICING -->
@@ -183,28 +195,102 @@ input,select,textarea{
 <div class="grid">
 
 <div class="card">
-<h3>Thumbnail ₹49</h3>
-<button onclick="addToCart('Thumbnail ₹49')">Add</button>
+<h3>Thumbnail</h3>
+<p>₹49</p>
+<button class="btn" onclick="addToCart('Thumbnail ₹49')">Add</button>
 </div>
 
 <div class="card">
-<h3>Instagram ₹49</h3>
-<button onclick="addToCart('Instagram ₹49')">Add</button>
+<h3>Instagram Post</h3>
+<p>₹49</p>
+<button class="btn" onclick="addToCart('Instagram ₹49')">Add</button>
 </div>
 
 <div class="card">
-<h3>Logo ₹149</h3>
-<button onclick="addToCart('Logo ₹149')">Add</button>
+<h3>Logo Design</h3>
+<p>₹149</p>
+<button class="btn" onclick="addToCart('Logo ₹149')">Add</button>
 </div>
 
 </div>
+</section>
+
+<!-- MEMBERSHIP -->
+<section class="container" id="membership">
+<h2>Membership</h2>
+<div class="grid">
+
+<div class="card">
+<h3>Creator</h3>
+<p>₹299/month</p>
+<button class="btn" onclick="addToCart('Creator ₹299')">Add</button>
+</div>
+
+<div class="card">
+<h3>Studio</h3>
+<p>₹599/month</p>
+<button class="btn" onclick="addToCart('Studio ₹599')">Add</button>
+</div>
+
+<div class="card">
+<h3>Agency</h3>
+<p>₹1999/month</p>
+<button class="btn" onclick="addToCart('Agency ₹1999')">Add</button>
+</div>
+
+</div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="container">
+<h2>Portfolio</h2>
+<div class="grid">
+<img src="https://via.placeholder.com/300x200">
+<img src="https://via.placeholder.com/300x200">
+<img src="https://via.placeholder.com/300x200">
+</div>
+</section>
+
+<!-- CHECKOUT -->
+<section class="container">
+<h2>Checkout</h2>
+<button class="btn" onclick="checkout()">Order on WhatsApp</button>
 </section>
 
 <!-- CONTACT -->
 <section class="container" id="contact">
 <h2>Contact</h2>
-<p>WhatsApp: 7630076047</p>
+
+<p><i class="fa fa-user"></i> Nabanit Roy</p>
+<p><i class="fa fa-envelope"></i> roynabanit5@gmail.com</p>
+<p><i class="fab fa-whatsapp"></i> 7630076047</p>
+<p><i class="fa fa-money-bill"></i> UPI: roynabanit5@oksbi</p>
+<p><i class="fab fa-instagram"></i> @nrvisuals.design</p>
+
 </section>
+
+<!-- ORDER FORM -->
+<section class="container">
+<h2>Place Order</h2>
+
+<form onsubmit="sendOrder(event)">
+<input id="name" placeholder="Name" required>
+<input id="phone" placeholder="Phone" required>
+<select id="service">
+<option>Thumbnail</option>
+<option>Instagram</option>
+<option>Logo</option>
+</select>
+<input id="quantity" type="number" placeholder="Quantity">
+<textarea id="details" placeholder="Details"></textarea>
+<button class="btn">Send</button>
+</form>
+
+</section>
+
+<footer>
+<p>© 2026 NR Visuals</p>
+</footer>
 
 <script>
 let cart=[];
@@ -213,44 +299,30 @@ function toggleMenu(){
   document.getElementById("navLinks").classList.toggle("active");
 }
 
-function toggleCart(){
-  let box=document.getElementById("cartBox");
-  box.style.display = box.style.display==="block"?"none":"block";
-}
-
 function addToCart(item){
   cart.push(item);
-  updateCart();
-}
-
-function updateCart(){
   document.getElementById("cartCount").innerText=cart.length;
-
-  let list=document.getElementById("cartItems");
-  list.innerHTML="";
-
-  cart.forEach((item,i)=>{
-    let li=document.createElement("li");
-    li.innerHTML=`${item} <button onclick="removeItem(${i})">❌</button>`;
-    list.appendChild(li);
-  });
-}
-
-function removeItem(i){
-  cart.splice(i,1);
-  updateCart();
-}
-
-function clearCart(){
-  cart=[];
-  updateCart();
+  alert("Added ✅");
 }
 
 function checkout(){
   if(cart.length===0){alert("Cart empty");return;}
-
   let msg="Order:\n"+cart.join("\n");
   window.open(`https://wa.me/917630076047?text=${encodeURIComponent(msg)}`);
+}
+
+function sendOrder(e){
+  e.preventDefault();
+  let msg=`Name: ${name.value}
+Phone: ${phone.value}
+Service: ${service.value}
+Qty: ${quantity.value}
+Details: ${details.value}`;
+  window.open(`https://wa.me/917630076047?text=${encodeURIComponent(msg)}`);
+}
+
+function scrollToPricing(){
+  document.getElementById("pricing").scrollIntoView();
 }
 </script>
 
