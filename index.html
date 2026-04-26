@@ -340,25 +340,57 @@ NR Visuals
 </section>
 
 <!-- CONTACT -->
-<section class="container" id="contact">
-<h2>Contact</h2>
-
 <div class="contact-card">
+
 <h3>Nabanit Roy</h3>
 <p class="tagline">Graphic Designer • NR Visuals</p>
 
-<p>📧 roynabanit5@gmail.com</p>
-<p>💬 WhatsApp: 7630076047</p>
-<p>📸 Instagram: @nrvisuals.design</p>
+<p>
+<i class="fa fa-envelope"></i>
+roynabanit5@gmail.com
+</p>
+
+<p>
+<i class="fab fa-whatsapp"></i>
+<a href="https://wa.me/917630076047" target="_blank">Chat on WhatsApp</a>
+</p>
+
+<p>
+<i class="fab fa-instagram"></i>
+<a href="https://www.instagram.com/nrvisuals.design" target="_blank">@nrvisuals.design</a>
+</p>
 
 <div class="contact-buttons">
-<a href="https://wa.me/917630076047" class="btn wa">Order Now</a>
-<a href="https://instagram.com/nrvisuals.design" class="btn insta">Follow</a>
+<a href="https://wa.me/917630076047?text=Hello%20I%20want%20to%20order" target="_blank" class="btn wa">
+<i class="fab fa-whatsapp"></i> Order Now
+</a>
+
+<a href="https://www.instagram.com/nrvisuals.design" target="_blank" class="btn insta">
+<i class="fab fa-instagram"></i> Follow
+</a>
 </div>
 
 </div>
+
+<form onsubmit="sendOrder(event)">
+<input id="name" placeholder="Name" required>
+<input id="phone" placeholder="Phone" required>
+
+<select id="service">
+<option>Website designing</option>
+<option>Youtube Thumbnail</option>
+<option>Instagram post / DP</option>
+<option>Logo Design</option>
+</select>
+
+<input id="quantity" type="number" placeholder="Quantity">
+
+<textarea id="details" placeholder="Details"></textarea>
+
+<button class="btn">Send Order</button>
+</form>
+
 </section>
-
 <footer>
 <p>Made with ❤️</p>
 <p>© 2026 NR Visuals</p>
@@ -381,6 +413,18 @@ function scrollToPricing(){
   document.getElementById("pricing").scrollIntoView();
 }
 </script>
+  function sendOrder(e){
+  e.preventDefault();
+
+  let msg = `New Order:%0A
+Name: ${name.value}%0A
+Phone: ${phone.value}%0A
+Service: ${service.value}%0A
+Quantity: ${quantity.value}%0A
+Details: ${details.value}`;
+
+  window.open(`https://wa.me/917630076047?text=${msg}`);
+}
 
 </body>
 </html>
