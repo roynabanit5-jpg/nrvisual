@@ -3,77 +3,61 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NR Visuals | Design Studio</title>
+<title>NR Visuals</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-  .main-heading{
-  font-family:'Poppins', sans-serif;
-  font-size:48px;
-  font-weight:800;
-  color:#00bfff;
-  text-align:center;
-  letter-spacing:2px;
-  text-shadow:0 0 10px #00bfff, 0 0 25px rgba(0,191,255,0.7);
-  animation:glowPulse 2s infinite alternate;
-}
-
-@keyframes glowPulse{
-  from{
-    text-shadow:0 0 8px #00bfff;
-  }
-  to{
-    text-shadow:0 0 25px #00bfff, 0 0 50px rgba(0,191,255,0.8);
-  }
-}
-*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
   font-family:'Inter',sans-serif;
-  color:#fff;
+  color:white;
   background:linear-gradient(270deg,#000,#001f3f,#000);
   background-size:400% 400%;
-  animation:bg 12s ease infinite;
+  animation:bg 10s infinite alternate;
 }
 
 @keyframes bg{
   0%{background-position:0%}
-  50%{background-position:100%}
-  100%{background-position:0%}
+  100%{background-position:100%}
 }
 
-h1,h2,h3{font-family:Poppins;}
-
-nav{
+/* NAVBAR */
+.navbar{
   display:flex;
   justify-content:space-between;
+  align-items:center;
   padding:20px;
-  position:sticky;
-  top:0;
-  background:rgba(0,0,0,0.6);
-  backdrop-filter:blur(10px);
+}
+
+.nav-links{
+  display:flex;
+  gap:15px;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:white;
+  font-size:14px;
 }
 
 .logo{
+  font-family:'Poppins',sans-serif;
+  font-size:26px;
+  font-weight:800;
   color:#00bfff;
-  font-size:22px;
-  text-shadow:0 0 10px #00bfff;
+  text-shadow:0 0 10px #00bfff,0 0 25px rgba(0,191,255,0.7);
 }
 
-nav a{
-  color:#fff;
-  margin-left:15px;
-  text-decoration:none;
+/* HERO */
+.hero{
+  text-align:center;
+  padding:100px 20px;
 }
 
-.container{
-  max-width:1100px;
-  margin:auto;
-  padding:60px 20px;
-}
-
-<h1 class="main-heading">NR Visuals</h1>
+.hero h1{
+  font-size:40px;
 }
 
 .btn{
@@ -81,13 +65,19 @@ nav a{
   padding:12px 25px;
   border-radius:8px;
   text-decoration:none;
-  color:#000;
+  color:black;
   font-weight:bold;
   display:inline-block;
-  margin-top:15px;
+  margin:10px;
 }
 
-/* GRID */
+/* SECTION */
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:60px 20px;
+}
+
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -99,33 +89,14 @@ nav a{
   padding:20px;
   border-radius:15px;
   transition:0.3s;
-  backdrop-filter:blur(10px);
 }
 
 .card:hover{
   transform:translateY(-10px);
 }
 
-/* PRICING */
-.price{
-  font-size:25px;
-  color:#00bfff;
-  margin:10px 0;
-}
-
-/* HIGHLIGHT */
-.highlight{
-  border:2px solid #00bfff;
-}
-
-/* PORTFOLIO */
-.portfolio img{
-  width:100%;
-  border-radius:10px;
-}
-
 /* FORM */
-input,select,textarea{
+input,textarea{
   width:100%;
   padding:10px;
   margin:8px 0;
@@ -141,15 +112,8 @@ input,select,textarea{
   background:#25D366;
   padding:15px;
   border-radius:50%;
-  color:#fff;
+  color:white;
   text-decoration:none;
-}
-
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:30px;
-  background:#000;
 }
 
 </style>
@@ -157,187 +121,90 @@ footer{
 
 <body>
 
-<!-- NAV -->
-  <nav class="navbar">
+<!-- NAVBAR -->
+<nav class="navbar">
   <div class="nav-links">
     <a href="#services">Services</a>
-    <a href="#order">Order</a>
-  </div>
-
-  <div class="logo">NR Visuals</div>
-
-  <div class="nav-links">
-    <a href="#pricing">Pricing</a>
-    <a href="#contact">Contact</a>
-  </div>
-  </nav>
-  .navbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:20px;
-}
-
-.nav-links{
-  display:flex;
-  gap:15px;
-}
-
-.logo{
-  font-family:'Poppins', sans-serif;
-  font-size:26px;
-  font-weight:800;
-  color:#00bfff;
-  text-shadow:0 0 10px #00bfff, 0 0 25px rgba(0,191,255,0.7);
-  animation:glowPulse 2s infinite alternate;
-}
-
-@keyframes glowPulse{
-  from{ text-shadow:0 0 8px #00bfff; }
-  to{ text-shadow:0 0 25px #00bfff, 0 0 50px rgba(0,191,255,0.8); }
-}
-  
-<nav>
-  <div class="logo">NR Visuals</div>
-  <div>
-    <a href="#services">Services</a>
-    <a href="#pricing">Pricing</a>
     <a href="#membership">Membership</a>
+  </div>
+
+  <div class="logo">NR Visuals</div>
+
+  <div class="nav-links">
     <a href="#order">Order</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <h1>Premium Graphic Design Studio</h1>
-  <p>High converting thumbnails, posters & social media designs</p>
+  <h1>Premium Graphic Design</h1>
+  <p>Thumbnails • Posters • Social Media Designs</p>
+
   <a href="#order" class="btn">Order Now</a>
+
+  <a href="upi://pay?pa=roynabanit5@oksbi&pn=NR%20Visuals&cu=INR" class="btn">
+    Pay Now
+  </a>
 </section>
 
 <!-- SERVICES -->
 <section class="container" id="services">
-<h2>Services</h2>
-<div class="grid">
-<div class="card">YouTube Thumbnails (1280×720)</div>
-<div class="card">Instagram Posts (1080×1080)</div>
-<div class="card">Poster Designs (A4/A3)</div>
-</div>
-</section>
-
-<!-- PRICING -->
-<section class="container" id="pricing">
-<h2>Pricing</h2>
-<div class="grid">
-
-<div class="card">
-<h3>Basic</h3>
-<p class="price">₹49</p>
-<p>1 Design<br>1 Revision</p>
-</div>
-
-<div class="card highlight">
-<h3>Standard</h3>
-<p class="price">₹99</p>
-<p>2 Designs<br>2 Revisions</p>
-</div>
-
-<div class="card">
-<h3>Premium</h3>
-<p class="price">₹199</p>
-<p>5 Designs<br>Unlimited Revisions</p>
-</div>
-
-</div>
+  <h2>Services</h2>
+  <div class="grid">
+    <div class="card">YouTube Thumbnails (1280×720)</div>
+    <div class="card">Instagram Posts (1080×1080)</div>
+    <div class="card">Poster Designs (A4/A3)</div>
+  </div>
 </section>
 
 <!-- MEMBERSHIP -->
 <section class="container" id="membership">
-<h2>Membership Plans</h2>
-<div class="grid">
+  <h2>Membership Plans</h2>
+  <div class="grid">
 
-<div class="card">
-<h3>Starter</h3>
-<p class="price">₹299/month</p>
-<p>10 Designs<br>Priority Support</p>
-</div>
+    <div class="card">
+      <h3>Starter</h3>
+      <p>₹299/month</p>
+      <p>10 Designs</p>
+    </div>
 
-<div class="card highlight">
-<h3>Pro</h3>
-<p class="price">₹599/month</p>
-<p>25 Designs<br>Fast Delivery</p>
-</div>
+    <div class="card">
+      <h3>Pro</h3>
+      <p>₹599/month</p>
+      <p>25 Designs</p>
+    </div>
 
-<div class="card">
-<h3>Elite</h3>
-<p class="price">₹999/month</p>
-<p>Unlimited Designs<br>Top Priority</p>
-</div>
+    <div class="card">
+      <h3>Elite</h3>
+      <p>₹999/month</p>
+      <p>Unlimited Designs</p>
+    </div>
 
-</div>
-</section>
-
-<!-- PORTFOLIO -->
-<section class="container">
-<h2>Portfolio</h2>
-<div class="grid portfolio">
-<img src="https://via.placeholder.com/300x200">
-<img src="https://via.placeholder.com/300x200">
-<img src="https://via.placeholder.com/300x200">
-</div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="container">
-<h2>Client Reviews</h2>
-<div class="grid">
-<div class="card">"Best designer, very fast!" ⭐⭐⭐⭐⭐</div>
-<div class="card">"Quality work at low price." ⭐⭐⭐⭐⭐</div>
-</div>
-</section>
-
-<!-- PAYMENT -->
-<section class="container">
-<h2>Payment</h2>
-<div class="card" style="text-align:center;">
-<p>UPI: roynabanit5@oksbi</p>
-<p>Pay via GPay / PhonePe / Paytm</p>
-<img src="https://via.placeholder.com/150">
-</div>
+  </div>
 </section>
 
 <!-- ORDER -->
 <section class="container" id="order">
-<h2>Place Order</h2>
-<form onsubmit="sendWhatsApp(); return false;">
-<input type="text" id="name" placeholder="Your Name" required>
-<select id="service">
-<option>YouTube Thumbnail</option>
-<option>Instagram Post</option>
-<option>Poster</option>
-</select>
-<textarea id="details" placeholder="Describe your design..." required></textarea>
-<button class="btn">Send Order</button>
-</form>
+  <h2>Place Order</h2>
+  <form onsubmit="sendWhatsApp(); return false;">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <textarea id="details" placeholder="Describe your design..." required></textarea>
+    <button class="btn">Send Order</button>
+  </form>
 </section>
-
-<!-- FOOTER -->
-<footer>
-<p>© 2026 NR Visuals</p>
-<p>Instagram | WhatsApp</p>
-</footer>
 
 <!-- WHATSAPP -->
 <a href="https://wa.me/917630076047" class="whatsapp">💬</a>
 
 <script>
 function sendWhatsApp(){
-let name=document.getElementById("name").value;
-let service=document.getElementById("service").value;
-let details=document.getElementById("details").value;
+  let name=document.getElementById("name").value;
+  let details=document.getElementById("details").value;
 
-let msg=`Hello, I want to order:\nName: ${name}\nService: ${service}\nDetails: ${details}`;
-let url=`https://wa.me/917630076047?text=${encodeURIComponent(msg)}`;
-window.open(url,'_blank');
+  let msg=`Hello, I want to order:\nName: ${name}\nDetails: ${details}`;
+  let url=`https://wa.me/917630076047?text=${encodeURIComponent(msg)}`;
+
+  window.open(url,'_blank');
 }
 </script>
 
