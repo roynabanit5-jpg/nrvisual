@@ -313,23 +313,10 @@ Please confirm price.`;
   window.open(url, "_blank");
 }
 </script>
-let cart=[];
+<section class="container" id="order">
+<h2>Place Your Order</h2>
 
-function addToCart(item){
-  cart.push(item);
-  document.getElementById("cartCount").innerText=cart.length;
-}
-
-function checkout(){
-  if(cart.length===0){
-    alert("Cart is empty");
-    return;
-  }
-
-  let msg="Order:\n"+cart.join("\n");
-  let url=`https://wa.me/917630076047?text=${encodeURIComponent(msg)}`;
-  window.open(url,'_blank');
-}
+<form id="orderForm" onsubmit="sendOrder(event)">
 </script>
 
 </body>
