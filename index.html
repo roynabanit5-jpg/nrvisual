@@ -9,52 +9,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-  /* PREMIUM CARDS */
-.premium-card{
-  background: linear-gradient(145deg,#0f172a,#1e293b);
-  border:1px solid rgba(0,183,255,0.2);
-  border-radius:20px;
-  padding:25px;
-  text-align:center;
-  transition:0.3s;
-  box-shadow:0 0 15px rgba(0,0,0,0.3);
-}
-
-.premium-card:hover{
-  transform:translateY(-10px) scale(1.03);
-  box-shadow:0 0 25px #00B7FF;
-}
-
-/* ICON */
-.icon{
-  font-size:35px;
-  margin-bottom:10px;
-  color:#00B7FF;
-}
-
-/* PRICE */
-.price{
-  font-size:22px;
-  font-weight:bold;
-  margin:10px 0;
-}
-
-/* HIGHLIGHT CARD */
-.highlight{
-  border:2px solid #00B7FF;
-  transform:scale(1.05);
-}
-
-/* LIST */
-ul{
-  list-style:none;
-  padding:0;
-}
-
-ul li{
-  margin:5px 0;
-  font-size:14px;
-}
 body{
   margin:0;
   font-family:'Poppins',sans-serif;
@@ -71,7 +25,6 @@ nav{
   background:#000;
   position:sticky;
   top:0;
-  z-index:1000;
 }
 
 .logo{
@@ -124,7 +77,6 @@ nav{
   border-radius:8px;
   cursor:pointer;
   text-decoration:none;
-  display:inline-block;
 }
 
 /* SECTION */
@@ -142,18 +94,37 @@ nav{
 
 /* CARD */
 .card{
-  background:#0f172a;
-  padding:20px;
-  border-radius:15px;
+  background: linear-gradient(145deg,#0f172a,#1e293b);
+  border:1px solid rgba(0,183,255,0.2);
+  border-radius:20px;
+  padding:25px;
   text-align:center;
   transition:0.3s;
 }
 
 .card:hover{
-  transform:translateY(-5px);
+  transform:translateY(-8px);
+  box-shadow:0 0 25px #00B7FF;
 }
 
-/* CART BUTTON */
+.icon{
+  font-size:35px;
+  margin-bottom:10px;
+  color:#00B7FF;
+}
+
+.price{
+  font-size:22px;
+  font-weight:bold;
+  margin:10px 0;
+}
+
+.highlight{
+  border:2px solid #00B7FF;
+  transform:scale(1.05);
+}
+
+/* CART */
 .cart-btn{
   position:fixed;
   bottom:20px;
@@ -163,10 +134,8 @@ nav{
   padding:12px 15px;
   border-radius:50px;
   cursor:pointer;
-  z-index:1000;
 }
 
-/* CART BOX */
 .cart-box{
   position:fixed;
   bottom:80px;
@@ -181,8 +150,6 @@ nav{
 .cart-box ul{
   list-style:none;
   padding:0;
-  max-height:150px;
-  overflow:auto;
 }
 
 /* CONTACT */
@@ -194,7 +161,23 @@ nav{
   text-align:center;
 }
 
-/* FOOTER */
+/* FLOAT BUTTONS */
+.float{
+  position:fixed;
+  left:20px;
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:22px;
+}
+
+.float.wa{bottom:80px;background:#25D366;}
+.float.ig{bottom:20px;background:#E1306C;}
+
 footer{
   text-align:center;
   padding:20px;
@@ -221,77 +204,45 @@ footer{
 <!-- HERO -->
 <section class="hero">
 <h1>Designs That Grow Your Brand 🚀</h1>
-<p>Professional thumbnails & social media designs</p>
+<p>Premium thumbnails, posters & social media designs</p>
 </section>
 
 <!-- SERVICES -->
 <section class="container" id="services">
 <h2 style="text-align:center;">🚀 Our Services</h2>
-
 <div class="grid">
-
-<div class="card premium-card">
-<i class="fas fa-play-circle icon"></i>
-<h3>YouTube Thumbnails</h3>
-<p>High CTR designs that boost clicks</p>
-</div>
-
-<div class="card premium-card">
-<i class="fab fa-instagram icon"></i>
-<h3>Instagram Designs</h3>
-<p>Posts, reels & branding</p>
-</div>
-
-<div class="card premium-card">
-<i class="fas fa-image icon"></i>
-<h3>Posters</h3>
-<p>Creative digital posters</p>
-</div>
-
-<div class="card premium-card">
-<i class="fas fa-pen-nib icon"></i>
-<h3>Logo Design</h3>
-<p>Unique brand identity</p>
-</div>
-
-<div class="card premium-card">
-<i class="fas fa-globe icon"></i>
-<h3>Website Designing</h3>
-<p>Modern business websites</p>
-</div>
-
+<div class="card"><i class="fas fa-play-circle icon"></i><h3>YouTube Thumbnails</h3></div>
+<div class="card"><i class="fab fa-instagram icon"></i><h3>Instagram Designs</h3></div>
+<div class="card"><i class="fas fa-image icon"></i><h3>Posters</h3></div>
+<div class="card"><i class="fas fa-pen-nib icon"></i><h3>Logo Design</h3></div>
+<div class="card"><i class="fas fa-globe icon"></i><h3>Website</h3></div>
 </div>
 </section>
 
 <!-- PRICING -->
 <section class="container" id="pricing">
-<h2 style="text-align:center;">🔥 Creative Pricing</h2>
-
+<h2 style="text-align:center;">🔥 Pricing</h2>
 <div class="grid">
 
-<div class="card premium-card">
-<i class="fas fa-image icon"></i>
+<div class="card">
 <h3>Thumbnail</h3>
 <p class="price">₹99</p>
 <button class="btn" onclick="add('Thumbnail ₹99')">Add</button>
 </div>
 
-<div class="card premium-card">
-<i class="fab fa-instagram icon"></i>
+<div class="card">
 <h3>Instagram</h3>
 <p class="price">₹49</p>
 <button class="btn" onclick="add('Instagram ₹49')">Add</button>
 </div>
 
-<div class="card premium-card">
-<i class="fas fa-pen-nib icon"></i>
+<div class="card">
 <h3>Logo</h3>
 <p class="price">₹149</p>
 <button class="btn" onclick="add('Logo ₹149')">Add</button>
 </div>
 
-<div class="card premium-card highlight">
-<i class="fas fa-laptop-code icon"></i>
+<div class="card highlight">
 <h3>Website</h3>
 <p class="price">₹3499</p>
 <button class="btn" onclick="add('Website ₹3499')">Add</button>
@@ -301,98 +252,72 @@ footer{
 </section>
 
 <!-- MEMBERSHIP -->
-
-
-<!-- PAYMENT -->
-<section class="container" id="payment">
-<h2>Payment</h2>
-<div class="grid">
-<div class="card"><i class="fab fa-google"></i><p>GPay</p></div>
-<div class="card"><i class="fas fa-wallet"></i><p>Paytm</p></div>
-<div class="card"><i class="fas fa-mobile-alt"></i><p>PhonePe</p></div>
-</div>
-<p>UPI ID: <b>roynabanit5@oksbi</b></p>
-</section>
-
-<!-- CONTACT -->
-<section class="container" id="contact">
-<h2>Contact</h2>
-
-<div class="contact-card">
-
-<h3>Nabanit Roy</h3>
-<p>🚀 Available for freelance work</p>
-
-<p>
-<i class="fa fa-envelope"></i> 
-roynabanit5@gmail.com
-</p>
-
-<p>
-<i class="fab fa-whatsapp"></i> 
-<a href="https://wa.me/9176<section class="container" id="membership">
-<h2 style="text-align:center;">💎 Membership Plans</h2>
+<section class="container" id="membership">
+<h2 style="text-align:center;">💎 Premium Membership</h2>
 
 <div class="grid">
 
-<div class="card premium-card">
-<h3>Starter 🚀</h3>
+<div class="card">
+<h3>Starter Creator 🚀</h3>
 <p class="price">₹299/month</p>
+<p>Perfect for beginners</p>
 <ul>
 <li>5 Designs</li>
 <li>Basic edits</li>
 <li>48hr delivery</li>
 </ul>
-<button class="btn" onclick="add('Starter ₹299')">Join</button>
+<button class="btn" onclick="add('Starter ₹299')">Get Started</button>
 </div>
 
-<div class="card premium-card highlight">
-<h3>Growth 📈</h3>
+<div class="card highlight">
+<h3>Growth Creator 📈</h3>
 <p class="price">₹599/month</p>
+<p>Best for regular creators</p>
 <ul>
 <li>12 Designs</li>
 <li>Priority support</li>
 <li>Custom style</li>
 </ul>
-<button class="btn" onclick="add('Growth ₹599')">Join</button>
+<button class="btn" onclick="add('Growth ₹599')">Most Popular</button>
 </div>
 
-<div class="card premium-card">
-<h3>Pro 💎</h3>
+<div class="card">
+<h3>Pro Influencer 💎</h3>
 <p class="price">₹1999/month</p>
+<p>For brands & agencies</p>
 <ul>
 <li>Unlimited Designs</li>
 <li>Premium quality</li>
 <li>24/7 support</li>
 </ul>
-<button class="btn" onclick="add('Pro ₹1999')">Join</button>
+<button class="btn" onclick="add('Pro ₹1999')">Go Premium</button>
 </div>
 
 </div>
-</section>30076047" target="_blank">WhatsApp</a>
-</p>
+</section>
 
-<p>
-<i class="fab fa-instagram"></i> 
-<a href="https://www.instagram.com/nrvisuals.design" target="_blank">
-@nrvisuals.design
-</a>
-</p>
+<!-- PAYMENT -->
+<section class="container" id="payment">
+<h2 style="text-align:center;">Payment</h2>
+<div class="grid">
+<div class="card"><i class="fab fa-google"></i><p>GPay</p></div>
+<div class="card"><i class="fas fa-wallet"></i><p>Paytm</p></div>
+<div class="card"><i class="fas fa-mobile-alt"></i><p>PhonePe</p></div>
+</div>
+<p style="text-align:center;">UPI: roynabanit5@oksbi</p>
+</section>
 
+<!-- CONTACT -->
+<section class="container" id="contact">
+<h2>Contact</h2>
+<div class="contact-card">
+<h3>Nabanit Roy</h3>
+<p>🚀 Available for freelance work</p>
+<p><i class="fa fa-envelope"></i> roynabanit5@gmail.com</p>
+<p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/917630076047">WhatsApp</a></p>
+<p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/nrvisuals.design">@nrvisuals.design</a></p>
 <br>
-
-<div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
-
-<a href="https://wa.me/917630076047" class="btn">
-<i class="fab fa-whatsapp"></i> Order Now
-</a>
-
-<a href="https://www.instagram.com/nrvisuals.design" class="btn" style="background:#E1306C;color:#fff;">
-<i class="fab fa-instagram"></i> Follow
-</a>
-
-</div>
-
+<a href="https://wa.me/917630076047" class="btn">Order Now</a>
 </div>
 </section>
 
@@ -405,8 +330,12 @@ roynabanit5@gmail.com
 <button class="btn" onclick="checkout()">Checkout</button>
 </div>
 
+<!-- FLOAT BUTTONS -->
+<a href="https://wa.me/917630076047" target="_blank" class="float wa"><i class="fab fa-whatsapp"></i></a>
+<a href="https://www.instagram.com/nrvisuals.design" target="_blank" class="float ig"><i class="fab fa-instagram"></i></a>
+
 <footer>
-© 2026 NR Visuals. All rights reserved.
+© 2026 NR Visuals
 </footer>
 
 <script>
@@ -419,7 +348,6 @@ function toggleMenu(){
 function add(item){
   cart.push(item);
   updateCart();
-  alert("Added to cart ✅");
 }
 
 function updateCart(){
@@ -427,13 +355,8 @@ function updateCart(){
   let list=document.getElementById("items");
   list.innerHTML="";
   cart.forEach((item,i)=>{
-    list.innerHTML += `<li>${item} <span onclick="removeItem(${i})" style="color:red;cursor:pointer;">❌</span></li>`;
+    list.innerHTML += `<li>${item}</li>`;
   });
-}
-
-function removeItem(i){
-  cart.splice(i,1);
-  updateCart();
 }
 
 function toggleCart(){
@@ -442,7 +365,6 @@ function toggleCart(){
 }
 
 function checkout(){
-  if(cart.length==0){alert("Cart empty");return;}
   let msg="Order:\n"+cart.join("\n");
   window.open(`https://wa.me/917630076047?text=${encodeURIComponent(msg)}`);
 }
