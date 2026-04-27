@@ -189,6 +189,24 @@ footer{
   text-align:center;
   padding:20px;
 }
+
+  .portfolio-box{
+  display:flex;
+  justify-content:center;
+  margin-top:20px;
+}
+
+.portfolio-box img{
+  width:100%;
+  max-width:900px;
+  border-radius:20px;
+  box-shadow:0 0 25px rgba(0,183,255,0.3);
+  transition:0.3s;
+}
+
+.portfolio-box img:hover{
+  transform:scale(1.02);
+}
 </style>
 </head>
 
@@ -337,6 +355,19 @@ footer{
 </div>
 </section>
 
+  <!-- ABOUT -->
+<section class="container" id="portfolio">
+<h2 style="text-align:center;">🎨 About</h2>
+
+<div class="about-box">
+
+<img src="portfolio.jpg" alt="Portfolio">
+
+</div>
+
+</section>
+  
+  
 <!-- CART -->
 <div class="cart-btn" onclick="toggleCart()">🛒 <span id="count">0</span></div>
 
