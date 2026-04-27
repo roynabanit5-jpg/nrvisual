@@ -9,6 +9,52 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
+  /* PREMIUM CARDS */
+.premium-card{
+  background: linear-gradient(145deg,#0f172a,#1e293b);
+  border:1px solid rgba(0,183,255,0.2);
+  border-radius:20px;
+  padding:25px;
+  text-align:center;
+  transition:0.3s;
+  box-shadow:0 0 15px rgba(0,0,0,0.3);
+}
+
+.premium-card:hover{
+  transform:translateY(-10px) scale(1.03);
+  box-shadow:0 0 25px #00B7FF;
+}
+
+/* ICON */
+.icon{
+  font-size:35px;
+  margin-bottom:10px;
+  color:#00B7FF;
+}
+
+/* PRICE */
+.price{
+  font-size:22px;
+  font-weight:bold;
+  margin:10px 0;
+}
+
+/* HIGHLIGHT CARD */
+.highlight{
+  border:2px solid #00B7FF;
+  transform:scale(1.05);
+}
+
+/* LIST */
+ul{
+  list-style:none;
+  padding:0;
+}
+
+ul li{
+  margin:5px 0;
+  font-size:14px;
+}
 body{
   margin:0;
   font-family:'Poppins',sans-serif;
@@ -180,42 +226,74 @@ footer{
 
 <!-- SERVICES -->
 <section class="container" id="services">
-<h2>Our Services</h2>
+<h2 style="text-align:center;">🚀 Our Services</h2>
+
 <div class="grid">
-<div class="card">YouTube Thumbnails</div>
-<div class="card">Instagram Designs</div>
-<div class="card">Posters</div>
-<div class="card">Logo Design</div>
-<div class="card">Website Designing</div>
+
+<div class="card premium-card">
+<i class="fas fa-play-circle icon"></i>
+<h3>YouTube Thumbnails</h3>
+<p>High CTR designs that boost clicks</p>
+</div>
+
+<div class="card premium-card">
+<i class="fab fa-instagram icon"></i>
+<h3>Instagram Designs</h3>
+<p>Posts, reels & branding</p>
+</div>
+
+<div class="card premium-card">
+<i class="fas fa-image icon"></i>
+<h3>Posters</h3>
+<p>Creative digital posters</p>
+</div>
+
+<div class="card premium-card">
+<i class="fas fa-pen-nib icon"></i>
+<h3>Logo Design</h3>
+<p>Unique brand identity</p>
+</div>
+
+<div class="card premium-card">
+<i class="fas fa-globe icon"></i>
+<h3>Website Designing</h3>
+<p>Modern business websites</p>
+</div>
+
 </div>
 </section>
 
 <!-- PRICING -->
 <section class="container" id="pricing">
-<h2>Pricing</h2>
+<h2 style="text-align:center;">🔥 Creative Pricing</h2>
+
 <div class="grid">
 
-<div class="card">
+<div class="card premium-card">
+<i class="fas fa-image icon"></i>
 <h3>Thumbnail</h3>
-<p>₹99</p>
+<p class="price">₹99</p>
 <button class="btn" onclick="add('Thumbnail ₹99')">Add</button>
 </div>
 
-<div class="card">
+<div class="card premium-card">
+<i class="fab fa-instagram icon"></i>
 <h3>Instagram</h3>
-<p>₹49</p>
+<p class="price">₹49</p>
 <button class="btn" onclick="add('Instagram ₹49')">Add</button>
 </div>
 
-<div class="card">
+<div class="card premium-card">
+<i class="fas fa-pen-nib icon"></i>
 <h3>Logo</h3>
-<p>₹149</p>
+<p class="price">₹149</p>
 <button class="btn" onclick="add('Logo ₹149')">Add</button>
 </div>
 
-<div class="card">
-<h3>Website Designing</h3>
-<p>₹3499</p>
+<div class="card premium-card highlight">
+<i class="fas fa-laptop-code icon"></i>
+<h3>Website</h3>
+<p class="price">₹3499</p>
 <button class="btn" onclick="add('Website ₹3499')">Add</button>
 </div>
 
@@ -223,14 +301,7 @@ footer{
 </section>
 
 <!-- MEMBERSHIP -->
-<section class="container" id="membership">
-<h2>Membership</h2>
-<div class="grid">
-<div class="card"><h3>Starter</h3><p>₹299/month</p></div>
-<div class="card"><h3>Growth</h3><p>₹599/month</p></div>
-<div class="card"><h3>Pro</h3><p>₹1999/month</p></div>
-</div>
-</section>
+
 
 <!-- PAYMENT -->
 <section class="container" id="payment">
@@ -259,7 +330,46 @@ roynabanit5@gmail.com
 
 <p>
 <i class="fab fa-whatsapp"></i> 
-<a href="https://wa.me/917630076047" target="_blank">WhatsApp</a>
+<a href="https://wa.me/9176<section class="container" id="membership">
+<h2 style="text-align:center;">💎 Membership Plans</h2>
+
+<div class="grid">
+
+<div class="card premium-card">
+<h3>Starter 🚀</h3>
+<p class="price">₹299/month</p>
+<ul>
+<li>5 Designs</li>
+<li>Basic edits</li>
+<li>48hr delivery</li>
+</ul>
+<button class="btn" onclick="add('Starter ₹299')">Join</button>
+</div>
+
+<div class="card premium-card highlight">
+<h3>Growth 📈</h3>
+<p class="price">₹599/month</p>
+<ul>
+<li>12 Designs</li>
+<li>Priority support</li>
+<li>Custom style</li>
+</ul>
+<button class="btn" onclick="add('Growth ₹599')">Join</button>
+</div>
+
+<div class="card premium-card">
+<h3>Pro 💎</h3>
+<p class="price">₹1999/month</p>
+<ul>
+<li>Unlimited Designs</li>
+<li>Premium quality</li>
+<li>24/7 support</li>
+</ul>
+<button class="btn" onclick="add('Pro ₹1999')">Join</button>
+</div>
+
+</div>
+</section>30076047" target="_blank">WhatsApp</a>
 </p>
 
 <p>
