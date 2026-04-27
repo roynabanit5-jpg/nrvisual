@@ -19,7 +19,7 @@ body{
 /* NAV */
 nav{
   display:flex;
-  justify-content:space-between;
+  justify-content:center;
   align-items:center;
   padding:15px 20px;
   background:rgba(0,0,0,0.7);
@@ -28,15 +28,21 @@ nav{
 }
 
 .logo{
+  position:absolute;
+  left:20px;
   font-weight:700;
   color:#00B7FF;
 }
 
+/* MENU */
 .menu{
+  position:absolute;
+  right:20px;
   font-size:22px;
   cursor:pointer;
 }
 
+/* NAV LINKS */
 .nav-links{
   position:absolute;
   top:60px;
@@ -46,12 +52,36 @@ nav{
   border-radius:10px;
   display:none;
   flex-direction:column;
-  gap:10px;
+  gap:15px;
 }
 
 .nav-links a{
   color:#fff;
   text-decoration:none;
+  position:relative;
+  padding:5px 10px;
+  transition:0.3s;
+}
+
+/* 🔥 TAB LIGHT EFFECT */
+.nav-links a::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:0%;
+  height:2px;
+  background:#00B7FF;
+  transition:0.3s;
+}
+
+.nav-links a:hover::after{
+  width:100%;
+}
+
+.nav-links a:hover{
+  color:#00B7FF;
+  text-shadow:0 0 8px #00B7FF;
 }
 
 .nav-links.active{
@@ -97,6 +127,7 @@ nav{
 
 .card:hover{
   transform:translateY(-5px);
+  box-shadow:0 0 15px #00B7FF55;
 }
 
 /* CONTACT */
@@ -113,12 +144,6 @@ footer{
   text-align:center;
   padding:20px;
 }
-
-/* CART */
-.cart{
-  position:absolute;
-  left:20px;
-}
 </style>
 </head>
 
@@ -126,7 +151,6 @@ footer{
 
 <!-- NAV -->
 <nav>
-<div class="cart">🛒 <span id="count">0</span></div>
 
 <div class="logo">NR Visuals</div>
 
@@ -140,6 +164,7 @@ footer{
 <a href="#payment">Payment</a>
 <a href="#contact">Contact</a>
 </div>
+
 </nav>
 
 <!-- HERO -->
@@ -153,13 +178,11 @@ footer{
 <section class="container" id="services">
 <h2>Our Services</h2>
 <div class="grid">
-
 <div class="card"><i class="fas fa-play-circle"></i><h3>Thumbnails</h3></div>
 <div class="card"><i class="fab fa-instagram"></i><h3>Instagram</h3></div>
 <div class="card"><i class="fas fa-image"></i><h3>Posters</h3></div>
 <div class="card"><i class="fas fa-pen-nib"></i><h3>Logo</h3></div>
 <div class="card"><i class="fas fa-globe"></i><h3>Website</h3></div>
-
 </div>
 </section>
 
@@ -168,29 +191,10 @@ footer{
 <h2>Pricing</h2>
 <div class="grid">
 
-<div class="card">
-<h3>Thumbnail</h3>
-<p>₹99</p>
-<button class="btn" onclick="add('Thumbnail ₹99')">Add</button>
-</div>
-
-<div class="card">
-<h3>Instagram</h3>
-<p>₹49</p>
-<button class="btn" onclick="add('Instagram ₹49')">Add</button>
-</div>
-
-<div class="card">
-<h3>Logo</h3>
-<p>₹149</p>
-<button class="btn" onclick="add('Logo ₹149')">Add</button>
-</div>
-
-<div class="card">
-<h3>Website Designing</h3>
-<p>₹3499</p>
-<button class="btn" onclick="add('Website ₹3499')">Add</button>
-</div>
+<div class="card"><h3>Thumbnail</h3><p>₹99</p></div>
+<div class="card"><h3>Instagram</h3><p>₹49</p></div>
+<div class="card"><h3>Logo</h3><p>₹149</p></div>
+<div class="card"><h3>Website Designing</h3><p>₹3499</p></div>
 
 </div>
 </section>
@@ -199,60 +203,28 @@ footer{
 <section class="container" id="membership">
 <h2>Membership</h2>
 <div class="grid">
-
-<div class="card">
-<h3>Starter</h3>
-<p>₹299/month</p>
-<button class="btn" onclick="add('Starter ₹299')">Add</button>
-</div>
-
-<div class="card">
-<h3>Growth</h3>
-<p>₹599/month</p>
-<button class="btn" onclick="add('Growth ₹599')">Add</button>
-</div>
-
-<div class="card">
-<h3>Pro</h3>
-<p>₹1999/month</p>
-<button class="btn" onclick="add('Pro ₹1999')">Add</button>
-</div>
-
+<div class="card"><h3>Starter</h3><p>₹299/month</p></div>
+<div class="card"><h3>Growth</h3><p>₹599/month</p></div>
+<div class="card"><h3>Pro</h3><p>₹1999/month</p></div>
 </div>
 </section>
 
 <!-- ORDER -->
 <section class="container" id="order">
 <h2>Order</h2>
-<button class="btn" onclick="order()">Order on WhatsApp</button>
+<a href="https://wa.me/917630076047" class="btn">Order on WhatsApp</a>
 </section>
 
 <!-- PAYMENT -->
 <section class="container" id="payment">
 <h2>Payment</h2>
-
 <div class="grid">
 
-<div class="card">
-<i class="fab fa-google"></i>
-<h3>GPay</h3>
-<button class="btn" onclick="pay('GPay')">Pay</button>
-</div>
-
-<div class="card">
-<i class="fas fa-wallet"></i>
-<h3>Paytm</h3>
-<button class="btn" onclick="pay('Paytm')">Pay</button>
-</div>
-
-<div class="card">
-<i class="fas fa-mobile-alt"></i>
-<h3>PhonePe</h3>
-<button class="btn" onclick="pay('PhonePe')">Pay</button>
-</div>
+<div class="card"><i class="fab fa-google"></i><h3>GPay</h3></div>
+<div class="card"><i class="fas fa-wallet"></i><h3>Paytm</h3></div>
+<div class="card"><i class="fas fa-mobile-alt"></i><h3>PhonePe</h3></div>
 
 </div>
-
 <p>UPI: roynabanit5@oksbi</p>
 </section>
 
@@ -263,7 +235,6 @@ footer{
 <div class="contact-card">
 <h3>Nabanit Roy</h3>
 <p>🚀 Available for freelance work</p>
-
 <p>📧 roynabanit5@gmail.com</p>
 
 <p><i class="fab fa-whatsapp"></i>
@@ -283,27 +254,8 @@ footer{
 </footer>
 
 <script>
-let cart=[];
-
 function toggleMenu(){
   document.getElementById("nav").classList.toggle("active");
-}
-
-function add(item){
-  cart.push(item);
-  document.getElementById("count").innerText=cart.length;
-  alert("Added ✅");
-}
-
-function order(){
-  if(cart.length===0){alert("Cart empty");return;}
-  let msg="Order:\n"+cart.join("\n");
-  window.open(`https://wa.me/917630076047?text=${encodeURIComponent(msg)}`);
-}
-
-function pay(method){
-  let msg="Payment via "+method+"\n"+cart.join("\n");
-  window.open(`https://wa.me/917630076047?text=${encodeURIComponent(msg)}`);
 }
 
 function scrollToSection(id){
