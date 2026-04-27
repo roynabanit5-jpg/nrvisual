@@ -9,77 +9,194 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-body{
+
+  body{
   margin:0;
   font-family:'Poppins',sans-serif;
-  background: linear-gradient(135deg,#020617,#0284c7);
+  background:#020617;
   color:#fff;
+  overflow-x:hidden;
 }
 
 /* NAV */
-nav{
+.ultra-nav{
   display:flex;
-  justify-content:center;
+  justify-content:space-between;
   align-items:center;
-  padding:15px;
-  position:relative;
-  background: rgba(2,6,23,0.7);
-  backdrop-filter: blur(10px);
+  padding:20px 30px;
+  position:fixed;
+  width:100%;
+  z-index:1000;
+  backdrop-filter: blur(15px);
+  background:rgba(0,0,0,0.4);
 }
 
 .logo{
   font-size:22px;
   font-weight:700;
-}
-
-.menu{
-  position:absolute;
-  right:20px;
-  font-size:22px;
-  cursor:pointer;
-}
-
-.cart{
-  position:absolute;
-  left:20px;
+  color:#00B7FF;
 }
 
 .nav-links{
-  position:absolute;
-  top:60px;
-  right:20px;
-  background:#020617;
-  padding:15px;
-  border-radius:10px;
-  display:none;
-  flex-direction:column;
-  gap:10px;
+  display:flex;
+  gap:25px;
 }
 
 .nav-links a{
   color:#fff;
   text-decoration:none;
+  transition:0.3s;
 }
 
-.nav-links.active{
-  display:flex;
+.nav-links a:hover{
+  color:#00B7FF;
 }
 
 /* HERO */
-.hero{
+.ultra-hero{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   text-align:center;
-  padding:80px 20px;
+  position:relative;
+}
+
+/* glowing circle */
+.glow{
+  position:absolute;
+  width:400px;
+  height:400px;
+  background:#00B7FF;
+  filter:blur(120px);
+  opacity:0.4;
+  animation:move 6s infinite alternate;
+}
+
+@keyframes move{
+  from{transform:translate(-100px,-50px);}
+  to{transform:translate(100px,50px);}
+}
+
+/* GLASS BOX */
+.hero-box{
+  backdrop-filter: blur(20px);
+  background: rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  padding:40px;
+  border-radius:20px;
+  max-width:600px;
+  z-index:1;
+}
+
+/* TEXT */
+.tag{
+  color:#00B7FF;
+  letter-spacing:2px;
+}
+
+h1{
+  font-size:45px;
+}
+
+h1 span{
+  color:#00B7FF;
+}
+
+.desc{
+  color:#aaa;
+  margin:20px 0;
+}
+
+/* BUTTONS */
+.hero-btns{
+  display:flex;
+  gap:15px;
+  justify-content:center;
+  flex-wrap:wrap;
 }
 
 .btn{
-  padding:10px 20px;
-  background:#00B7FF;
-  border:none;
-  border-radius:8px;
-  cursor:pointer;
-  color:#000;
+  padding:12px 20px;
+  border-radius:10px;
+  text-decoration:none;
   font-weight:600;
+  transition:0.3s;
 }
+
+.btn.wa{
+  background:#25D366;
+  color:#000;
+}
+
+.btn.ig{
+  background
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background: linear-gradient(13<!-- NAVBAR -->
+<nav class="ultra-nav">
+  <div class="logo">NR Visuals</div>
+
+  <div class="menu-icon" onclick="toggleMenu()">
+    <i class="fas fa-bars"></i>
+  </div>
+
+  <div class="nav-links" id="navLinks">
+    <a href="#services">Home</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#membership">Membership</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="ultra-hero">
+
+  <!-- glowing background -->
+  <div class="glow"></div>
+
+  <div class="hero-box">
+
+    <p class="tag">NR VISUALS — PREMIUM</p>
+
+    <h1>
+      Design Smart.<br>
+      <span>Grow Fast.</span>
+    </h1>
+
+    <p class="desc">
+      Premium thumbnails, posters & social media designs that grow your brand
+      and convert viewers into customers.
+    </p>
+
+    <div class="hero-btns">
+
+      <a href="https://wa.me/917630076047" class="btn wa">
+        <i class="fab fa-whatsapp"></i> Order Now
+      </a>
+
+      <a href="https://instagram.com/nrvisuals.design" class="btn ig">
+        <i class="fab fa-instagram"></i> Follow
+      </a>
+
+    </div>
+
+    <!-- STATS -->
+    <div class="stats">
+      <div><h2>3000+</h2><p>Designs</p></div>
+      <div><h2>95%</h2><p>Satisfaction</p></div>
+      <div><h2>2+</h2><p>Years</p></div>
+    </div>
+
+  </div>
+
+</section>5deg,#020617,#0284c7);
+  color:#fff;
+}
+
+;
+
 
 /* SECTION */
 .container{
