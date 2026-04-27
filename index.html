@@ -21,20 +21,20 @@ nav{
   display:flex;
   justify-content:center;
   align-items:center;
-  padding:15px 20px;
-  background:rgba(0,0,0,0.7);
+  padding:15px;
+  background:#000;
   position:sticky;
   top:0;
+  z-index:1000;
 }
 
 .logo{
   position:absolute;
   left:20px;
-  font-weight:700;
   color:#00B7FF;
+  font-weight:700;
 }
 
-/* MENU */
 .menu{
   position:absolute;
   right:20px;
@@ -42,7 +42,6 @@ nav{
   cursor:pointer;
 }
 
-/* NAV LINKS */
 .nav-links{
   position:absolute;
   top:60px;
@@ -52,36 +51,12 @@ nav{
   border-radius:10px;
   display:none;
   flex-direction:column;
-  gap:15px;
 }
 
 .nav-links a{
   color:#fff;
   text-decoration:none;
-  position:relative;
-  padding:5px 10px;
-  transition:0.3s;
-}
-
-/* 🔥 TAB LIGHT EFFECT */
-.nav-links a::after{
-  content:'';
-  position:absolute;
-  left:0;
-  bottom:-5px;
-  width:0%;
-  height:2px;
-  background:#00B7FF;
-  transition:0.3s;
-}
-
-.nav-links a:hover::after{
-  width:100%;
-}
-
-.nav-links a:hover{
-  color:#00B7FF;
-  text-shadow:0 0 8px #00B7FF;
+  margin:8px 0;
 }
 
 .nav-links.active{
@@ -94,6 +69,7 @@ nav{
   padding:80px 20px;
 }
 
+/* BUTTON */
 .btn{
   background:#00B7FF;
   color:#000;
@@ -101,6 +77,8 @@ nav{
   border:none;
   border-radius:8px;
   cursor:pointer;
+  text-decoration:none;
+  display:inline-block;
 }
 
 /* SECTION */
@@ -127,7 +105,38 @@ nav{
 
 .card:hover{
   transform:translateY(-5px);
-  box-shadow:0 0 15px #00B7FF55;
+}
+
+/* CART BUTTON */
+.cart-btn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#00B7FF;
+  color:#000;
+  padding:12px 15px;
+  border-radius:50px;
+  cursor:pointer;
+  z-index:1000;
+}
+
+/* CART BOX */
+.cart-box{
+  position:fixed;
+  bottom:80px;
+  right:20px;
+  width:260px;
+  background:#111;
+  padding:15px;
+  border-radius:10px;
+  display:none;
+}
+
+.cart-box ul{
+  list-style:none;
+  padding:0;
+  max-height:150px;
+  overflow:auto;
 }
 
 /* CONTACT */
@@ -151,38 +160,33 @@ footer{
 
 <!-- NAV -->
 <nav>
-
 <div class="logo">NR Visuals</div>
-
 <div class="menu" onclick="toggleMenu()">☰</div>
 
 <div class="nav-links" id="nav">
 <a href="#services">Services</a>
 <a href="#pricing">Pricing</a>
 <a href="#membership">Membership</a>
-<a href="#order">Order</a>
 <a href="#payment">Payment</a>
 <a href="#contact">Contact</a>
 </div>
-
 </nav>
 
 <!-- HERO -->
 <section class="hero">
 <h1>Designs That Grow Your Brand 🚀</h1>
 <p>Professional thumbnails & social media designs</p>
-<button class="btn" onclick="scrollToSection('services')">Explore</button>
 </section>
 
 <!-- SERVICES -->
 <section class="container" id="services">
 <h2>Our Services</h2>
 <div class="grid">
-<div class="card"><i class="fas fa-play-circle"></i><h3>Thumbnails</h3></div>
-<div class="card"><i class="fab fa-instagram"></i><h3>Instagram</h3></div>
-<div class="card"><i class="fas fa-image"></i><h3>Posters</h3></div>
-<div class="card"><i class="fas fa-pen-nib"></i><h3>Logo</h3></div>
-<div class="card"><i class="fas fa-globe"></i><h3>Website</h3></div>
+<div class="card">YouTube Thumbnails</div>
+<div class="card">Instagram Designs</div>
+<div class="card">Posters</div>
+<div class="card">Logo Design</div>
+<div class="card">Website Designing</div>
 </div>
 </section>
 
@@ -191,10 +195,29 @@ footer{
 <h2>Pricing</h2>
 <div class="grid">
 
-<div class="card"><h3>Thumbnail</h3><p>₹99</p></div>
-<div class="card"><h3>Instagram</h3><p>₹49</p></div>
-<div class="card"><h3>Logo</h3><p>₹149</p></div>
-<div class="card"><h3>Website Designing</h3><p>₹3499</p></div>
+<div class="card">
+<h3>Thumbnail</h3>
+<p>₹99</p>
+<button class="btn" onclick="add('Thumbnail ₹99')">Add</button>
+</div>
+
+<div class="card">
+<h3>Instagram</h3>
+<p>₹49</p>
+<button class="btn" onclick="add('Instagram ₹49')">Add</button>
+</div>
+
+<div class="card">
+<h3>Logo</h3>
+<p>₹149</p>
+<button class="btn" onclick="add('Logo ₹149')">Add</button>
+</div>
+
+<div class="card">
+<h3>Website Designing</h3>
+<p>₹3499</p>
+<button class="btn" onclick="add('Website ₹3499')">Add</button>
+</div>
 
 </div>
 </section>
@@ -209,23 +232,15 @@ footer{
 </div>
 </section>
 
-<!-- ORDER -->
-<section class="container" id="order">
-<h2>Order</h2>
-<a href="https://wa.me/917630076047" class="btn">Order on WhatsApp</a>
-</section>
-
 <!-- PAYMENT -->
 <section class="container" id="payment">
 <h2>Payment</h2>
 <div class="grid">
-
-<div class="card"><i class="fab fa-google"></i><h3>GPay</h3></div>
-<div class="card"><i class="fas fa-wallet"></i><h3>Paytm</h3></div>
-<div class="card"><i class="fas fa-mobile-alt"></i><h3>PhonePe</h3></div>
-
+<div class="card"><i class="fab fa-google"></i><p>GPay</p></div>
+<div class="card"><i class="fas fa-wallet"></i><p>Paytm</p></div>
+<div class="card"><i class="fas fa-mobile-alt"></i><p>PhonePe</p></div>
 </div>
-<p>UPI: roynabanit5@oksbi</p>
+<p>UPI ID: <b>roynabanit5@oksbi</b></p>
 </section>
 
 <!-- CONTACT -->
@@ -233,33 +248,93 @@ footer{
 <h2>Contact</h2>
 
 <div class="contact-card">
+
 <h3>Nabanit Roy</h3>
 <p>🚀 Available for freelance work</p>
-<p>📧 roynabanit5@gmail.com</p>
 
-<p><i class="fab fa-whatsapp"></i>
-<a href="https://wa.me/917630076047"> WhatsApp</a></p>
+<p>
+<i class="fa fa-envelope"></i> 
+roynabanit5@gmail.com
+</p>
 
-<p><i class="fab fa-instagram"></i>
-<a href="https://instagram.com/nrvisuals.design"> Instagram</a></p>
+<p>
+<i class="fab fa-whatsapp"></i> 
+<a href="https://wa.me/917630076047" target="_blank">WhatsApp</a>
+</p>
+
+<p>
+<i class="fab fa-instagram"></i> 
+<a href="https://www.instagram.com/nrvisuals.design" target="_blank">
+@nrvisuals.design
+</a>
+</p>
 
 <br>
-<a href="https://wa.me/917630076047" class="btn">Order Now</a>
+
+<div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+
+<a href="https://wa.me/917630076047" class="btn">
+<i class="fab fa-whatsapp"></i> Order Now
+</a>
+
+<a href="https://www.instagram.com/nrvisuals.design" class="btn" style="background:#E1306C;color:#fff;">
+<i class="fab fa-instagram"></i> Follow
+</a>
+
+</div>
 
 </div>
 </section>
 
+<!-- CART -->
+<div class="cart-btn" onclick="toggleCart()">🛒 <span id="count">0</span></div>
+
+<div class="cart-box" id="cartBox">
+<h3>Your Cart</h3>
+<ul id="items"></ul>
+<button class="btn" onclick="checkout()">Checkout</button>
+</div>
+
 <footer>
-© 2026 NR Visuals
+© 2026 NR Visuals. All rights reserved.
 </footer>
 
 <script>
+let cart=[];
+
 function toggleMenu(){
   document.getElementById("nav").classList.toggle("active");
 }
 
-function scrollToSection(id){
-  document.getElementById(id).scrollIntoView({behavior:'smooth'});
+function add(item){
+  cart.push(item);
+  updateCart();
+  alert("Added to cart ✅");
+}
+
+function updateCart(){
+  document.getElementById("count").innerText = cart.length;
+  let list=document.getElementById("items");
+  list.innerHTML="";
+  cart.forEach((item,i)=>{
+    list.innerHTML += `<li>${item} <span onclick="removeItem(${i})" style="color:red;cursor:pointer;">❌</span></li>`;
+  });
+}
+
+function removeItem(i){
+  cart.splice(i,1);
+  updateCart();
+}
+
+function toggleCart(){
+  let box=document.getElementById("cartBox");
+  box.style.display = box.style.display==="block"?"none":"block";
+}
+
+function checkout(){
+  if(cart.length==0){alert("Cart empty");return;}
+  let msg="Order:\n"+cart.join("\n");
+  window.open(`https://wa.me/917630076047?text=${encodeURIComponent(msg)}`);
 }
 </script>
 
